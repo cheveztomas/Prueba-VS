@@ -14,7 +14,7 @@
     </style>
 </head>
 <body>
-    <nav>Aquí va la barra de navegación. hola</nav>
+    <nav><a href="FrmRegistroDeUsuarios.aspx">Registrarse</a></nav>
     <form id="form1" runat="server">
         <div>
             <asp:GridView ID="grd_usuarios" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="636px">
