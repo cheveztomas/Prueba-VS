@@ -60,7 +60,7 @@ namespace AccesoDatos
             return vlo_ListaUsuarios;
         }
 
-        public int InsertarUsuario(ClsUsuarios pvo_Usuario, ClsUbicaciones pvo_Ubicaciones,  pvo_Ocupaciones)
+        public int InsertarUsuario(ClsUsuarios pvo_Usuario, ClsUbicaciones pvo_Ubicaciones, ClsOcupaciones pvo_Ocupaciones, ClsOcupacionesProfesionales pvo_OcupacionesProfesionales, ClsWebSites pvo_Sitio)
         {
             //Variables
             int vln_Correcta = 0;
@@ -85,12 +85,15 @@ namespace AccesoDatos
                 Command.Parameters.AddWithValue("_APELLIDO1", pvo_Usuario.Apellido1_Profesional);
                 Command.Parameters.AddWithValue("_APELLIDO2",pvo_Usuario.Apellido2_Profesional);
                 Command.Parameters.AddWithValue("_CORREO",pvo_Usuario.Telefono_Profesional);
+                Command.Parameters.AddWithValue("_TELEFONO",pvo_Usuario.Telefono_Profesional);
                 Command.Parameters.AddWithValue("_DESCIRPCION",pvo_Usuario.Descripcion);
                 Command.Parameters.AddWithValue("_USUARIO_PREMIUM",pvo_Usuario.Usuario_Premium);
                 Command.Parameters.AddWithValue("_ES_PROFESIONAL",pvo_Usuario.Perfil_Profesional);
-                Command.Parameters.AddWithValue();
-                Command.Parameters.AddWithValue();
-                Command.Parameters.AddWithValue();
+                Command.Parameters.AddWithValue("_ID_OCUPACION",pvo_Ocupaciones.ID_Ocupacion);
+                Command.Parameters.AddWithValue("_ID_UBICACION",pvo_Ubicaciones.ID_Ubicacion);
+                Command.Parameters.AddWithValue("_DETALLE_UBICACION",pvo_OcupacionesProfesionales.Detalles);
+                Command.Parameters.AddWithValue("_URL_SITIO",pvo_Sitio.URL_Sitio);
+                Command.Parameters.AddWithValue("_NOMBRE_SITIO",pvo_Sitio.Nombre_Sitio);
             }
             catch (Exception)
             {
