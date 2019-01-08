@@ -9,7 +9,7 @@
     <title>Directorio de Servicios</title>
 </head>
 <body>
-    <nav>Aquí va la barra de navegación</nav>
+    <nav>Aquí va la barra de navegación. hola</nav>
     <form id="form1" runat="server">
         <div>
             <asp:GridView ID="grd_usuarios" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="636px">
