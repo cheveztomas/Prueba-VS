@@ -9,4 +9,10 @@
     <ProjectReference Include="..\EntidadesDirectorio\EntidadesDirectorio.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\DLL\MySql.Data.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
