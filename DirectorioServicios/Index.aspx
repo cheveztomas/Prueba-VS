@@ -7,6 +7,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <title>Directorio de Servicios</title>
+    <style type="text/css">
+        #form1 {
+            height: 134px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">

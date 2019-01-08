@@ -36,5 +36,18 @@ namespace DirectorioServicios
         {
 
         }
+
+
+
+        //Guardar la ocupación
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+
+
+
+
+
+
+        }
     }
 }
