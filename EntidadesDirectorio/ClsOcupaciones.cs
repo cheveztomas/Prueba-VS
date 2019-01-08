@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntidadesDirectorio
 {
-    class ClsOcupaciones
+    public class ClsOcupaciones
     {
         int vgn_ID_Ocupacion;
         string vgc_Nombre_Ocupacion, vgc_Especialidad;
