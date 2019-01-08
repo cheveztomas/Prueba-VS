@@ -60,13 +60,43 @@ namespace AccesoDatos
             return vlo_ListaUsuarios;
         }
 
-        public int InsertarUsuario(ClsUsuarios pvo_Usuario)
+        public int InsertarUsuario(ClsUsuarios pvo_Usuario, ClsUbicaciones pvo_Ubicaciones,  pvo_Ocupaciones)
         {
             //Variables
             int vln_Correcta = 0;
+            string NombreSP = string.Empty;
+
+            //Se instancia la conexión.
+            MySqlConnection Conexion = new MySqlConnection();
+            Conexion.ConnectionString = ClsConfiguracion.getConnectionString();
+
+            //Se declara el command
+            MySqlCommand Command;
 
             //Inicio
+            try
+            {
+                NombreSP = "call pagina_web.REGISTRAR_Y_ACTUALIZARINFO_USUARIOS(?,?,?,?,?,?,?,?,?,?,?,?,?);";
+                Conexion.Open();
+                Command = new MySqlCommand(NombreSP);
+                Command.Connection = Conexion;
+                Command.Parameters.AddWithValue("_ID_USUARIOS", pvo_Usuario.ID_Usuario);
+                Command.Parameters.AddWithValue("_NOMBRE", pvo_Usuario.Nombre_Profesional);
+                Command.Parameters.AddWithValue("_APELLIDO1", pvo_Usuario.Apellido1_Profesional);
+                Command.Parameters.AddWithValue("_APELLIDO2",pvo_Usuario.Apellido2_Profesional);
+                Command.Parameters.AddWithValue("_CORREO",pvo_Usuario.Telefono_Profesional);
+                Command.Parameters.AddWithValue("_DESCIRPCION",pvo_Usuario.Descripcion);
+                Command.Parameters.AddWithValue("_USUARIO_PREMIUM",pvo_Usuario.Usuario_Premium);
+                Command.Parameters.AddWithValue("_ES_PROFESIONAL",pvo_Usuario.Perfil_Profesional);
+                Command.Parameters.AddWithValue();
+                Command.Parameters.AddWithValue();
+                Command.Parameters.AddWithValue();
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
             return vln_Correcta;
         }
 
