@@ -76,10 +76,19 @@ namespace AccesoDatos
             //Inicio
             try
             {
+                //Se llama el procedimiento almacenado.
                 NombreSP = "call pagina_web.REGISTRAR_Y_ACTUALIZARINFO_USUARIOS(?,?,?,?,?,?,?,?,?,?,?,?,?);";
+
+                //Se abre la conexión
                 Conexion.Open();
+
+                //Se termina de instanciar el command con el procedimiento almacenado
                 Command = new MySqlCommand(NombreSP);
+
+                //Se establese la conexión.
                 Command.Connection = Conexion;
+
+                //Parametros necesarios de la aplicación.
                 Command.Parameters.AddWithValue("_ID_USUARIOS", pvo_Usuario.ID_Usuario);
                 Command.Parameters.AddWithValue("_NOMBRE", pvo_Usuario.Nombre_Profesional);
                 Command.Parameters.AddWithValue("_APELLIDO1", pvo_Usuario.Apellido1_Profesional);
@@ -94,6 +103,11 @@ namespace AccesoDatos
                 Command.Parameters.AddWithValue("_DETALLE_UBICACION",pvo_OcupacionesProfesionales.Detalles);
                 Command.Parameters.AddWithValue("_URL_SITIO",pvo_Sitio.URL_Sitio);
                 Command.Parameters.AddWithValue("_NOMBRE_SITIO",pvo_Sitio.Nombre_Sitio);
+
+                vln_Correcta = Command.ExecuteNonQuery();
+                Conexion.Close();
+                Conexion.Dispose();
+                Command.Dispose();
             }
             catch (Exception)
             {
