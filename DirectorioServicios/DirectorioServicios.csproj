@@ -75,26 +75,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\css\bootstrap-grid.css" />
+    <Content Include="App\css\bootstrap-grid.min.css" />
+    <Content Include="App\css\bootstrap-reboot.css" />
+    <Content Include="App\css\bootstrap-reboot.min.css" />
+    <Content Include="App\css\bootstrap.css" />
+    <Content Include="App\css\bootstrap.min.css" />
+    <Content Include="App\js\bootstrap.bundle.js" />
+    <Content Include="App\js\bootstrap.bundle.min.js" />
+    <Content Include="App\js\bootstrap.js" />
+    <Content Include="App\js\bootstrap.min.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="FrmBuscador.aspx" />
     <Content Include="FrmRegistroDeUsuarios.aspx" />
     <Content Include="ocupaciones.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\esm\popper-utils.js" />
-    <Content Include="Scripts\esm\popper-utils.min.js" />
-    <Content Include="Scripts\esm\popper.js" />
-    <Content Include="Scripts\esm\popper.min.js" />
-    <Content Include="Scripts\esm\popper.min.js.map" />
-    <Content Include="Scripts\esm\popper.js.map" />
-    <Content Include="Scripts\esm\popper-utils.min.js.map" />
-    <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
@@ -106,11 +109,31 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Index.aspx" />
-    <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
-    <Content Include="Scripts\jquery-3.0.0.js" />
-    <Content Include="Scripts\jquery-3.0.0.min.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
+    <Content Include="App\paginaMaestra.Master" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="App\css\.DS_Store" />
+    <Content Include="App\css\bootstrap-grid.css.map" />
+    <Content Include="App\css\bootstrap-grid.min.css.map" />
+    <Content Include="App\css\bootstrap-reboot.css.map" />
+    <Content Include="App\css\bootstrap-reboot.min.css.map" />
+    <Content Include="App\css\bootstrap.css.map" />
+    <Content Include="App\css\bootstrap.min.css.map" />
+    <Content Include="App\js\bootstrap.bundle.js.map" />
+    <Content Include="App\js\bootstrap.bundle.min.js.map" />
+    <Content Include="App\js\bootstrap.js.map" />
+    <Content Include="App\js\bootstrap.min.js.map" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -122,6 +145,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\paginaMaestra.Master.cs">
+      <DependentUpon>paginaMaestra.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App\paginaMaestra.Master.designer.cs">
+      <DependentUpon>paginaMaestra.Master</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBuscador.aspx.cs">
+      <DependentUpon>FrmBuscador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmBuscador.aspx.designer.cs">
+      <DependentUpon>FrmBuscador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FrmRegistroDeUsuarios.aspx.cs">
       <DependentUpon>FrmRegistroDeUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -147,8 +184,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
-    <Content Include="Scripts\jquery-3.0.0.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -166,9 +203,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Scripts\index.d.ts" />
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +214,9 @@
       <Project>{A9352F6A-0644-4AD1-822A-0F8D59716BDE}</Project>
       <Name>EntidadesDirectorio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
