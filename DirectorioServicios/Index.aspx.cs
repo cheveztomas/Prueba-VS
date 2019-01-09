@@ -59,7 +59,7 @@ namespace DirectorioServicios
                 if (vln_ID>0)
                 {
                     Session["ID_USUARIO"] = vln_ID.ToString();
-                    Response.Redirect("FrmRegistroDeUsuarios.aspx");
+                    Response.Redirect("FrmBuscador.aspx");
                 }
             }
             catch (Exception)
