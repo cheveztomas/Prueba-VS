@@ -14,6 +14,24 @@ namespace CapaLogica
         #endregion
 
         #region Metodos
+
+        public DataSet ListarWebSites(string pvc_Condicion)
+        {
+            DataSet vlo_DSWebSites;
+            AccesoDatosWebSites vlo_AccesoDatosWebSites;
+            try
+            {
+                vlo_AccesoDatosWebSites = new AccesoDatosWebSites();
+                vlo_DSWebSites = vlo_AccesoDatosWebSites.ListarRegistros(pvc_Condicion);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return vlo_DSWebSites;
+        }
+
+
         public string Guardar(ClsWebSites pvo_EntidadWebSite)
         {
             string vlc_Mensaje = "";

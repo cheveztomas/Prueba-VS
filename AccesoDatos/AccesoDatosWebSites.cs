@@ -28,6 +28,36 @@ namespace AccesoDatos
         #endregion
 
         #region Metodos
+        public DataSet ListarRegistros(string pvc_Condicion)
+        {
+            DataSet vlo_DataSet = new DataSet();
+            MySqlConnection vlo_Conexion = new MySqlConnection(vgc_CadenaConexion);
+            MySqlDataAdapter vlo_DataAdapter;
+            string vlc_Sentencia = string.Empty;
+
+            vlc_Sentencia = "SELECT COD_SITIO,URL_SITIO,NOMBRE_SITIO FROM WEBSITES";
+            if (!string.IsNullOrEmpty(pvc_Condicion))
+            {
+                vlc_Sentencia = string.Format("{0} WHERE {1}", vlc_Sentencia, pvc_Condicion);
+            }
+
+            try
+            {
+                vlo_DataAdapter = new MySqlDataAdapter(vlc_Sentencia, vlo_Conexion);
+                vlo_DataAdapter.Fill(vlo_DataSet, "WebSites"); // nombre de la tabla encontrada
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                vlo_Conexion.Dispose();
+            }
+            return vlo_DataSet;
+        }
+
         public string Guardar(ClsWebSites pvo_EntidadWebSite)
         {
             MySqlConnection vlo_sqlConexion = new MySqlConnection(vgc_CadenaConexion);
