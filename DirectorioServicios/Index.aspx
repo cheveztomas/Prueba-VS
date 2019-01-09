@@ -14,8 +14,20 @@
     </style>
 </head>
 <body>
-    <nav><a href="FrmRegistroDeUsuarios.aspx">Registrarse</a></nav>
     <form id="form1" runat="server">
+    <nav>
+        <asp:Label ID="Label1" runat="server" Text="Correo:"></asp:Label>
+        <br />
+        <asp:TextBox ID="txt_Correo" runat="server" MaxLength="30" TextMode="Email"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label2" runat="server" Text="Contraseña:"></asp:Label>
+        <br />
+        <asp:TextBox ID="txt_Contrasenia" runat="server" MaxLength="16" TextMode="Password"></asp:TextBox>
+        <br />
+        <asp:Button ID="btn_IniciarSesion" runat="server" OnClick="btn_IniciarSesion_Click" Text="Iniciar Sesión" />
+        <br />
+        <br />
+        <a href="FrmRegistroDeUsuarios.aspx">Registrarse</a></nav>
         <div>
             <asp:GridView ID="grd_usuarios" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="636px">
                 <Columns>

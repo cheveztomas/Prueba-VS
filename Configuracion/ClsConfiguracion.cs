@@ -17,5 +17,13 @@ namespace Configuracion
 
             return conexion;
         }
+
+        public static string GetLoginString()
+        {
+
+            string conexionLog = "Data Source = 35.232.173.205; Initial Catalog = LOGIN_PAGINA_WEB; User Id = todos; Password = 1234";
+
+            return conexionLog;
+        }
     }
 }
