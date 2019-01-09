@@ -85,12 +85,12 @@
             <br />
             <textarea id="txtAreaDescripcion" cols="20" name="S1" rows="2"></textarea><br />
             <br />
-            <asp:Label ID="lblDireccion" runat="server" Text="Dirección"></asp:Label>
+            <asp:Label ID="lblDireccion" runat="server" Text="Donde puede brindar el servicio?"></asp:Label>
             <br />
             <br />
-            <asp:Label ID="lblProvincia" runat="server" Text="Provincia"></asp:Label>
+            <asp:Label ID="lblProvincia" runat="server" Text="Provincia 1"></asp:Label>
             <br />
-            <asp:DropDownList ID="drpdlProvincia" runat="server">
+            <asp:DropDownList ID="drpdlProvincia1" runat="server">
                 <asp:ListItem Selected="True">ALAJUELA</asp:ListItem>
                 <asp:ListItem>HEREDIA</asp:ListItem>
                 <asp:ListItem>LIMÓN</asp:ListItem>
@@ -101,15 +101,66 @@
             </asp:DropDownList>
             <br />
             <br />
-            <asp:Label ID="lblCanton" runat="server" Text="Cantón"></asp:Label>
+            <asp:Label ID="Label3" runat="server" Text="Cantón 1"></asp:Label>
             <br />
-            <asp:DropDownList ID="drpdlCanton" runat="server">
+            <asp:DropDownList ID="drpdlCanton1" runat="server">
+                <asp:ListItem Selected="True">ALAJUELA</asp:ListItem>
+            </asp:DropDownList>
+            <br />
+            <br />
+            <asp:Label ID="Label4" runat="server" Text="Provincia 2"></asp:Label>
+            <br />
+            <asp:DropDownList ID="drpdlProvincia2" runat="server">
+                <asp:ListItem Selected="True">ALAJUELA</asp:ListItem>
+                <asp:ListItem>HEREDIA</asp:ListItem>
+                <asp:ListItem>LIMÓN</asp:ListItem>
+                <asp:ListItem>SAN JOSÉ</asp:ListItem>
+                <asp:ListItem>PUNTARENAS</asp:ListItem>
+                <asp:ListItem>GUANACASTE</asp:ListItem>
+                <asp:ListItem>CARTAGO</asp:ListItem>
+            </asp:DropDownList>
+            <br />
+            <br />
+            <asp:Label ID="Label5" runat="server" Text="Cantón 2"></asp:Label>
+            <br />
+            <asp:DropDownList ID="drpdlCanton2" runat="server">
+                <asp:ListItem>ALAJUELA</asp:ListItem>
+            </asp:DropDownList>
+            <br />
+            <br />
+            <asp:Label ID="Label2" runat="server" Text="Provincia 3"></asp:Label>
+            <br />
+            <asp:DropDownList ID="drpdlProvincia3" runat="server">
+                <asp:ListItem Selected="True">ALAJUELA</asp:ListItem>
+                <asp:ListItem>HEREDIA</asp:ListItem>
+                <asp:ListItem>LIMÓN</asp:ListItem>
+                <asp:ListItem>SAN JOSÉ</asp:ListItem>
+                <asp:ListItem>PUNTARENAS</asp:ListItem>
+                <asp:ListItem>GUANACASTE</asp:ListItem>
+                <asp:ListItem>CARTAGO</asp:ListItem>
+            </asp:DropDownList>
+            <br />
+            <br />
+            <asp:Label ID="lblCanton" runat="server" Text="Cantón 3"></asp:Label>
+            <br />
+            <asp:DropDownList ID="drpdlCanton3" runat="server">
+                <asp:ListItem>ALAJUELA</asp:ListItem>
             </asp:DropDownList>
             <br />
             <br />
             <asp:Label ID="lblDireccion0" runat="server" Text="Detalles"></asp:Label>
             <br />
             <textarea id="txtAreaDetalles" cols="20" name="S2" rows="2"></textarea><br />
+            <br />
+            <asp:Label ID="lblDireccion1" runat="server" Text="Contraseña"></asp:Label>
+            <br />
+            <asp:TextBox ID="txtContraseña" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Label ID="lblDireccion2" runat="server" Text="Confirmar Contraseña"></asp:Label>
+            <br />
+            <asp:TextBox ID="txtConfirmarContraseña" runat="server"></asp:TextBox>
+            <br />
             <br />
             <asp:Button ID="btnGuardar" runat="server" Text="Guardar" />
 &nbsp;&nbsp;
