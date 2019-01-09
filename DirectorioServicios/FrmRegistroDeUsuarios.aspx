@@ -52,6 +52,13 @@
             <asp:Label ID="lblProvincia" runat="server" Text="Provincia"></asp:Label>
             <br />
             <asp:DropDownList ID="drpdlProvincia" runat="server">
+                <asp:ListItem Selected="True">ALAJUELA</asp:ListItem>
+                <asp:ListItem>HEREDIA</asp:ListItem>
+                <asp:ListItem>LIMÓN</asp:ListItem>
+                <asp:ListItem>SAN JOSÉ</asp:ListItem>
+                <asp:ListItem>PUNTARENAS</asp:ListItem>
+                <asp:ListItem>GUANACASTE</asp:ListItem>
+                <asp:ListItem>CARTAGO</asp:ListItem>
             </asp:DropDownList>
             <br />
             <br />
