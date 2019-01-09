@@ -94,6 +94,11 @@ namespace AccesoDatos
                 Command.Parameters.AddWithValue("_DETALLE_UBICACION",pvo_OcupacionesProfesionales.Detalles);
                 Command.Parameters.AddWithValue("_URL_SITIO",pvo_Sitio.URL_Sitio);
                 Command.Parameters.AddWithValue("_NOMBRE_SITIO",pvo_Sitio.Nombre_Sitio);
+
+                vln_Correcta = Command.ExecuteNonQuery();
+                Conexion.Close();
+                Conexion.Dispose();
+                Command.Dispose();
             }
             catch (Exception)
             {
