@@ -44,7 +44,7 @@
             <br />
             <asp:Label ID="lblProfesion" runat="server" Text="Profesión 1"></asp:Label>
             <br />
-            <asp:DropDownList ID="drpdlProfesion1" runat="server">
+            <asp:DropDownList ID="drpdlProfesion1" runat="server" OnSelectedIndexChanged="drpdlProfesion1_SelectedIndexChanged">
                 <asp:ListItem Selected="True">Electricista</asp:ListItem>
                 <asp:ListItem>Albañil</asp:ListItem>
                 <asp:ListItem>Plomero</asp:ListItem>
@@ -55,7 +55,7 @@
             </asp:DropDownList>
             <br />
             <br />
-&nbsp;<asp:Label ID="lblProfesion2" runat="server" Text="Profesión 2"></asp:Label>
+&nbsp;<asp:Label ID="lblProfesion2" runat="server" Text="Especialidad 1"></asp:Label>
             <br />
             <asp:DropDownList ID="drpdlProfesion2" runat="server">
                 <asp:ListItem Selected="True">Electricista</asp:ListItem>
@@ -90,7 +90,7 @@
             <br />
             <asp:Label ID="lblProvincia" runat="server" Text="Provincia 1"></asp:Label>
             <br />
-            <asp:DropDownList ID="drpdlProvincia1" runat="server">
+            <asp:DropDownList ID="drpdlProvincia1" runat="server" OnSelectedIndexChanged="drpdlProvincia1_SelectedIndexChanged">
                 <asp:ListItem Selected="True">ALAJUELA</asp:ListItem>
                 <asp:ListItem>HEREDIA</asp:ListItem>
                 <asp:ListItem>LIMÓN</asp:ListItem>
