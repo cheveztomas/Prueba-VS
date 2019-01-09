@@ -37,9 +37,48 @@
             <asp:TextBox ID="txtCorreo" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Label ID="lblUserProfesional" runat="server" Text="Profesional?"></asp:Label>
+            <asp:Label ID="lblUserProfesional" runat="server" Text="Marcar si eres un profesional"></asp:Label>
             <br />
             <asp:CheckBox ID="chkProfesional" runat="server" />
+            <br />
+            <br />
+            <asp:Label ID="lblProfesion" runat="server" Text="Profesión 1"></asp:Label>
+            <br />
+            <asp:DropDownList ID="drpdlProfesion1" runat="server">
+                <asp:ListItem Selected="True">Electricista</asp:ListItem>
+                <asp:ListItem>Albañil</asp:ListItem>
+                <asp:ListItem>Plomero</asp:ListItem>
+                <asp:ListItem>Pintor</asp:ListItem>
+                <asp:ListItem>Jardinero</asp:ListItem>
+                <asp:ListItem>Carpintero</asp:ListItem>
+                <asp:ListItem>Soldador</asp:ListItem>
+            </asp:DropDownList>
+            <br />
+            <br />
+&nbsp;<asp:Label ID="lblProfesion2" runat="server" Text="Profesión 2"></asp:Label>
+            <br />
+            <asp:DropDownList ID="drpdlProfesion2" runat="server">
+                <asp:ListItem Selected="True">Electricista</asp:ListItem>
+                <asp:ListItem>Albañil</asp:ListItem>
+                <asp:ListItem>Plomero</asp:ListItem>
+                <asp:ListItem>Pintor</asp:ListItem>
+                <asp:ListItem>Jardinero</asp:ListItem>
+                <asp:ListItem>Carpintero</asp:ListItem>
+                <asp:ListItem>Soldador</asp:ListItem>
+            </asp:DropDownList>
+            <br />
+            <br />
+            <asp:Label ID="lblProfesion1" runat="server" Text="Profesión 3"></asp:Label>
+            <br />
+            <asp:DropDownList ID="drpdlProfesion3" runat="server">
+                <asp:ListItem Selected="True">Electricista</asp:ListItem>
+                <asp:ListItem>Albañil</asp:ListItem>
+                <asp:ListItem>Plomero</asp:ListItem>
+                <asp:ListItem>Pintor</asp:ListItem>
+                <asp:ListItem>Jardinero</asp:ListItem>
+                <asp:ListItem>Carpintero</asp:ListItem>
+                <asp:ListItem>Soldador</asp:ListItem>
+            </asp:DropDownList>
             <br />
             <br />
             <asp:Label ID="lblDescripcion" runat="server" Text="Descripción"></asp:Label>
@@ -52,6 +91,13 @@
             <asp:Label ID="lblProvincia" runat="server" Text="Provincia"></asp:Label>
             <br />
             <asp:DropDownList ID="drpdlProvincia" runat="server">
+                <asp:ListItem Selected="True">ALAJUELA</asp:ListItem>
+                <asp:ListItem>HEREDIA</asp:ListItem>
+                <asp:ListItem>LIMÓN</asp:ListItem>
+                <asp:ListItem>SAN JOSÉ</asp:ListItem>
+                <asp:ListItem>PUNTARENAS</asp:ListItem>
+                <asp:ListItem>GUANACASTE</asp:ListItem>
+                <asp:ListItem>CARTAGO</asp:ListItem>
             </asp:DropDownList>
             <br />
             <br />
@@ -60,6 +106,10 @@
             <asp:DropDownList ID="drpdlCanton" runat="server">
             </asp:DropDownList>
             <br />
+            <br />
+            <asp:Label ID="lblDireccion0" runat="server" Text="Detalles"></asp:Label>
+            <br />
+            <textarea id="txtAreaDetalles" cols="20" name="S2" rows="2"></textarea><br />
             <br />
             <asp:Button ID="btnGuardar" runat="server" Text="Guardar" />
 &nbsp;&nbsp;
