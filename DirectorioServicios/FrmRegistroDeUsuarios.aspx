@@ -152,6 +152,28 @@
             <br />
             <textarea id="txtAreaDetalles" cols="20" name="S2" rows="2"></textarea><br />
             <br />
+            <asp:Label ID="lblRedesSociales" runat="server" Text="Redes Socales"></asp:Label>
+            <br />
+            <br />
+            <asp:Label ID="Label6" runat="server" Text="Facebook: "></asp:Label>
+&nbsp;<asp:TextBox ID="txtFacebook" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Label ID="Label7" runat="server" Text="Twiter:"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtTwitter" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Label ID="Label8" runat="server" Text="Youtube:"></asp:Label>
+&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Label ID="Label9" runat="server" Text="Instagram:"></asp:Label>
+&nbsp;
+            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+            <br />
+            <br />
             <asp:Label ID="lblDireccion1" runat="server" Text="Contraseña"></asp:Label>
             <br />
             <asp:TextBox ID="txtContraseña" runat="server"></asp:TextBox>
