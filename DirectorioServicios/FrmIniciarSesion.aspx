@@ -7,11 +7,11 @@
         <form class="px-4 py-3">
             <div class="form-group" id="txt_Correo">
                 <label for="exampleDropdownFormEmail1">Dirección de correo electrónico</label>
-                <input type="email" class="form-control" placeholder="email@example.com" ID="TextBox1" runat="server">
+                <asp:TextBox type="email" class="form-control" placeholder="email@example.com" ID="txt_Correo" runat="server"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label for="exampleDropdownFormPassword1">Contraseña</label>
-                <input type="password" class="form-control" id="txt_Contrasenia" placeholder="Contraseña" runat="server">
+                <asp:TextBox type="password" class="form-control" id="txt_Contrasenia" placeholder="Contraseña" runat="server"></asp:TextBox>
             </div>
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="dropdownCheck">
@@ -19,10 +19,10 @@
                     Recuérdame
                 </label>
             </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <asp:Button type="submit" class="btn btn-primary" runat="server" ID="btn_IniciarSesion" OnClick="btn_IniciarSesion_Click" Text="Iniciar Sesión" />
         </form>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">¿Nuevo por aquí? Registrarse</a>
+        <a class="dropdown-item" href="FrmRegistrar.aspx">¿Nuevo por aquí? Registrarse</a>
         <a class="dropdown-item" href="#">¿Olvidaste la Contraseña?</a>
     </div>
 </asp:Content>

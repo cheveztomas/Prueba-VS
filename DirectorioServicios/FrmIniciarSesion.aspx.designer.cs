@@ -13,13 +13,13 @@ namespace DirectorioServicios {
     public partial class FrmIniciarSesion {
         
         /// <summary>
-        /// Control TextBox1.
+        /// Control txt_Correo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txt_Correo;
         
         /// <summary>
         /// Control txt_Contrasenia.
@@ -28,6 +28,15 @@ namespace DirectorioServicios {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txt_Contrasenia;
+        protected global::System.Web.UI.WebControls.TextBox txt_Contrasenia;
+        
+        /// <summary>
+        /// Control btn_IniciarSesion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_IniciarSesion;
     }
 }
