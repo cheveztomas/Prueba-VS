@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Configuracion;
 using MySql.Data.MySqlClient;
+using EntidadesDirectorio;
 
 namespace AccesoDatos
 {
@@ -45,6 +46,17 @@ namespace AccesoDatos
             {
                 Conexion.Dispose();
             }
+            return vln_ID;
+        }
+
+        public int Registrar(string pvc_Password, ClsUsuarios pvo_Usuario)
+        {
+            //Variables
+            int vln_ID = 0;
+
+
+            //Inicio
+
             return vln_ID;
         }
     }
