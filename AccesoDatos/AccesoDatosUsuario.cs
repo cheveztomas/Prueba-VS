@@ -162,42 +162,54 @@ namespace AccesoDatos
             }
             return vln_Correcta;
         }
+
         //funcion para obtener datos de la tabla usuario
-        public DataTable ObtenerDatosDeUsuario(int id_usuario)
+        public ClsUsuarios ObtenerDatosDeUsuario(int id_usuario)
         {
-            //Se establese una variable para retornar una tabla.
-            DataTable vlo_DatosUsuario = new DataTable();
-
-            //Se establese una variable de conexión instanciando la conexion de MySQL
             MySqlConnection conexion = new MySqlConnection();
-
-            //Se establese la cadena de conexión obteniendola de la configuración.
             conexion.ConnectionString = ClsConfiguracion.getConnectionString();
-
-            //Se establese una variable de comandos.
-            MySqlCommand command;
-
-            //Se establese una variable de tipo data adapter.
-            MySqlDataAdapter vlo_DA;
+            MySqlCommand command= new MySqlCommand();
+            MySqlDataReader vlo_RD;
+            ClsUsuarios vlo_usuario = new ClsUsuarios();
 
             try
             {
-                //Se abre la conexión.
-                conexion.Open();
-
-                //Se instancia el comando con la sentencia.
-                command = new MySqlCommand("SELECT * FROM USUARIOS WHERE ID_USUARIO="+ id_usuario);
-
                 //Se establese la conexión.
                 command.Connection = conexion;
+                command.CommandText = "SELECT NOMBRE_PROFESIONAL,APELLIDO1_PROFESIONAL,APELLIDO2_PROFESIONAL,CORREO_PROFESIONAL,TELEFONO_PROFESIONAL,DESCRIPCION,USUARIO_PREMIUM,CALIFIC_CONTADOR,CALIFIC_SUMA,PERFIL_PROFESIONAL FROM USUARIOS WHERE ID_USUARIO=" + id_usuario;
+                conexion.Open();
+                vlo_RD = command.ExecuteReader();
 
-                //Se instancia el data adpter con el comando.
-                vlo_DA = new MySqlDataAdapter(command);
-
-                //Se rellena la tabla 
-                vlo_DA.Fill(vlo_DatosUsuario);
-
-                vlo_DA.Dispose();
+                if (vlo_RD.HasRows)
+                {
+                    vlo_RD.Read();
+                    vlo_usuario.Nombre_Profesional= vlo_RD.GetString(0);
+                    vlo_usuario.Apellido1_Profesional = vlo_RD.GetString(1);
+                    vlo_usuario.Usuario_Premium = vlo_RD.GetBoolean(6);
+                    vlo_usuario.Perfil_Profesional = vlo_RD.GetBoolean(9);
+                    vlo_usuario.Telefono_Profesional = vlo_RD.GetString(4);
+                    if (!vlo_RD.IsDBNull(2))
+                    {
+                        vlo_usuario.Apellido2_Profesional = vlo_RD.GetString(2);
+                    }
+                    if (!vlo_RD.IsDBNull(3))
+                    {
+                        vlo_usuario.Correo = vlo_RD.GetString(3);
+                    }
+                    if (!vlo_RD.IsDBNull(5))
+                    {
+                        vlo_usuario.Descripcion = vlo_RD.GetString(5);
+                    }
+                    if (!vlo_RD.IsDBNull(7))
+                    {
+                        vlo_usuario.Calif_Contador = vlo_RD.GetInt32(7);
+                    }
+                    if (!vlo_RD.IsDBNull(8))
+                    {
+                        vlo_usuario.Calif_Suma = vlo_RD.GetInt32(8);
+                    }
+                }
+                vlo_RD.Dispose();
                 conexion.Close();
                 command.Dispose();
                 conexion.Dispose();
@@ -208,8 +220,7 @@ namespace AccesoDatos
                 Console.WriteLine("error, " + ex.Message.ToString());
             }
 
-            return vlo_DatosUsuario;
+            return vlo_usuario;
         }
-
     }//class
 }//namespace

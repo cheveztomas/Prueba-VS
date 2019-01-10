@@ -91,7 +91,7 @@ namespace AccesoDatos
 
             try
             {
-                MySqlCommand sentencia = new MySqlCommand("select ocupaciones.ID_OCUPACION, concat(ocupaciones.NOMBRE_OCUPACION,' ',ocupaciones.ESPACIALIDAD_OCUPACION) as PROFESION from ocupaciones inner join ocupaciones_profesionales on ocupaciones.ID_OCUPACION = ocupaciones_profesionales.ID_OCUPACION where ocupaciones_profesionales.ID_USUARIO = " + id + ";");
+                MySqlCommand sentencia = new MySqlCommand("select OCUPACIONES.ID_OCUPACION, concat(OCUPACIONES.NOMBRE_OCUPACION,' ',OCUPACIONES.ESPACIALIDAD_OCUPACION) as PROFESION from OCUPACIONES inner join OCUPACIONES_PROFESIONALES on OCUPACIONES.ID_OCUPACION = OCUPACIONES_PROFESIONALES.ID_OCUPACION where OCUPACIONES_PROFESIONALES.ID_USUARIO = " + id + ";");
                 conexion.Open();
                 sentencia.Connection = conexion;
 

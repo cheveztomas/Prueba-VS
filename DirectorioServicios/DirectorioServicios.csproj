@@ -81,6 +81,7 @@
     <Content Include="App\css\bootstrap-reboot.min.css" />
     <Content Include="App\css\bootstrap.css" />
     <Content Include="App\css\bootstrap.min.css" />
+    <Content Include="App\css\Style.css" />
     <Content Include="App\js\bootstrap.bundle.js" />
     <Content Include="App\js\bootstrap.bundle.min.js" />
     <Content Include="App\js\bootstrap.js" />
@@ -92,7 +93,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="FrmBuscador.aspx" />
-    <Content Include="FrmPerfilProfecional.aspx" />
+    <Content Include="FrmIniciarSesion.aspx" />
+    <Content Include="FrmPerfilProf.aspx" />
+    <Content Include="FrmRegistrar.aspx" />
     <Content Include="FrmRegistroDeUsuarios.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -159,12 +162,26 @@
     <Compile Include="FrmBuscador.aspx.designer.cs">
       <DependentUpon>FrmBuscador.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FrmPerfilProfecional.aspx.cs">
-      <DependentUpon>FrmPerfilProfecional.aspx</DependentUpon>
+    <Compile Include="FrmIniciarSesion.aspx.cs">
+      <DependentUpon>FrmIniciarSesion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FrmPerfilProfecional.aspx.designer.cs">
-      <DependentUpon>FrmPerfilProfecional.aspx</DependentUpon>
+    <Compile Include="FrmIniciarSesion.aspx.designer.cs">
+      <DependentUpon>FrmIniciarSesion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPerfilProf.aspx.cs">
+      <DependentUpon>FrmPerfilProf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmPerfilProf.aspx.designer.cs">
+      <DependentUpon>FrmPerfilProf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegistrar.aspx.cs">
+      <DependentUpon>FrmRegistrar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrar.aspx.designer.cs">
+      <DependentUpon>FrmRegistrar.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmRegistroDeUsuarios.aspx.cs">
       <DependentUpon>FrmRegistroDeUsuarios.aspx</DependentUpon>
