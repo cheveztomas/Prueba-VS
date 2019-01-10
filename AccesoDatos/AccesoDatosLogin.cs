@@ -62,6 +62,7 @@ namespace AccesoDatos
             MySqlCommand CommandLogin;
             MySqlCommand CommandPagina;
             MySqlDataReader ReaderLogin;
+            MySqlDataReader ReaderPagina;
             string vlc_SentenciaLogin = string.Empty;
             string vlc_SentenciaPagina = string.Empty;
             //Inicio
@@ -107,6 +108,11 @@ namespace AccesoDatos
                         ConexionOagina.Open();
                         vln_Correcto = CommandPagina.ExecuteNonQuery();
 
+                        vlc_SentenciaLogin = "SELECT ID_USUARIO FROM PAGINA_WEB.USUARIOS ORDER by ID_USUARIO DESC LIMIT 1";
+                        ReaderPagina = CommandPagina.ExecuteReader();
+
+                        ReaderPagina.Read();
+                        vln_ID = ReaderPagina.GetInt32(0);
                     }
                     catch (Exception)
                     {
