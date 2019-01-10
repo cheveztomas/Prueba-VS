@@ -61,10 +61,10 @@ namespace AccesoDatos
 
         public DataTable ObtenerDatosDeUsuarioUbicaciones(int id_usuario)
         {
-            DataTable vlo_DatosUsuarioUbicaciones = new DataTable();
-            MySqlConnection conexion = new MySqlConnection();
             MySqlCommand command;
             MySqlDataAdapter vlo_DA;
+            DataTable vlo_DatosUsuarioUbicaciones = new DataTable();
+            MySqlConnection conexion = new MySqlConnection();
             conexion.ConnectionString = ClsConfiguracion.getConnectionString();
 
             try
