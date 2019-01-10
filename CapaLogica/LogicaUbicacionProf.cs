@@ -63,7 +63,6 @@ namespace CapaLogica
             return vlo_DSUbicaciones;
         }
 
-<<<<<<< HEAD
         public DataTable ObtenerDatosDeUsuarioUbicaciones(int id_usuario)
         {
             AccesoDatosUbicacionesProf AccesoDatosUbicaciones = new AccesoDatosUbicacionesProf();
@@ -71,7 +70,15 @@ namespace CapaLogica
             try
             {
                 DatosDeUsuarioUbicaciones = AccesoDatosUbicaciones.ObtenerDatosDeUsuarioUbicaciones(id_usuario);
-=======
+                return DatosDeUsuarioUbicaciones;
+            }
+            catch
+            {
+                throw;
+            }
+
+
+        }
         //Guarda una ubicacionProf
         public string Guardar(ClsUbicacionesProfesionales pvo_EntidadUbicacionProf)
         {
@@ -90,33 +97,26 @@ namespace CapaLogica
             }
             return vlc_Mensaje;
         }
-
-        //Guarda una ubicacionProf
-        public string Guardar(int ID_Usuario, int ID_Ubicacion, string DETALLES)
-        {
-            string vlc_Mensaje = "";
-            AccesoDatosUbicacionesProf vlo_AccesoUbicacionProf;
-            ClsUbicacionesProfesionales pvo_EntidadUbicacionProf = new ClsUbicacionesProfesionales(ID_Usuario, ID_Ubicacion, DETALLES);
-            try
+            //Guarda una ubicacionProf
+            public string Guardar(int ID_Usuario, int ID_Ubicacion, string DETALLES)
             {
-                vlo_AccesoUbicacionProf = new AccesoDatosUbicacionesProf();
-                vlc_Mensaje = vlo_AccesoUbicacionProf.Guardar(pvo_EntidadUbicacionProf);
->>>>>>> 8029e1201d9dfaaa09720cba7dc4a42d23dc7acf
+                string vlc_Mensaje = "";
+                AccesoDatosUbicacionesProf vlo_AccesoUbicacionProf;
+                ClsUbicacionesProfesionales pvo_EntidadUbicacionProf = new ClsUbicacionesProfesionales(ID_Usuario, ID_Ubicacion, DETALLES);
+                try
+                {
+                    vlo_AccesoUbicacionProf = new AccesoDatosUbicacionesProf();
+                    vlc_Mensaje = vlo_AccesoUbicacionProf.Guardar(pvo_EntidadUbicacionProf);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                return vlc_Mensaje;
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
-<<<<<<< HEAD
-
-            return DatosDeUsuarioUbicaciones;
-=======
-            return vlc_Mensaje;
-        }
-
-        //Borra una UbicacionProf
-        public string Borrar(ClsUbicacionesProfesionales pvo_EntidadUbicacionProf)
+            //Borra una UbicacionProf
+            public string Borrar(ClsUbicacionesProfesionales pvo_EntidadUbicacionProf)
         {
             string vlc_Mensaje = "";
             AccesoDatosUbicacionesProf vlo_AccesoDatosUbicacionesProf;
@@ -151,8 +151,7 @@ namespace CapaLogica
                 throw;
             }
             return vlc_Mensaje;
->>>>>>> 8029e1201d9dfaaa09720cba7dc4a42d23dc7acf
         }
-        #endregion
+            #endregion
     }
 }

@@ -79,39 +79,8 @@ namespace AccesoDatos
             }
         }
 
-        public DataTable ObtenerDatosDeUsuarioOcupaciones(int id_usuario)
+        public DataTable listaOcupaciones(int id)
         {
-            //Se establese una variable para retornar una tabla.
-            DataTable vlo_DatosUsuarioOcupaciones = new DataTable();
-
-            //Se establese una variable de conexión instanciando la conexion de MySQL
-            MySqlConnection conexion = new MySqlConnection();
-
-            //Se establese la cadena de conexión obteniendola de la configuración.
-            conexion.ConnectionString = ClsConfiguracion.getConnectionString();
-
-            //Se establese una variable de comandos.
-            MySqlCommand command;
-
-            //Se establese una variable de tipo data adapter.
-            MySqlDataAdapter vlo_DA;
-
-            try
-            {
-                //Se abre la conexión.
-                conexion.Open();
-
-                //Se instancia el comando con la sentencia.
-                command = new MySqlCommand("SELECT OCUPACIONES_PROFESIONALES.ID_OCUPACION,NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION FROM OCUPACIONES INNER JOIN OCUPACIONES_PROFESIONALES ON OCUPACIONES.ID_OCUPACION=OCUPACIONES_PROFESIONALES.ID_OCUPACION WHERE OCUPACIONES_PROFESIONALES.ID_USUARIO=" + id_usuario);
-
-<<<<<<< HEAD
-                //Se establese la conexión.
-                command.Connection = conexion;
-=======
-        //obtener lista de ocupaciones de un profecional 
-
-
-        public DataTable listaOcupaciones(int id) {
 
             DataTable list_Ocupaciones = new DataTable();
             //Se establece el objeto conexión
@@ -122,7 +91,7 @@ namespace AccesoDatos
 
             try
             {
-                MySqlCommand sentencia = new MySqlCommand("select ocupaciones.ID_OCUPACION, concat(ocupaciones.NOMBRE_OCUPACION,' ',ocupaciones.ESPACIALIDAD_OCUPACION) as PROFESION from ocupaciones inner join ocupaciones_profesionales on ocupaciones.ID_OCUPACION = ocupaciones_profesionales.ID_OCUPACION where ocupaciones_profesionales.ID_USUARIO = "+id+";");
+                MySqlCommand sentencia = new MySqlCommand("select ocupaciones.ID_OCUPACION, concat(ocupaciones.NOMBRE_OCUPACION,' ',ocupaciones.ESPACIALIDAD_OCUPACION) as PROFESION from ocupaciones inner join ocupaciones_profesionales on ocupaciones.ID_OCUPACION = ocupaciones_profesionales.ID_OCUPACION where ocupaciones_profesionales.ID_USUARIO = " + id + ";");
                 conexion.Open();
                 sentencia.Connection = conexion;
 
@@ -148,9 +117,32 @@ namespace AccesoDatos
 
         }
 
+        public DataTable ObtenerDatosDeUsuarioOcupaciones(int id_usuario)
+        {
+            //Se establese una variable para retornar una tabla.
+            DataTable vlo_DatosUsuarioOcupaciones = new DataTable();
 
->>>>>>> 8029e1201d9dfaaa09720cba7dc4a42d23dc7acf
+            //Se establese una variable de conexión instanciando la conexion de MySQL
+            MySqlConnection conexion = new MySqlConnection();
 
+            //Se establese la cadena de conexión obteniendola de la configuración.
+            conexion.ConnectionString = ClsConfiguracion.getConnectionString();
+
+            //Se establese una variable de comandos.
+            MySqlCommand command;
+
+            //Se establese una variable de tipo data adapter.
+            MySqlDataAdapter vlo_DA;
+
+            try
+            {
+                //Se abre la conexión.
+                conexion.Open();
+
+                //Se instancia el comando con la sentencia.
+                command = new MySqlCommand("SELECT OCUPACIONES_PROFESIONALES.ID_OCUPACION,NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION FROM OCUPACIONES INNER JOIN OCUPACIONES_PROFESIONALES ON OCUPACIONES.ID_OCUPACION=OCUPACIONES_PROFESIONALES.ID_OCUPACION WHERE OCUPACIONES_PROFESIONALES.ID_USUARIO=" + id_usuario);
+                //Se establese la conexión.
+                command.Connection = conexion;
                 //Se instancia el data adpter con el comando.
                 vlo_DA = new MySqlDataAdapter(command);
 

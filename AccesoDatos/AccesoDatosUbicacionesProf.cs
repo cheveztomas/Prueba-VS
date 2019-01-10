@@ -59,7 +59,6 @@ namespace AccesoDatos
             return vlo_DataSet;
         }
 
-<<<<<<< HEAD
         public DataTable ObtenerDatosDeUsuarioUbicaciones(int id_usuario)
         {
             //Se establese una variable para retornar una tabla.
@@ -109,8 +108,6 @@ namespace AccesoDatos
             return vlo_DatosUsuarioUbicaciones;
         }
 
-
-=======
         public string Guardar(ClsUbicacionesProfesionales pvo_EntidadUbicacionProf)
         {
             MySqlConnection vlo_sqlConexion = new MySqlConnection(vgc_CadenaConexion);
@@ -186,7 +183,6 @@ namespace AccesoDatos
             }
             return vlc_Mensaje;
         }
->>>>>>> 8029e1201d9dfaaa09720cba7dc4a42d23dc7acf
         #endregion
 
 
