@@ -85,6 +85,8 @@ namespace AccesoDatos
                 ConexionLogin.Close();
                 CommandLogin.Dispose();
                 ConexionLogin.Dispose();
+                ReaderLogin.Close();
+                ReaderLogin.Dispose();
 
                 if (ReaderLogin.HasRows)
                 {
@@ -113,6 +115,13 @@ namespace AccesoDatos
 
                         ReaderPagina.Read();
                         vln_ID = ReaderPagina.GetInt32(0);
+                        ConexionOagina.Close();
+                        ReaderPagina.Close();
+                        ConexionOagina.Dispose();
+                        ReaderPagina.Dispose();
+                        CommandPagina.Dispose();
+
+
                     }
                     catch (Exception)
                     {
