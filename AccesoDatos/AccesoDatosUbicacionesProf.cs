@@ -61,20 +61,11 @@ namespace AccesoDatos
 
         public DataTable ObtenerDatosDeUsuarioUbicaciones(int id_usuario)
         {
-            //Se establese una variable para retornar una tabla.
             DataTable vlo_DatosUsuarioUbicaciones = new DataTable();
-
-            //Se establese una variable de conexión instanciando la conexion de MySQL
             MySqlConnection conexion = new MySqlConnection();
-
-            //Se establese la cadena de conexión obteniendola de la configuración.
-            conexion.ConnectionString = ClsConfiguracion.getConnectionString();
-
-            //Se establese una variable de comandos.
             MySqlCommand command;
-
-            //Se establese una variable de tipo data adapter.
             MySqlDataAdapter vlo_DA;
+            conexion.ConnectionString = ClsConfiguracion.getConnectionString();
 
             try
             {
