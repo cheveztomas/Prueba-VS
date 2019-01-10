@@ -99,8 +99,8 @@ namespace AccesoDatos
                 Command.Parameters.AddWithValue("_DESCIRPCION",pvo_Usuario.Descripcion);
                 Command.Parameters.AddWithValue("_USUARIO_PREMIUM",pvo_Usuario.Usuario_Premium);
                 Command.Parameters.AddWithValue("_ES_PROFESIONAL",pvo_Usuario.Perfil_Profesional);
-                Command.Parameters.Add("@_msj", MySqlDbType.VarChar, 100);
-                Command.Parameters["@_msj"].Direction = ParameterDirection.Output;
+                Command.Parameters.Add("@_MSJ", MySqlDbType.VarChar, 100);
+                Command.Parameters["@_MSJ"].Direction = ParameterDirection.Output;
 
                 vln_Correcta = Command.ExecuteNonQuery();
                 pvo_Usuario.ID_Usuario = Convert.ToInt32(Command.Parameters["_ID_USUARIO"].Value);
@@ -114,6 +114,53 @@ namespace AccesoDatos
                 throw;
             }
             return vln_Correcta;
+        }
+
+        //Guarda o actualiza un usuario
+        public string Guardar(ClsUsuarios pvo_EntidadUsuario)
+        {
+            string vgc_CadenaConexion = ClsConfiguracion.getConnectionString();
+            MySqlConnection vlo_sqlConexion = new MySqlConnection(vgc_CadenaConexion);
+            MySqlCommand vlo_sqlCommand = new MySqlCommand();
+            string vlc_Mensaje = "";
+            string vlc_Sentencia = string.Empty; //tambien puede usar ""
+            vlo_sqlCommand.Connection = vlo_sqlConexion;
+
+            vlc_Sentencia = "SP_REGISTRAR_Y_ACTUALIZAR_USUARIO";
+            vlo_sqlCommand.CommandType = CommandType.StoredProcedure;
+            vlo_sqlCommand.Parameters["@_ID_USUARIO"].Direction = ParameterDirection.InputOutput;
+            vlo_sqlCommand.Parameters.AddWithValue("@_ID_USUARIO", pvo_EntidadUsuario.ID_Usuario);
+            vlo_sqlCommand.Parameters.AddWithValue("@_NOMBRE", pvo_EntidadUsuario.Nombre_Profesional);
+            vlo_sqlCommand.Parameters.AddWithValue("@_APELLIDO1", pvo_EntidadUsuario.Apellido1_Profesional);
+            vlo_sqlCommand.Parameters.AddWithValue("@_APELLIDO2", pvo_EntidadUsuario.Apellido2_Profesional);
+            vlo_sqlCommand.Parameters.AddWithValue("@_CORREO", pvo_EntidadUsuario.Telefono_Profesional);
+            vlo_sqlCommand.Parameters.AddWithValue("@_TELEFONO", pvo_EntidadUsuario.Telefono_Profesional);
+            vlo_sqlCommand.Parameters.AddWithValue("@_DESCIRPCION", pvo_EntidadUsuario.Descripcion);
+            vlo_sqlCommand.Parameters.AddWithValue("@_USUARIO_PREMIUM", pvo_EntidadUsuario.Usuario_Premium);
+            vlo_sqlCommand.Parameters.AddWithValue("@_ES_PROFESIONAL", pvo_EntidadUsuario.Perfil_Profesional);
+            vlo_sqlCommand.Parameters.Add("@_MSJ", MySqlDbType.VarChar, 100);
+            vlo_sqlCommand.Parameters["@_MSJ"].Direction = ParameterDirection.Output;
+
+            vlo_sqlCommand.CommandText = vlc_Sentencia;
+
+            try
+            {
+                vlo_sqlConexion.Open();
+                vlo_sqlCommand.ExecuteNonQuery();
+                pvo_EntidadUsuario.ID_Usuario = Convert.ToInt32(vlo_sqlCommand.Parameters["@_cod_sitio"].Value);
+                vlc_Mensaje = Convert.ToString(vlo_sqlCommand.Parameters["@_MSJ"].Value);
+                vlo_sqlConexion.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                vlo_sqlConexion.Dispose();
+                vlo_sqlCommand.Dispose();
+            }
+            return vlc_Mensaje;
         }
 
         //proceso para eliminar usuario de la base de datos
@@ -147,8 +194,8 @@ namespace AccesoDatos
                 Command.Connection = Conexion;
 
                 //Parametros necesarios de la aplicación.
-                Command.Parameters.AddWithValue("_id", id_usuario);
-                Command.Parameters.AddWithValue("msj", Msg);
+                Command.Parameters.AddWithValue("_ID", id_usuario);
+                Command.Parameters.AddWithValue("_MSJ", Msg);
 
                 vln_Correcta = Command.ExecuteNonQuery();
                 Conexion.Close();
@@ -161,6 +208,43 @@ namespace AccesoDatos
                 throw;
             }
             return vln_Correcta;
+        }
+
+        //Borrar el Usuario indicado
+        public string Borrar(string pvc_IdUsuario)
+        {
+            string vgc_CadenaConexion = ClsConfiguracion.getConnectionString();
+            MySqlConnection vlo_sqlConexion = new MySqlConnection(vgc_CadenaConexion);
+            MySqlCommand vlo_sqlCommand = new MySqlCommand();
+            string vlc_Mensaje = "";
+            string vlc_Sentencia = string.Empty;
+            vlo_sqlCommand.Connection = vlo_sqlConexion;
+
+            vlc_Sentencia = "SP_EliminarUsuario";
+            vlo_sqlCommand.CommandType = CommandType.StoredProcedure;
+            vlo_sqlCommand.Parameters.AddWithValue("@_ID", pvc_IdUsuario);
+            vlo_sqlCommand.Parameters.Add("@_MSJ", MySqlDbType.VarChar, 100);
+            vlo_sqlCommand.Parameters["@_MSJ"].Direction = ParameterDirection.Output;
+
+            vlo_sqlCommand.CommandText = vlc_Sentencia;
+
+            try
+            {
+                vlo_sqlConexion.Open();
+                vlo_sqlCommand.ExecuteNonQuery();
+                vlc_Mensaje = Convert.ToString(vlo_sqlCommand.Parameters["@_MSJ"].Value);
+                vlo_sqlConexion.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                vlo_sqlConexion.Dispose();
+                vlo_sqlCommand.Dispose();
+            }
+            return vlc_Mensaje;
         }
 
         //funcion para obtener datos de la tabla usuario

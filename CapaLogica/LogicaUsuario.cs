@@ -71,7 +71,7 @@ namespace CapaLogica
         }
 
         //Elimina un usuario
-        public int EliminarUsuario(int id_usuario)
+        public int EliminarUsuario(int id_Usuario)
         {
             //Variables
             int vln_Correcto = 0;
@@ -80,7 +80,7 @@ namespace CapaLogica
 
             try
             {
-                vln_Correcto = vlo_ADUsuario.EliminarUsuario(id_usuario);
+                vln_Correcto = vlo_ADUsuario.EliminarUsuario(id_Usuario);
             }
             catch (Exception)
             {
@@ -91,8 +91,7 @@ namespace CapaLogica
             return vln_Correcto;
         }
 
-
-       public ClsUsuarios ObtenerDatosDeUsuario(int id_usuario)
+        public ClsUsuarios ObtenerDatosDeUsuario(int id_usuario)
         {
             AccesoDatosUsuario accesoDatosUsuario = new AccesoDatosUsuario();
             ClsUsuarios DatosUsuario;
@@ -109,6 +108,63 @@ namespace CapaLogica
             return DatosUsuario;
         }
 
+        //Guarda o actualiza un Usuario
+        public string Guardar(ClsUsuarios pvo_EntidadUsuario)
+        {
+            string vlc_Mensaje = "";
+            AccesoDatosUsuario vlo_AccesoDatosUsuario;
+
+            try
+            {
+                vlo_AccesoDatosUsuario = new AccesoDatosUsuario();
+                vlc_Mensaje = vlo_AccesoDatosUsuario.Guardar(pvo_EntidadUsuario);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return vlc_Mensaje;
+        }
+
+        //Guarda o actualiza un Usuario
+        public string Guardar(int vgn_ID_Usuario, string vgc_Nombre_Profesional, string vgc_Apellido1_Profesional, string vgc_Apellido2_Profesional, string vgc_correo, string vgc_Telefono_Profesional, string vgc_Descripcion, bool vgb_Usuario_Premium, int vgn_Calif_Contador, int vgn_Calif_Suma, bool vgb_Perfil_Profesional)
+        {
+            string vlc_Mensaje = "";
+            AccesoDatosUsuario vlo_AccesoDatosUsuario;
+            ClsUsuarios pvo_EntidadUsuario = new ClsUsuarios(vgn_ID_Usuario, vgc_Nombre_Profesional, vgc_Apellido1_Profesional, vgc_Apellido2_Profesional, vgc_correo, vgc_Telefono_Profesional, vgc_Descripcion, vgb_Usuario_Premium, vgn_Calif_Contador, vgn_Calif_Suma, vgb_Perfil_Profesional);
+
+            try
+            {
+                vlo_AccesoDatosUsuario = new AccesoDatosUsuario();
+                vlc_Mensaje = vlo_AccesoDatosUsuario.Guardar(pvo_EntidadUsuario);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return vlc_Mensaje;
+        }
+
+        //Borra un sitio web
+        public string Borrar(string pvc_Codigo)
+        {
+            string vlc_Mensaje = "";
+            AccesoDatosWebSites vlo_AccesoDatosWebSites;
+
+            try
+            {
+                vlo_AccesoDatosWebSites = new AccesoDatosWebSites();
+                vlc_Mensaje = vlo_AccesoDatosWebSites.Borrar(pvc_Codigo);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return vlc_Mensaje;
+        }
 
     }//class
 }//namespace
