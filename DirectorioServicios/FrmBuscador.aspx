@@ -27,6 +27,8 @@
            <label for="sel1">Cantón:</label>
            <asp:DropDownList ID="ddlCanton" runat="server" class="form-control"></asp:DropDownList>
            
+            &nbsp;&nbsp;
+           
             <asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-primary" Text="Buscar" />
     <!--<button type="submit" class="btn btn-primary" id="btnBuscar">Buscar</button>-->
     </div>
