@@ -62,6 +62,23 @@ namespace CapaLogica
             }
             return vlo_DSUbicaciones;
         }
+
+        public DataTable ObtenerDatosDeUsuarioUbicaciones(int id_usuario)
+        {
+            AccesoDatosUbicacionesProf AccesoDatosUbicaciones = new AccesoDatosUbicacionesProf();
+            DataTable DatosDeUsuarioUbicaciones = null;
+            try
+            {
+                DatosDeUsuarioUbicaciones = AccesoDatosUbicaciones.ObtenerDatosDeUsuarioUbicaciones(id_usuario);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return DatosDeUsuarioUbicaciones;
+        }
         #endregion
     }
 }

@@ -58,6 +58,59 @@ namespace AccesoDatos
             }
             return vlo_DataSet;
         }
+
+        public DataTable ObtenerDatosDeUsuarioUbicaciones(int id_usuario)
+        {
+            //Se establese una variable para retornar una tabla.
+            DataTable vlo_DatosUsuarioUbicaciones = new DataTable();
+
+            //Se establese una variable de conexión instanciando la conexion de MySQL
+            MySqlConnection conexion = new MySqlConnection();
+
+            //Se establese la cadena de conexión obteniendola de la configuración.
+            conexion.ConnectionString = ClsConfiguracion.getConnectionString();
+
+            //Se establese una variable de comandos.
+            MySqlCommand command;
+
+            //Se establese una variable de tipo data adapter.
+            MySqlDataAdapter vlo_DA;
+
+            try
+            {
+                //Se abre la conexión.
+                conexion.Open();
+
+                //Se instancia el comando con la sentencia.
+                command = new MySqlCommand("SELECT UBICACIONES_PROFESIONALES.ID_USUARIO,PROVINCIA,CANTON,DETALLES FROM UBICACIONES INNER JOIN UBICACIONES_PROFESIONALES ON UBICACIONES.ID_UBICACION=UBICACIONES_PROFESIONALES.ID_UBICACION WHERE UBICACIONES_PROFESIONALES.ID_USUARIO=" + id_usuario);
+                //
+
+                //Se establese la conexión.
+                command.Connection = conexion;
+
+                //Se instancia el data adpter con el comando.
+                vlo_DA = new MySqlDataAdapter(command);
+
+                //Se rellena la tabla 
+                vlo_DA.Fill(vlo_DatosUsuarioUbicaciones);
+
+                vlo_DA.Dispose();
+                conexion.Close();
+                command.Dispose();
+                conexion.Dispose();
+            }
+            catch (MySqlException ex)
+            {
+
+                Console.WriteLine("error, " + ex.Message.ToString());
+            }
+
+            return vlo_DatosUsuarioUbicaciones;
+        }
+
+
         #endregion
-    }
-}
+
+
+    }//class
+}//namesace

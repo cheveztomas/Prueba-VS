@@ -41,6 +41,23 @@ namespace CapaLogica
             return especialidades;//se retornan las especialidades 
         }
 
+        public DataTable ObtenerDatosDeUsuarioOcupaciones(int id_usuario)
+        {
+            try
+            {
+                AccesoDatosOcupaciones funciones = new AccesoDatosOcupaciones();
+                DataTable UsuarioOcupaciones = funciones.ObtenerDatosDeUsuarioOcupaciones(id_usuario);
+                return UsuarioOcupaciones;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
+        }
 
 
     }//class

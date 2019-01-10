@@ -101,6 +101,23 @@ namespace CapaLogica
             }
             return vlc_Mensaje;
         }
+
+        public DataTable ObtenerDatosDeUsuarioPaginasWeb(int id_usuario)
+        {
+            AccesoDatosWebSites AccesoDatosWebsites = new AccesoDatosWebSites();
+            DataTable DatosDeUsuarioWebsites = null;
+            try
+            {
+                DatosDeUsuarioWebsites = AccesoDatosWebsites.ObtenerDatosDeUsuarioPaginasWeb(id_usuario);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return DatosDeUsuarioWebsites;
+        }
         #endregion
     }
 }

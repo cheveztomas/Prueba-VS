@@ -68,5 +68,22 @@ namespace CapaLogica
             return vln_Correcto;
         }
 
+        public DataTable ObtenerDatosDeUsuario(int id_usuario)
+        {
+            AccesoDatosUsuario accesoDatosUsuario = new AccesoDatosUsuario();
+            DataTable DatosUsuario = null;
+            try
+            {
+                DatosUsuario = accesoDatosUsuario.ObtenerDatosDeUsuario(id_usuario);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return DatosUsuario;
+        }
+
     }//class
 }//namespace

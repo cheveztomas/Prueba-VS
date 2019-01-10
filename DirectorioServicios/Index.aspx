@@ -31,11 +31,12 @@
         <div>
             <asp:GridView ID="grd_usuarios" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="636px">
                 <Columns>
-                    <asp:BoundField DataField="ID_USUARIO" HeaderText="Id" />
-                    <asp:BoundField DataField="NOMBRE_PROFESIONAL" HeaderText="Nombre" />
+                    <asp:BoundField DataField="PROVINCIA" HeaderText="Id" />
+                    <asp:BoundField DataField="CANTON" HeaderText="Nombre" />
                 </Columns>
             </asp:GridView>
         </div>
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
     </form>
 </body>
 </html>

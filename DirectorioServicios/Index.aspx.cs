@@ -14,22 +14,22 @@ namespace DirectorioServicios
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            if (!Page.IsPostBack)
-            {               
-                LogicaUsuario logica = new LogicaUsuario();
-                Limpiar();
-                try
-                {
-                    grd_usuarios.DataSource = logica.listaUsuarios(null);
-                    grd_usuarios.DataBind();
-                }
-                catch (Exception)
-                {
+            //if (!Page.IsPostBack)
+            //{               
+            //    LogicaUsuario logica = new LogicaUsuario();
+            //    Limpiar();
+            //    try
+            //    {
+            //        grd_usuarios.DataSource = logica.listaUsuarios(null);
+            //        grd_usuarios.DataBind();
+            //    }
+            //    catch (Exception)
+            //    {
 
-                    throw;
-                }
+            //        throw;
+            //    }
 
-            }
+            //}
         }
 
         private void Limpiar()
@@ -67,6 +67,14 @@ namespace DirectorioServicios
 
                 throw;
             }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            LogicaUbicacionProf logica = new LogicaUbicacionProf();
+            grd_usuarios.DataSource = logica.ObtenerDatosDeUsuarioUbicaciones(2);
+            grd_usuarios.DataBind();
+
         }
     }
 }
