@@ -29,6 +29,39 @@ namespace CapaLogica
             }
             return vlo_DSUbicaciones;
         }
+
+        //Lista las UbicacionesProf, pvn_IdUsuario es para filtrar por el ID
+        public DataSet ListarUbicacionesProf(int pvn_IdUsuario = 0)
+        {
+            DataSet vlo_DSUbicaciones;
+            try
+            {
+                if (pvn_IdUsuario != 0)
+                    vlo_DSUbicaciones = ListarUbicacionesProf("ID_USUARIO=" + pvn_IdUsuario);
+                else
+                    vlo_DSUbicaciones = ListarUbicacionesProf();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return vlo_DSUbicaciones;
+        }
+
+        //Lista las UbicacionesProf, pvn_IdUsuario es para filtrar por el ID del usuario
+        public DataSet ListarUbicacionesProf(ClsUsuarios pvn_ClsUsuario)
+        {
+            DataSet vlo_DSUbicaciones;
+            try
+            {
+                vlo_DSUbicaciones = ListarUbicacionesProf(pvn_ClsUsuario.ID_Usuario);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return vlo_DSUbicaciones;
+        }
         #endregion
     }
 }

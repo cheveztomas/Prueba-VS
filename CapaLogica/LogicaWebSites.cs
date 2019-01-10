@@ -14,7 +14,8 @@ namespace CapaLogica
         #endregion
 
         #region Metodos
-
+        
+        //Lista los sitios web, pvc_Condicion es para filtrar los resultados
         public DataSet ListarWebSites(string pvc_Condicion)
         {
             DataSet vlo_DSWebSites;
@@ -23,6 +24,39 @@ namespace CapaLogica
             {
                 vlo_AccesoDatosWebSites = new AccesoDatosWebSites();
                 vlo_DSWebSites = vlo_AccesoDatosWebSites.ListarRegistros(pvc_Condicion);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return vlo_DSWebSites;
+        }
+
+        //Lista los sitios web, pvn_IdUsuario es para filtrar por el ID
+        public DataSet ListarWebSites(int pvn_IdUsuario = 0)
+        {
+            DataSet vlo_DSWebSites;
+            try
+            {
+                if (pvn_IdUsuario != 0)
+                    vlo_DSWebSites = ListarWebSites("ID_USUARIO=" + pvn_IdUsuario);
+                else
+                    vlo_DSWebSites = ListarWebSites();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return vlo_DSWebSites;
+        }
+
+        //Lista los sitios web, pvn_ClsUsuario es para filtrar por el ID del usuario
+        public DataSet ListarWebSites(ClsUsuarios pvn_ClsUsuario)
+        {
+            DataSet vlo_DSWebSites;
+            try
+            {
+                vlo_DSWebSites = ListarWebSites(pvn_ClsUsuario.ID_Usuario);
             }
             catch (Exception)
             {
