@@ -12,6 +12,11 @@
     <form id="form1" runat="server">
         <div>
 
+            <br />
+            <br />
+            <a href="FrmBuscador.aspx">Inicio</a>
+            <br />
+
             <asp:Label ID="lblNombre" runat="server" Text="Nombre"></asp:Label>
 &nbsp;<br />
             <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
