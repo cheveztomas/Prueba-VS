@@ -16,13 +16,13 @@
     <div id="contenedor" class="">
        <div class="form-inline">
             <label for="sel1">Seleccione: Servicio:</label>
-           <asp:DropDownList ID="ddlProfecion" runat="server" class="form-control"></asp:DropDownList>
+           <asp:DropDownList ID="ddlProfecion" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlProfecion_SelectedIndexChanged"></asp:DropDownList>
             
            <label for="sel1">Especialidad:</label>
            <asp:DropDownList ID="ddlEspecialidad" runat="server" class="form-control"></asp:DropDownList>
 
            <label for="sel1">Provincia:</label>
-           <asp:DropDownList ID="ddlProvincia" runat="server" class="form-control"></asp:DropDownList>
+           <asp:DropDownList ID="ddlProvincia" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged"></asp:DropDownList>
            
            <label for="sel1">Cantón:</label>
            <asp:DropDownList ID="ddlCanton" runat="server" class="form-control"></asp:DropDownList>
