@@ -2,20 +2,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         #contenedor{
-            width: 960px;
+            width: 80%;
             margin: 0 auto;
         }
 
         label, select, button{
-            padding: 10px;
+            padding: 5px;
         }
 
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="contenedor" class="">
+        <h2>Seleccione</h2>
        <div class="form-inline">
-            <label for="sel1">Seleccione: Servicio:</label>
+            <label for="sel1">Servicio:</label>
            <asp:DropDownList ID="ddlProfecion" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlProfecion_SelectedIndexChanged"></asp:DropDownList>
             
            <label for="sel1">Especialidad:</label>
