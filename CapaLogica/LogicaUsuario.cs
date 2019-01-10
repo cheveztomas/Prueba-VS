@@ -47,5 +47,26 @@ namespace CapaLogica
 
             return vln_Correcto;
         }
-    }
-}
+
+        public int EliminarUsuario(int id_usuario)
+        {
+            //Variables
+            int vln_Correcto = 0;
+            //Inicio
+            AccesoDatosUsuario vlo_ADUsuario = new AccesoDatosUsuario();
+
+            try
+            {
+                vln_Correcto = vlo_ADUsuario.EliminarUsuario(id_usuario);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return vln_Correcto;
+        }
+
+    }//class
+}//namespace
