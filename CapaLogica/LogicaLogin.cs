@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using AccesoDatos;
+using EntidadesDirectorio;
 
 namespace CapaLogica
 {
@@ -25,6 +26,26 @@ namespace CapaLogica
                 throw;
             }
 
+            return vln_ID;
+        }
+
+        public int RegistrarUsuario(string pvc_Password, ClsUsuarios pvo_Usuario)
+        {
+            //Variables
+            int vln_ID=0;
+            AccesoDatosLogin Login;
+
+            //Inicio
+            try
+            {
+                Login = new AccesoDatosLogin();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             return vln_ID;
         }
     }
