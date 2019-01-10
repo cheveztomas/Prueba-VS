@@ -58,6 +58,82 @@ namespace AccesoDatos
             }
             return vlo_DataSet;
         }
+
+        public string Guardar(ClsUbicacionesProfesionales pvo_EntidadUbicacionProf)
+        {
+            MySqlConnection vlo_sqlConexion = new MySqlConnection(vgc_CadenaConexion);
+            MySqlCommand vlo_sqlCommand = new MySqlCommand();
+            //int vln_resultado = 0;
+            string vlc_Mensaje = "";
+            string vlc_Sentencia = string.Empty; //tambien puede usar ""
+            vlo_sqlCommand.Connection = vlo_sqlConexion;
+
+            vlc_Sentencia = "SP_AgregarUbicacionProfecional";
+            vlo_sqlCommand.CommandType = CommandType.StoredProcedure;
+            vlo_sqlCommand.Parameters.AddWithValue("@_ID_USUARIO", pvo_EntidadUbicacionProf.ID_Usuario);
+            //vlo_sqlCommand.Parameters["@_cod_sitio"].Direction = ParameterDirection.InputOutput;
+            vlo_sqlCommand.Parameters.AddWithValue("@_ID_UBICACION", pvo_EntidadUbicacionProf.ID_Ubicacion1);
+            vlo_sqlCommand.Parameters.AddWithValue("@_DETALLES", pvo_EntidadUbicacionProf.Detalles);
+            vlo_sqlCommand.Parameters.Add("@_msj", MySqlDbType.VarChar, 100);
+            vlo_sqlCommand.Parameters["@_msj"].Direction = ParameterDirection.Output;
+
+            vlo_sqlCommand.CommandText = vlc_Sentencia;
+
+            try
+            {
+                vlo_sqlConexion.Open();
+                vlo_sqlCommand.ExecuteNonQuery();
+                //pvo_EntidadWebSite.Cod_Sitio = Convert.ToInt32(vlo_sqlCommand.Parameters["@_cod_sitio"].Value);
+                vlc_Mensaje = Convert.ToString(vlo_sqlCommand.Parameters["@_msj"].Value);
+                vlo_sqlConexion.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                vlo_sqlConexion.Dispose();
+                vlo_sqlCommand.Dispose();
+            }
+            return vlc_Mensaje;
+        }
+
+        public string Borrar(ClsUbicacionesProfesionales pvo_EntidadUbicacionProf)
+        {
+            MySqlConnection vlo_sqlConexion = new MySqlConnection(vgc_CadenaConexion);
+            MySqlCommand vlo_sqlCommand = new MySqlCommand();
+            string vlc_Mensaje = "";
+            string vlc_Sentencia = string.Empty;
+            vlo_sqlCommand.Connection = vlo_sqlConexion;
+
+            vlc_Sentencia = "SP_EliminarUbicacionProfecional";
+            vlo_sqlCommand.CommandType = CommandType.StoredProcedure;
+            vlo_sqlCommand.Parameters.AddWithValue("@_ID_USUARIO", pvo_EntidadUbicacionProf.ID_Usuario);
+            vlo_sqlCommand.Parameters.AddWithValue("@_ID_UBICACION", pvo_EntidadUbicacionProf.ID_Ubicacion1);
+            vlo_sqlCommand.Parameters.Add("@_msj", MySqlDbType.VarChar, 100);
+            vlo_sqlCommand.Parameters["@_msj"].Direction = ParameterDirection.Output;
+
+            vlo_sqlCommand.CommandText = vlc_Sentencia;
+
+            try
+            {
+                vlo_sqlConexion.Open();
+                vlo_sqlCommand.ExecuteNonQuery();
+                vlc_Mensaje = Convert.ToString(vlo_sqlCommand.Parameters["@_msj"].Value);
+                vlo_sqlConexion.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                vlo_sqlConexion.Dispose();
+                vlo_sqlCommand.Dispose();
+            }
+            return vlc_Mensaje;
+        }
         #endregion
     }
 }

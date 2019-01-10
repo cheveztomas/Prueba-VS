@@ -33,7 +33,7 @@ namespace AccesoDatos
                 conexion.Open();
 
                 //Se instancia el comando con la sentencia.
-                command = new MySqlCommand("SELECT * FROM USUARIOS");
+                command = new MySqlCommand("SELECT ID_USUARIO, NOMBRE_PROFESIONAL, APELLIDO1_PROFESIONAL, APELLIDO2_PROFESIONAL, CORREO_PROFESIONAL, TELEFONO_PROFESIONAL, DESCRIPCION, USUARIO_PREMIUM, CALIFIC_CONTADOR, CALIFIC_SUMA, PERFIL_PROFESIONAL FROM PAGINA_WEB.USUARIOS;");
 
                 //Se establese la conexión.
                 command.Connection = conexion;
@@ -60,7 +60,7 @@ namespace AccesoDatos
             return vlo_ListaUsuarios;
         }
 
-        public int InsertarUsuario(ClsUsuarios pvo_Usuario, ClsUbicaciones pvo_Ubicaciones, ClsOcupaciones pvo_Ocupaciones, ClsOcupacionesProfesionales pvo_OcupacionesProfesionales, ClsWebSites pvo_Sitio)
+        public int InsertarUsuario(ClsUsuarios pvo_Usuario)
         {
             //Variables
             int vln_Correcta = 0;
@@ -77,7 +77,7 @@ namespace AccesoDatos
             try
             {
                 //Se llama el procedimiento almacenado.
-                NombreSP = "call pagina_web.REGISTRAR_Y_ACTUALIZARINFO_USUARIOS(?,?,?,?,?,?,?,?,?,?,?,?,?);";
+                NombreSP = "call pagina_web.SP_REGISTRAR_Y_ACTUALIZAR_USUARIO(?,?,?,?,?,?,?,?,?);";
 
                 //Se abre la conexión
                 Conexion.Open();
@@ -89,7 +89,8 @@ namespace AccesoDatos
                 Command.Connection = Conexion;
 
                 //Parametros necesarios de la aplicación.
-                Command.Parameters.AddWithValue("_ID_USUARIOS", pvo_Usuario.ID_Usuario);
+                Command.Parameters["_ID_USUARIO"].Direction = ParameterDirection.InputOutput;
+                Command.Parameters.AddWithValue("_ID_USUARIO", pvo_Usuario.ID_Usuario);
                 Command.Parameters.AddWithValue("_NOMBRE", pvo_Usuario.Nombre_Profesional);
                 Command.Parameters.AddWithValue("_APELLIDO1", pvo_Usuario.Apellido1_Profesional);
                 Command.Parameters.AddWithValue("_APELLIDO2",pvo_Usuario.Apellido2_Profesional);
@@ -98,11 +99,56 @@ namespace AccesoDatos
                 Command.Parameters.AddWithValue("_DESCIRPCION",pvo_Usuario.Descripcion);
                 Command.Parameters.AddWithValue("_USUARIO_PREMIUM",pvo_Usuario.Usuario_Premium);
                 Command.Parameters.AddWithValue("_ES_PROFESIONAL",pvo_Usuario.Perfil_Profesional);
-                Command.Parameters.AddWithValue("_ID_OCUPACION",pvo_Ocupaciones.ID_Ocupacion);
-                Command.Parameters.AddWithValue("_ID_UBICACION",pvo_Ubicaciones.ID_Ubicacion);
-                Command.Parameters.AddWithValue("_DETALLE_UBICACION",pvo_OcupacionesProfesionales.Detalles);
-                Command.Parameters.AddWithValue("_URL_SITIO",pvo_Sitio.URL_Sitio);
-                Command.Parameters.AddWithValue("_NOMBRE_SITIO",pvo_Sitio.Nombre_Sitio);
+                Command.Parameters.Add("@_msj", MySqlDbType.VarChar, 100);
+                Command.Parameters["@_msj"].Direction = ParameterDirection.Output;
+
+                vln_Correcta = Command.ExecuteNonQuery();
+                pvo_Usuario.ID_Usuario = Convert.ToInt32(Command.Parameters["_ID_USUARIO"].Value);
+                Conexion.Close();
+                Conexion.Dispose();
+                Command.Dispose();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return vln_Correcta;
+        }
+
+        //proceso para eliminar usuario de la base de datos
+        public int EliminarUsuario(int id_usuario)
+        {
+            //Variables
+            int vln_Correcta = 0;
+            string NombreSP = string.Empty;
+            string Msg = string.Empty;
+
+            //Se instancia la conexión.
+            MySqlConnection Conexion = new MySqlConnection();
+            Conexion.ConnectionString = ClsConfiguracion.getConnectionString();
+
+            //Se declara el command
+            MySqlCommand Command;
+
+            //Inicio
+            try
+            {
+                //Se llama el procedimiento almacenado.
+                NombreSP = "call pagina_web.SP_EliminarUsuario(?,?);";
+
+                //Se abre la conexión
+                Conexion.Open();
+
+                //Se termina de instanciar el command con el procedimiento almacenado
+                Command = new MySqlCommand(NombreSP);
+
+                //Se establese la conexión.
+                Command.Connection = Conexion;
+
+                //Parametros necesarios de la aplicación.
+                Command.Parameters.AddWithValue("_id", id_usuario);
+                Command.Parameters.AddWithValue("msj", Msg);
 
                 vln_Correcta = Command.ExecuteNonQuery();
                 Conexion.Close();
@@ -117,5 +163,5 @@ namespace AccesoDatos
             return vln_Correcta;
         }
 
-    }
-}
+    }//class
+}//namespace
