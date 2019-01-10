@@ -2,26 +2,34 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         #contenedor{
-            width: 100px;
+            width: 960px;
+            margin-left: 200px;
         }
+
+        label, select, button{
+            padding: 10px;
+        }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="contenedor">
-        <div class="form-group">
-      <label for="exampleDropdownFormEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+    <div id="contenedor" class="">
+       <div class="form-inline">
+            <label for="sel1">Seleccione: Servicio:</label>
+           <asp:DropDownList ID="ddlProfecion" runat="server" class="form-control"></asp:DropDownList>
+            
+           <label for="sel1">Especialidad:</label>
+           <asp:DropDownList ID="ddlEspecialidad" runat="server" class="form-control"></asp:DropDownList>
+
+           <label for="sel1">Provincia:</label>
+           <asp:DropDownList ID="ddlProvincia" runat="server" class="form-control"></asp:DropDownList>
+           
+           <label for="sel1">Cantón:</label>
+           <asp:DropDownList ID="ddlCanton" runat="server" class="form-control"></asp:DropDownList>
+           
+            <asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-primary" Text="Buscar" />
+    <!--<button type="submit" class="btn btn-primary" id="btnBuscar">Buscar</button>-->
     </div>
-    <div class="form-group">
-      <label for="exampleDropdownFormPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
     </div>
-    <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="dropdownCheck">
-      <label class="form-check-label" for="dropdownCheck">
-        Remember me
-      </label>
-    </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
-    </div>
+    
 </asp:Content>
