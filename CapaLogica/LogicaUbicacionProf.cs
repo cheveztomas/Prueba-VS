@@ -62,6 +62,82 @@ namespace CapaLogica
             }
             return vlo_DSUbicaciones;
         }
+
+        //Guarda una ubicacionProf
+        public string Guardar(ClsUbicacionesProfesionales pvo_EntidadUbicacionProf)
+        {
+            string vlc_Mensaje = "";
+            AccesoDatosUbicacionesProf vlo_AccesoUbicacionProf;
+
+            try
+            {
+                vlo_AccesoUbicacionProf = new AccesoDatosUbicacionesProf();
+                vlc_Mensaje = vlo_AccesoUbicacionProf.Guardar(pvo_EntidadUbicacionProf);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return vlc_Mensaje;
+        }
+
+        //Guarda una ubicacionProf
+        public string Guardar(int ID_Usuario, int ID_Ubicacion, string DETALLES)
+        {
+            string vlc_Mensaje = "";
+            AccesoDatosUbicacionesProf vlo_AccesoUbicacionProf;
+            ClsUbicacionesProfesionales pvo_EntidadUbicacionProf = new ClsUbicacionesProfesionales(ID_Usuario, ID_Ubicacion, DETALLES);
+            try
+            {
+                vlo_AccesoUbicacionProf = new AccesoDatosUbicacionesProf();
+                vlc_Mensaje = vlo_AccesoUbicacionProf.Guardar(pvo_EntidadUbicacionProf);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return vlc_Mensaje;
+        }
+
+        //Borra una UbicacionProf
+        public string Borrar(ClsUbicacionesProfesionales pvo_EntidadUbicacionProf)
+        {
+            string vlc_Mensaje = "";
+            AccesoDatosUbicacionesProf vlo_AccesoDatosUbicacionesProf;
+
+            try
+            {
+                vlo_AccesoDatosUbicacionesProf = new AccesoDatosUbicacionesProf();
+                vlc_Mensaje = vlo_AccesoDatosUbicacionesProf.Borrar(pvo_EntidadUbicacionProf);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return vlc_Mensaje;
+        }
+
+        public string Borrar(int ID_Usuario, int ID_Ubicacion)
+        {
+            string vlc_Mensaje = "";
+            AccesoDatosUbicacionesProf vlo_AccesoDatosUbicacionesProf;
+            ClsUbicacionesProfesionales pvo_EntidadUbicacionProf = new ClsUbicacionesProfesionales(ID_Usuario, ID_Ubicacion, string.Empty);
+
+            try
+            {
+                vlo_AccesoDatosUbicacionesProf = new AccesoDatosUbicacionesProf();
+                vlc_Mensaje = vlo_AccesoDatosUbicacionesProf.Borrar(pvo_EntidadUbicacionProf);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return vlc_Mensaje;
+        }
         #endregion
     }
 }

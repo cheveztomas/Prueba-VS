@@ -65,7 +65,7 @@ namespace CapaLogica
             return vlo_DSWebSites;
         }
 
-
+        //Guarda o actualiza un sitio web
         public string Guardar(ClsWebSites pvo_EntidadWebSite)
         {
             string vlc_Mensaje = "";
@@ -84,6 +84,27 @@ namespace CapaLogica
             return vlc_Mensaje;
         }
 
+        //Guarda o actualiza un sitio web
+        public string Guardar(int Cod_Sitio, int ID_Usuario, string URL_Sitio, string Nombre_Sitio)
+        {
+            string vlc_Mensaje = "";
+            AccesoDatosWebSites vlo_AccesoDatosWebSites;
+            ClsWebSites pvo_EntidadWebSite = new ClsWebSites(Cod_Sitio, ID_Usuario, URL_Sitio, Nombre_Sitio);
+
+            try
+            {
+                vlo_AccesoDatosWebSites = new AccesoDatosWebSites();
+                vlc_Mensaje = vlo_AccesoDatosWebSites.Guardar(pvo_EntidadWebSite);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return vlc_Mensaje;
+        }
+
+        //Borra un sitio web
         public string Borrar(string pvc_Codigo)
         {
             string vlc_Mensaje = "";
