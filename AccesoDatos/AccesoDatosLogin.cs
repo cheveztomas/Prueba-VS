@@ -59,6 +59,7 @@ namespace AccesoDatos
             MySqlConnection ConexionLogin;
             MySqlConnection ConexionOagina;
             MySqlCommand CommandLogin;
+            MySqlCommand CommandPagina;
             MySqlDataReader ReaderLogin;
             string vlc_SentenciaLogin = string.Empty;
             string vlc_SentenciaPagina = string.Empty;
@@ -88,6 +89,19 @@ namespace AccesoDatos
                     try
                     {
                         ConexionOagina = new MySqlConnection();
+                        ConexionOagina.ConnectionString = ClsConfiguracion.getConnectionString();
+                        CommandPagina = new MySqlCommand();
+                        CommandPagina.Connection = ConexionOagina;
+
+                        vlc_SentenciaPagina = "SP_REGISTRAR_Y_ACTUALIZAR_USUARIO";
+                        CommandPagina.Parameters.AddWithValue("",);
+                        CommandPagina.Parameters.AddWithValue("",);
+                        CommandPagina.Parameters.AddWithValue("",);
+                        CommandPagina.Parameters.AddWithValue("",);
+                        CommandPagina.Parameters.AddWithValue("",);
+                        CommandPagina.Parameters.AddWithValue("",);
+                        CommandPagina.Parameters.AddWithValue("",);
+                        ConexionOagina.Open();
                     }
                     catch (Exception)
                     {
