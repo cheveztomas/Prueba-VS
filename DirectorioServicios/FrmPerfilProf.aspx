@@ -1,19 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FrmPerfilProfecional.aspx.cs" Inherits="DirectorioServicios.FrmPerfilProfecional" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/App/paginaMaestra.Master" AutoEventWireup="true" CodeBehind="FrmPerfilProf.aspx.cs" Inherits="DirectorioServicios.FrmPerfilProf" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <div>
             <asp:Label ID="Label1" runat="server" Text="Id Profecional"></asp:Label>
 &nbsp;<asp:TextBox ID="txtIdProf" runat="server"></asp:TextBox>
 &nbsp;
-            <asp:Button ID="btnProfesion" runat="server" OnClick="btnProfesion_Click" Text="Cargar profesiones" />
+            <asp:Button ID="btnProfesion" runat="server" Text="Cargar profesiones" OnClick="btnProfesion_Click" />
             <br />
             <br />
             <asp:GridView ID="grd_Ocupaciones" runat="server" AutoGenerateColumns="False">
@@ -23,6 +18,4 @@
                 </Columns>
             </asp:GridView>
         </div>
-    </form>
-</body>
-</html>
+</asp:Content>

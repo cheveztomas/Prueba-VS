@@ -70,7 +70,7 @@ namespace AccesoDatos
             vlc_Sentencia = "SP_AgregarSitioWeb";
             vlo_sqlCommand.CommandType = CommandType.StoredProcedure;
             vlo_sqlCommand.Parameters.AddWithValue("@_cod_sitio", pvo_EntidadWebSite.Cod_Sitio);
-            //vlo_sqlCommand.Parameters["@_cod_sitio"].Direction = ParameterDirection.InputOutput;
+            vlo_sqlCommand.Parameters["@_cod_sitio"].Direction = ParameterDirection.InputOutput;
             vlo_sqlCommand.Parameters.AddWithValue("@_id", pvo_EntidadWebSite.ID_Usuario);
             vlo_sqlCommand.Parameters.AddWithValue("@_url", pvo_EntidadWebSite.URL_Sitio);
             vlo_sqlCommand.Parameters.AddWithValue("@_nombre", pvo_EntidadWebSite.Nombre_Sitio);
@@ -83,7 +83,7 @@ namespace AccesoDatos
             {
                 vlo_sqlConexion.Open();
                 vlo_sqlCommand.ExecuteNonQuery();
-                //pvo_EntidadWebSite.Cod_Sitio = Convert.ToInt32(vlo_sqlCommand.Parameters["@_cod_sitio"].Value);
+                pvo_EntidadWebSite.Cod_Sitio = Convert.ToInt32(vlo_sqlCommand.Parameters["@_cod_sitio"].Value);
                 vlc_Mensaje = Convert.ToString(vlo_sqlCommand.Parameters["@_msj"].Value);
                 vlo_sqlConexion.Close();
             }

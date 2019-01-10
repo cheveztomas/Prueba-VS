@@ -1,0 +1,28 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/App/paginaMaestra.Master" AutoEventWireup="true" CodeBehind="FrmIniciarSesion.aspx.cs" Inherits="DirectorioServicios.FrmIniciarSesion" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="DivSesion">
+        <form class="px-4 py-3">
+            <div class="form-group" id="txt_Correo">
+                <label for="exampleDropdownFormEmail1">Dirección de correo electrónico</label>
+                <asp:TextBox type="email" class="form-control" placeholder="email@example.com" ID="txt_Correo" runat="server"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label for="exampleDropdownFormPassword1">Contraseña</label>
+                <asp:TextBox type="password" class="form-control" id="txt_Contrasenia" placeholder="Contraseña" runat="server"></asp:TextBox>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                <label class="form-check-label" for="dropdownCheck">
+                    Recuérdame
+                </label>
+            </div>
+            <asp:Button type="submit" class="btn btn-primary" runat="server" ID="btn_IniciarSesion" OnClick="btn_IniciarSesion_Click" Text="Iniciar Sesión" />
+        </form>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="FrmRegistrar.aspx">¿Nuevo por aquí? Registrarse</a>
+        <a class="dropdown-item" href="#">¿Olvidaste la Contraseña?</a>
+    </div>
+</asp:Content>
