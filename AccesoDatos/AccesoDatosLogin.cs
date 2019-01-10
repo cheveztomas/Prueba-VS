@@ -62,6 +62,7 @@ namespace AccesoDatos
             MySqlCommand CommandLogin;
             MySqlCommand CommandPagina;
             MySqlDataReader ReaderLogin;
+            MySqlDataReader ReaderPagina;
             string vlc_SentenciaLogin = string.Empty;
             string vlc_SentenciaPagina = string.Empty;
             //Inicio
@@ -84,6 +85,8 @@ namespace AccesoDatos
                 ConexionLogin.Close();
                 CommandLogin.Dispose();
                 ConexionLogin.Dispose();
+                ReaderLogin.Close();
+                ReaderLogin.Dispose();
 
                 if (ReaderLogin.HasRows)
                 {
@@ -106,6 +109,18 @@ namespace AccesoDatos
                         CommandPagina.Parameters.AddWithValue("_ES_PROFESIONAL",pvo_Usuario.Perfil_Profesional);
                         ConexionOagina.Open();
                         vln_Correcto = CommandPagina.ExecuteNonQuery();
+
+                        vlc_SentenciaLogin = "SELECT ID_USUARIO FROM PAGINA_WEB.USUARIOS ORDER by ID_USUARIO DESC LIMIT 1";
+                        ReaderPagina = CommandPagina.ExecuteReader();
+
+                        ReaderPagina.Read();
+                        vln_ID = ReaderPagina.GetInt32(0);
+                        ConexionOagina.Close();
+                        ReaderPagina.Close();
+                        ConexionOagina.Dispose();
+                        ReaderPagina.Dispose();
+                        CommandPagina.Dispose();
+
 
                     }
                     catch (Exception)
