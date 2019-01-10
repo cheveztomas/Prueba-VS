@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/App/paginaMaestra.Master" AutoEventWireup="true" CodeBehind="FrmIniciarSesion.aspx.cs" Inherits="DirectorioServicios.FrmIniciarSesion" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <div class="">
+    <div class="DivSesion">
         <form class="px-4 py-3">
             <div class="form-group">
                 <label for="exampleDropdownFormEmail1">Email address</label>
