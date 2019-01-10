@@ -117,5 +117,52 @@ namespace AccesoDatos
             return vln_Correcta;
         }
 
-    }
-}
+        //proceso para eliminar usuario de la base de datos
+        public int EliminarUsuario(int id_usuario)
+        {
+            //Variables
+            int vln_Correcta = 0;
+            string NombreSP = string.Empty;
+            string Msg = string.Empty;
+
+            //Se instancia la conexión.
+            MySqlConnection Conexion = new MySqlConnection();
+            Conexion.ConnectionString = ClsConfiguracion.getConnectionString();
+
+            //Se declara el command
+            MySqlCommand Command;
+
+            //Inicio
+            try
+            {
+                //Se llama el procedimiento almacenado.
+                NombreSP = "call pagina_web.SP_EliminarUsuario(?,?);";
+
+                //Se abre la conexión
+                Conexion.Open();
+
+                //Se termina de instanciar el command con el procedimiento almacenado
+                Command = new MySqlCommand(NombreSP);
+
+                //Se establese la conexión.
+                Command.Connection = Conexion;
+
+                //Parametros necesarios de la aplicación.
+                Command.Parameters.AddWithValue("_id", id_usuario);
+                Command.Parameters.AddWithValue("msj", Msg);
+
+                vln_Correcta = Command.ExecuteNonQuery();
+                Conexion.Close();
+                Conexion.Dispose();
+                Command.Dispose();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return vln_Correcta;
+        }
+
+    }//class
+}//namespace
