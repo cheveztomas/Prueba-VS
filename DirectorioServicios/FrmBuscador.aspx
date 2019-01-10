@@ -3,7 +3,7 @@
     <style>
         #contenedor{
             width: 960px;
-            margin-left: 200px;
+            margin: 0 auto;
         }
 
         label, select, button{
@@ -28,7 +28,7 @@
            <asp:DropDownList ID="ddlCanton" runat="server" class="form-control"></asp:DropDownList>
            
             &nbsp;&nbsp;
-           
+           <br />
             <asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-primary" Text="Buscar" />
     <!--<button type="submit" class="btn btn-primary" id="btnBuscar">Buscar</button>-->
     </div>
