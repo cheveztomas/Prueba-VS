@@ -55,6 +55,7 @@ namespace AccesoDatos
         {
             //Variables
             int vln_ID = 0;
+            int vln_Correcto = 0;
             ClsUsuarios vlo_Usuario = new ClsUsuarios();
             MySqlConnection ConexionLogin;
             MySqlConnection ConexionOagina;
@@ -94,14 +95,18 @@ namespace AccesoDatos
                         CommandPagina.Connection = ConexionOagina;
 
                         vlc_SentenciaPagina = "SP_REGISTRAR_Y_ACTUALIZAR_USUARIO";
-                        CommandPagina.Parameters.AddWithValue("",);
-                        CommandPagina.Parameters.AddWithValue("",);
-                        CommandPagina.Parameters.AddWithValue("",);
-                        CommandPagina.Parameters.AddWithValue("",);
-                        CommandPagina.Parameters.AddWithValue("",);
-                        CommandPagina.Parameters.AddWithValue("",);
-                        CommandPagina.Parameters.AddWithValue("",);
+                        CommandPagina.Parameters.AddWithValue("_ID_USUARIO",pvo_Usuario.ID_Usuario);
+                        CommandPagina.Parameters.AddWithValue("_NOMBRE",pvo_Usuario.Nombre_Profesional);
+                        CommandPagina.Parameters.AddWithValue("_APELLIDO1",pvo_Usuario.Apellido1_Profesional);
+                        CommandPagina.Parameters.AddWithValue("_APELLIDO2",pvo_Usuario.Apellido2_Profesional);
+                        CommandPagina.Parameters.AddWithValue("_CORREO",pvo_Usuario.Correo);
+                        CommandPagina.Parameters.AddWithValue("_TELEFONO",pvo_Usuario.Telefono_Profesional);
+                        CommandPagina.Parameters.AddWithValue("_DESCRIPCION",pvo_Usuario.Descripcion);
+                        CommandPagina.Parameters.AddWithValue("_USUARIO_PREMIUM",pvo_Usuario.Usuario_Premium);
+                        CommandPagina.Parameters.AddWithValue("_ES_PROFESIONAL",pvo_Usuario.Perfil_Profesional);
                         ConexionOagina.Open();
+                        vln_Correcto = CommandPagina.ExecuteNonQuery();
+
                     }
                     catch (Exception)
                     {
