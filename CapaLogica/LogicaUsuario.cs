@@ -26,8 +26,8 @@ namespace CapaLogica
             return lista;
         }
 
-
-        public int IngresarUsuario(ClsUsuarios pvo_Usuario, ClsUbicaciones pvo_Ubicaciones, ClsOcupaciones pvo_Ocupaciones, ClsOcupacionesProfesionales pvo_OcupacionesProfesionales, ClsWebSites pvo_Sitio)
+        //Guarda o Actualiza un usuario
+        public int IngresarUsuario(ClsUsuarios pvo_Usuario)
         {
             //Variables
             int vln_Correcto = 0;
@@ -37,7 +37,7 @@ namespace CapaLogica
 
             try
             {
-                vln_Correcto = vlo_ADUsuario.InsertarUsuario(pvo_Usuario, pvo_Ubicaciones, pvo_Ocupaciones, pvo_OcupacionesProfesionales, pvo_Sitio);
+                vln_Correcto = vlo_ADUsuario.InsertarUsuario(pvo_Usuario);
             }
             catch (Exception)
             {
@@ -48,6 +48,29 @@ namespace CapaLogica
             return vln_Correcto;
         }
 
+        //Guarda o Actualiza un usuario
+        public int IngresarUsuario(int vgn_ID_Usuario, string vgc_Nombre_Profesional, string vgc_Apellido1_Profesional, string vgc_Apellido2_Profesional, string vgc_correo, string vgc_Telefono_Profesional, string vgc_Descripcion, bool vgb_Usuario_Premium, int vgn_Calif_Contador, int vgn_Calif_Suma, bool vgb_Perfil_Profesional)
+        {
+            //Variables
+            int vln_Correcto = 0;
+            ClsUsuarios pvo_Usuario = new ClsUsuarios(vgn_ID_Usuario, vgc_Nombre_Profesional, vgc_Apellido1_Profesional, vgc_Apellido2_Profesional, vgc_correo, vgc_Telefono_Profesional, vgc_Descripcion, vgb_Usuario_Premium, vgn_Calif_Contador, vgn_Calif_Suma, vgb_Perfil_Profesional);
+            //Inicio
+            AccesoDatosUsuario vlo_ADUsuario = new AccesoDatosUsuario();
+
+            try
+            {
+                vln_Correcto = vlo_ADUsuario.InsertarUsuario(pvo_Usuario);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return vln_Correcto;
+        }
+
+        //Elimina un usuario
         public int EliminarUsuario(int id_usuario)
         {
             //Variables

@@ -60,5 +60,24 @@ namespace CapaLogica
         }
 
 
+
+        public DataTable Lg_listaOcupaciones(int id)
+        {
+            try
+            {
+                //DataTable list_Ocupaciones = new DataTable();
+
+                AccesoDatosOcupaciones funciones = new AccesoDatosOcupaciones();
+                DataTable list_Ocupaciones = funciones.listaOcupaciones(id);
+                return list_Ocupaciones;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
+        }
+
     }//class
 }//namespace

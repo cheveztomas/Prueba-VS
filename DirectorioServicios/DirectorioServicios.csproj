@@ -92,8 +92,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="FrmBuscador.aspx" />
+    <Content Include="FrmPerfilProfecional.aspx" />
     <Content Include="FrmRegistroDeUsuarios.aspx" />
-    <Content Include="ocupaciones.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -159,19 +159,19 @@
     <Compile Include="FrmBuscador.aspx.designer.cs">
       <DependentUpon>FrmBuscador.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FrmPerfilProfecional.aspx.cs">
+      <DependentUpon>FrmPerfilProfecional.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmPerfilProfecional.aspx.designer.cs">
+      <DependentUpon>FrmPerfilProfecional.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FrmRegistroDeUsuarios.aspx.cs">
       <DependentUpon>FrmRegistroDeUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="FrmRegistroDeUsuarios.aspx.designer.cs">
       <DependentUpon>FrmRegistroDeUsuarios.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ocupaciones.aspx.cs">
-      <DependentUpon>ocupaciones.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ocupaciones.aspx.designer.cs">
-      <DependentUpon>ocupaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Index.aspx.cs">

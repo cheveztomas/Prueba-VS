@@ -104,8 +104,52 @@ namespace AccesoDatos
                 //Se instancia el comando con la sentencia.
                 command = new MySqlCommand("SELECT OCUPACIONES_PROFESIONALES.ID_OCUPACION,NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION FROM OCUPACIONES INNER JOIN OCUPACIONES_PROFESIONALES ON OCUPACIONES.ID_OCUPACION=OCUPACIONES_PROFESIONALES.ID_OCUPACION WHERE OCUPACIONES_PROFESIONALES.ID_USUARIO=" + id_usuario);
 
+<<<<<<< HEAD
                 //Se establese la conexión.
                 command.Connection = conexion;
+=======
+        //obtener lista de ocupaciones de un profecional 
+
+
+        public DataTable listaOcupaciones(int id) {
+
+            DataTable list_Ocupaciones = new DataTable();
+            //Se establece el objeto conexión
+            MySqlConnection conexion = new MySqlConnection();
+            //Captura la cadena de conexión
+            conexion.ConnectionString = ClsConfiguracion.getConnectionString();
+            MySqlDataAdapter dataAdapter;
+
+            try
+            {
+                MySqlCommand sentencia = new MySqlCommand("select ocupaciones.ID_OCUPACION, concat(ocupaciones.NOMBRE_OCUPACION,' ',ocupaciones.ESPACIALIDAD_OCUPACION) as PROFESION from ocupaciones inner join ocupaciones_profesionales on ocupaciones.ID_OCUPACION = ocupaciones_profesionales.ID_OCUPACION where ocupaciones_profesionales.ID_USUARIO = "+id+";");
+                conexion.Open();
+                sentencia.Connection = conexion;
+
+                dataAdapter = new MySqlDataAdapter(sentencia);
+
+                //se guarda el resultado de la sentencia en la tabla list_Ocupaciones
+                dataAdapter.Fill(list_Ocupaciones);
+
+                //cerrar conexión
+                conexion.Close();
+                dataAdapter.Dispose();
+                sentencia.Dispose();
+                conexion.Dispose();
+
+                //Retorna la lista de ocupaciones 
+                return list_Ocupaciones;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+
+>>>>>>> 8029e1201d9dfaaa09720cba7dc4a42d23dc7acf
 
                 //Se instancia el data adpter con el comando.
                 vlo_DA = new MySqlDataAdapter(command);
