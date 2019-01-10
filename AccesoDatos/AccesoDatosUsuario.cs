@@ -162,6 +162,7 @@ namespace AccesoDatos
             }
             return vln_Correcta;
         }
+
         //funcion para obtener datos de la tabla usuario
         public DataTable ObtenerDatosDeUsuario(int id_usuario)
         {

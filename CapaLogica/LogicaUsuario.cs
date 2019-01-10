@@ -91,6 +91,7 @@ namespace CapaLogica
             return vln_Correcto;
         }
 
+
         public DataTable ObtenerDatosDeUsuario(int id_usuario)
         {
             AccesoDatosUsuario accesoDatosUsuario = new AccesoDatosUsuario();
@@ -107,6 +108,8 @@ namespace CapaLogica
 
             return DatosUsuario;
         }
+
+
 
     }//class
 }//namespace

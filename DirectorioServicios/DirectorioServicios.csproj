@@ -92,6 +92,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="FrmBuscador.aspx" />
+    <Content Include="FrmPerfilProf.aspx" />
     <Content Include="FrmPerfilProfecional.aspx" />
     <Content Include="FrmRegistroDeUsuarios.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -158,6 +159,13 @@
     </Compile>
     <Compile Include="FrmBuscador.aspx.designer.cs">
       <DependentUpon>FrmBuscador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPerfilProf.aspx.cs">
+      <DependentUpon>FrmPerfilProf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmPerfilProf.aspx.designer.cs">
+      <DependentUpon>FrmPerfilProf.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmPerfilProfecional.aspx.cs">
       <DependentUpon>FrmPerfilProfecional.aspx</DependentUpon>
