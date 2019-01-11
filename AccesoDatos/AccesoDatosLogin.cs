@@ -2,6 +2,7 @@
 using EntidadesDirectorio;
 using MySql.Data.MySqlClient;
 using System;
+using System.Data;
 
 namespace AccesoDatos
 {
@@ -71,7 +72,9 @@ namespace AccesoDatos
                 };
                 string vlc_SentenciaPagina = string.Empty;
 
-                vlc_SentenciaPagina = "SP_REGISTRAR_Y_ACTUALIZAR_USUARIO";
+                vlc_SentenciaPagina = "call PAGINA_WEB.SP_REGISTRAR_Y_ACTUALIZAR_USUARIO(?,?,?,?,?,?,?,?,?,?);";
+
+                CommandPagina.Parameters["_ID_USUARIO"].Direction = ParameterDirection.InputOutput;
                 CommandPagina.Parameters.AddWithValue("_ID_USUARIO", pvo_Usuario.ID_Usuario);
                 CommandPagina.Parameters.AddWithValue("_NOMBRE", pvo_Usuario.Nombre_Profesional);
                 CommandPagina.Parameters.AddWithValue("_APELLIDO1", pvo_Usuario.Apellido1_Profesional);
@@ -81,19 +84,26 @@ namespace AccesoDatos
                 CommandPagina.Parameters.AddWithValue("_DESCRIPCION", pvo_Usuario.Descripcion);
                 CommandPagina.Parameters.AddWithValue("_USUARIO_PREMIUM", pvo_Usuario.Usuario_Premium);
                 CommandPagina.Parameters.AddWithValue("_ES_PROFESIONAL", pvo_Usuario.Perfil_Profesional);
+                CommandPagina.Parameters.Add("@_MSJ", MySqlDbType.VarChar, 100);
+                CommandPagina.Parameters["@_MSJ"].Direction = ParameterDirection.Output;
+                CommandPagina.CommandType = CommandType.StoredProcedure;
+                CommandPagina.CommandText = vlc_SentenciaPagina;
+
+
                 ConexionOagina.Open();
                 vln_Correcto = CommandPagina.ExecuteNonQuery();
+                vln_IDUsuario= Convert.ToInt32(CommandPagina.Parameters["_ID_USUARIO"].Value);
+                //if (vln_Correcto>0)
+                //{
+                //    vlc_SentenciaPagina = "SELECT ID_USUARIO FROM PAGINA_WEB.USUARIOS ORDER by ID_USUARIO DESC LIMIT 1";
+                //    CommandPagina.CommandText = vlc_SentenciaPagina;
+                //    ReaderPagina = CommandPagina.ExecuteReader();
 
-                if (vln_Correcto>0)
-                {
-                    vlc_SentenciaPagina = "SELECT ID_USUARIO FROM PAGINA_WEB.USUARIOS ORDER by ID_USUARIO DESC LIMIT 1";
-                    ReaderPagina = CommandPagina.ExecuteReader();
-
-                    ReaderPagina.Read();
-                    vln_IDUsuario = ReaderPagina.GetInt32(0);
-                    ReaderPagina.Close();
-                    ReaderPagina.Dispose();
-                }
+                //    ReaderPagina.Read();
+                //    vln_IDUsuario = ReaderPagina.GetInt32(0);
+                //    ReaderPagina.Close();
+                //    ReaderPagina.Dispose();
+                //}
 
 
                 ConexionOagina.Close();

@@ -48,5 +48,18 @@ namespace DirectorioServicios
                 throw;
             }
         }
+
+        protected void btn_Registrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Registro();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
