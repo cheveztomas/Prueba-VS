@@ -2,12 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         #contenedor{
-            width: 80%;
+            width: 85%;
             margin: 0 auto;
         }
 
         label, select, button{
-            padding: 5px;
+            padding-right: 5px;
+            padding-left: 2px;
         }
 
     </style>
@@ -27,10 +28,8 @@
            
            <label for="sel1">Cantón:</label>
            <asp:DropDownList ID="ddlCanton" runat="server" class="form-control"></asp:DropDownList>
-           
-            &nbsp;&nbsp;
            <br />
-            <asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-primary" Text="Buscar" />
+            &nbsp;<asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-primary" Text="Buscar" />
     <!--<button type="submit" class="btn btn-primary" id="btnBuscar">Buscar</button>-->
     </div>
     </div>
