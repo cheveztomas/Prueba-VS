@@ -40,7 +40,7 @@
                 <asp:TextBox ID="Txt_Descipcion" runat="server" class="form-control" TextMode="MultiLine"></asp:TextBox>
             </div>
 
-            <asp:Button ID="btn_Registrar" runat="server" class="btn btn-primary" Text="Registrarse" />
+            <asp:Button ID="btn_Registrar" runat="server" class="btn btn-primary" Text="Registrarse" OnClick="btn_Registrar_Click" />
         </form>
         <div class="dropdown-divider"></div>
     </div>

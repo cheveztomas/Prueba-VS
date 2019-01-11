@@ -37,7 +37,7 @@
                         <a class="nav-link" href="../FrmBuscador.aspx">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../FrmRegistroDeUsuarios.aspx">Publicar Servicios</a>
+                        <a class="nav-link" href="../FrmIniciarSesion.aspx">Publicar Servicios</a>
                     </li>
                 </ul>
             </div>

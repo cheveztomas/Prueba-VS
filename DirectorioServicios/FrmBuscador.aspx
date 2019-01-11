@@ -31,7 +31,7 @@
            <br />
             &nbsp;<asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-primary" Text="Buscar" />
     <!--<button type="submit" class="btn btn-primary" id="btnBuscar">Buscar</button>-->
-    </div>
+        </div>
     </div>
     
 </asp:Content>
