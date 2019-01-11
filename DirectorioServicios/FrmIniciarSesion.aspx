@@ -8,11 +8,13 @@
         <form class="px-4 py-3">
             <div class="form-group" id="txt_Correo">
                 <label for="exampleDropdownFormEmail1">Dirección de correo electrónico</label>
-                <asp:TextBox type="email" class="form-control" placeholder="email@example.com" ID="txt_Correo" runat="server"></asp:TextBox>
+                <asp:TextBox type="email" class="form-control" placeholder="email@example.com" ID="txt_Correo" runat="server" MaxLength="30" ValidationGroup="IniciarSesion"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_Correo" ErrorMessage="* Correo requerido." ForeColor="Red" ValidationGroup="IniciarSesion"></asp:RequiredFieldValidator>
             </div>
             <div class="form-group">
                 <label for="exampleDropdownFormPassword1">Contraseña</label>
-                <asp:TextBox type="password" class="form-control" id="txt_Contrasenia" placeholder="Contraseña" runat="server"></asp:TextBox>
+                <asp:TextBox type="password" class="form-control" id="txt_Contrasenia" placeholder="Contraseña" runat="server" MaxLength="16" ValidationGroup="IniciarSesion"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txt_Contrasenia" ErrorMessage="*Contraseña requerida." ForeColor="Red" ValidationGroup="IniciarSesion"></asp:RequiredFieldValidator>
             </div>
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="dropdownCheck">
@@ -20,7 +22,7 @@
                     Recuérdame
                 </label>
             </div>
-            <asp:Button type="submit" class="btn btn-primary" runat="server" ID="btn_IniciarSesion" OnClick="btn_IniciarSesion_Click" Text="Iniciar Sesión" />
+            <asp:Button type="submit" class="btn btn-primary" runat="server" ID="btn_IniciarSesion" OnClick="btn_IniciarSesion_Click" Text="Iniciar Sesión" ValidationGroup="IniciarSesion" />
         </form>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="FrmRegistrar.aspx">¿Nuevo por aquí? Registrarse</a>

@@ -29,12 +29,12 @@
             <div class="form-group">
                 <label for="exampleDropdownFormEmail1">Nombre</label>
                 <asp:TextBox ID="txt_Nombre" runat="server" class="form-control" MaxLength="20" ValidationGroup="Registrar"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Nombre requerido." ForeColor="Red" ValidationGroup="Registrar"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Nombre requerido." ForeColor="Red" ValidationGroup="Registrar" ControlToValidate="txt_Nombre"></asp:RequiredFieldValidator>
             </div>
             <div class="form-group">
                 <label for="exampleDropdownFormEmail1">Primer Apellido</label>
                 <asp:TextBox ID="Txt_Apellido1" runat="server" class="form-control" MaxLength="20" ValidationGroup="Registrar"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" ForeColor="Red" ValidationGroup="Registrar"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*Primer Apellido Requerido" ForeColor="Red" ValidationGroup="Registrar" ControlToValidate="Txt_Apellido1"></asp:RequiredFieldValidator>
             </div>
             <div class="form-group">
                 <label for="exampleDropdownFormEmail1">Segundo Apellido</label>
@@ -43,7 +43,7 @@
             <div class="form-group">
                 <label for="exampleDropdownFormEmail1" id="df">Teléfono</label>
                 <asp:TextBox ID="Txt_Telefono" runat="server" class="form-control" MaxLength="8" ValidationGroup="Registrar"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*" ForeColor="Red" ValidationGroup="Registrar"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="* Teléfono requerido." ForeColor="Red" ValidationGroup="Registrar" ControlToValidate="Txt_Telefono"></asp:RequiredFieldValidator>
             </div>
             <div class="form-group">
                 <label for="exampleDropdownFormEmail1">Descripción</label>
