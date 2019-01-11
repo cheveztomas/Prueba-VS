@@ -49,6 +49,8 @@
                     <asp:BoundField DataField="URL_SITIO" HeaderText="Url" />
                 </Columns>
             </asp:GridView>
+            <asp:Button ID="Button1" runat="server" class="btn btn-danger" Text="Button" />
+
             <br />
 &nbsp;</div>
 </asp:Content>

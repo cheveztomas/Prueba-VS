@@ -1,7 +1,8 @@
 ﻿using CapaLogica;
 using System;
 using System.Web.UI;
-
+using System.Text;
+using System.Web.UI.HtmlControls;
 namespace DirectorioServicios
 {
     public partial class FrmIniciarSesion : System.Web.UI.Page
