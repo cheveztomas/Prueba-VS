@@ -16,3 +16,8 @@
 	display: none;
 	color: red;
 }
+
+#btn_InSec{
+	width: 50%;
+	margin-left:25%;
+}

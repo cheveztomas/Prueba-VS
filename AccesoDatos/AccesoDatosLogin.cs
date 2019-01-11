@@ -56,7 +56,6 @@ namespace AccesoDatos
         {
             int vln_IDUsuario = 0;
             MySqlConnection ConexionOagina;
-            MySqlDataReader ReaderPagina;
             MySqlCommand CommandPagina;
             int vln_Correcto = 0;
 
@@ -165,6 +164,7 @@ namespace AccesoDatos
             //Variables
             int vln_ID = 0;
             int vln_Correcto = 0;
+            int Filas = 0;
             MySqlConnection ConexionLogin;
             MySqlCommand CommandLogin;
             MySqlDataReader ReaderLogin;
@@ -186,10 +186,15 @@ namespace AccesoDatos
 
                 ConexionLogin.Open();
                 ReaderLogin = CommandLogin.ExecuteReader();
-                ConexionLogin.Close();
+                ReaderLogin.Read();
+                if (ReaderLogin.HasRows)
+                {
+                    Filas = ReaderLogin.GetInt32(2);
+                    ConexionLogin.Close();
+                }
                 CommandLogin.Dispose();
                 ConexionLogin.Dispose();
-                if (!ReaderLogin.HasRows)
+                if (Filas==0)
                 {
                     try
                     {

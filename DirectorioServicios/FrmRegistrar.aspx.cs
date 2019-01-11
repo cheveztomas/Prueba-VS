@@ -11,6 +11,7 @@ namespace DirectorioServicios
 {
     public partial class FrmRegistrar : System.Web.UI.Page
     {
+        string vgc_Script = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -41,6 +42,23 @@ namespace DirectorioServicios
                 Contrasenia = txt_Conrteasenia.Text;
 
                 vln_ID=LogicaLog.RegistrarUsuario(Contrasenia, Usuario);
+
+                if (vln_ID == -2)
+                {
+                    vgc_Script = string.Format("javascript:MostrarMensaje('Correo ya se encuantra registrado. Inicie sesión.');");
+
+                    ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
+
+                }
+                else
+                {
+                    if (vln_ID>0)
+                    {
+                        vgc_Script = string.Format("javascript:MostrarMensaje('Registro realizado de forma correcta. Inicie sesión.');");
+
+                        ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
+                    }
+                }
             }
             catch (Exception)
             {
@@ -55,11 +73,19 @@ namespace DirectorioServicios
             {
                 Registro();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al tratar de registrarse intente más tarde.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
+
+        }
+
+        protected void btn_InSec_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmIniciarSesion.aspx");
         }
     }
 }

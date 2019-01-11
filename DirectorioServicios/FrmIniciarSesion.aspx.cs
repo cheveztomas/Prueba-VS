@@ -7,6 +7,7 @@ namespace DirectorioServicios
 {
     public partial class FrmIniciarSesion : System.Web.UI.Page
     {
+        string vgc_Script = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -41,6 +42,12 @@ namespace DirectorioServicios
                     Session["ID_USUARIO_SESION"] = vln_IDUsuario;
                     Response.Redirect("#");
                 }
+                else
+                {
+                    vgc_Script = string.Format("javascript:MostrarMensaje('Usuario o contraseña incorrectos.');");
+
+                    ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
+                }
             }
             catch (Exception)
             {
@@ -58,7 +65,9 @@ namespace DirectorioServicios
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al iniciar sesión intente más tarde');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
         }
     }
