@@ -40,17 +40,9 @@
                 <asp:TextBox ID="Txt_Descipcion" runat="server" class="form-control" TextMode="MultiLine"></asp:TextBox>
             </div>
 
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                <label class="form-check-label" for="dropdownCheck">
-                    Remember me
-                </label>
-            </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <asp:Button ID="btn_Registrar" runat="server" class="btn btn-primary" Text="Registrarse" />
         </form>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">New around here? Sign up</a>
-        <a class="dropdown-item" href="#">Forgot password?</a>
     </div>
     <br />
     <br />
