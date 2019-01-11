@@ -94,6 +94,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="FrmBuscador.aspx" />
+    <Content Include="FrmConfirmarEnvioPassword.aspx" />
     <Content Include="FrmIniciarSesion.aspx" />
     <Content Include="FrmPerfilProf.aspx" />
     <Content Include="FrmRecuperarPassword.aspx" />
@@ -163,6 +164,13 @@
     </Compile>
     <Compile Include="FrmBuscador.aspx.designer.cs">
       <DependentUpon>FrmBuscador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConfirmarEnvioPassword.aspx.cs">
+      <DependentUpon>FrmConfirmarEnvioPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmConfirmarEnvioPassword.aspx.designer.cs">
+      <DependentUpon>FrmConfirmarEnvioPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmIniciarSesion.aspx.cs">
       <DependentUpon>FrmIniciarSesion.aspx</DependentUpon>
