@@ -96,6 +96,7 @@
     <Content Include="FrmBuscador.aspx" />
     <Content Include="FrmIniciarSesion.aspx" />
     <Content Include="FrmPerfilProf.aspx" />
+    <Content Include="FrmRecuperarPassword.aspx" />
     <Content Include="FrmRegistrar.aspx" />
     <Content Include="FrmRegistroDeUsuarios.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -176,6 +177,13 @@
     </Compile>
     <Compile Include="FrmPerfilProf.aspx.designer.cs">
       <DependentUpon>FrmPerfilProf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRecuperarPassword.aspx.cs">
+      <DependentUpon>FrmRecuperarPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmRecuperarPassword.aspx.designer.cs">
+      <DependentUpon>FrmRecuperarPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmRegistrar.aspx.cs">
       <DependentUpon>FrmRegistrar.aspx</DependentUpon>
