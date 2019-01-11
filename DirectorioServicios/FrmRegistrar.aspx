@@ -51,6 +51,7 @@
             </div>
 
             <asp:Button ID="btn_Registrar" runat="server" class="btn btn-primary" Text="Registrarse" OnClick="btn_Registrar_Click" ValidationGroup="Registrar" />
+            <a class="dropdown-item" href="FrmIniciarSesion.aspx">¿Ya estás registrado? Inicie Sesión aquí</a>
         </form>
         <div class="dropdown-divider"></div>
     </div>
