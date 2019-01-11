@@ -166,5 +166,23 @@ namespace CapaLogica
             return vlc_Mensaje;
         }
 
+
+        //procedimiento que retorna los profecionales segun la busqueda
+        public DataTable obtenerProfecionales(string pvc_profecion, string pvc_especialidad, string pvc_provincia, string pvc_canton)
+        {
+            try
+            {
+                AccesoDatosUsuario funciones = new AccesoDatosUsuario();
+                DataTable lista = funciones.obtenerProfecionales(pvc_profecion, pvc_especialidad, pvc_provincia, pvc_canton);
+                return lista;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
     }//class
 }//namespace

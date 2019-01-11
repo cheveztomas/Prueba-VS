@@ -60,6 +60,50 @@ namespace AccesoDatos
             return vlo_ListaUsuarios;
         }
 
+
+        public DataTable obtenerProfecionales(string pvc_profecion, string pvc_especialidad, string pvc_provincia, string pvc_canton)
+        {
+            DataTable vlo_profecionales = new DataTable();
+            //se crea el objeto conection y se establece la conexion 
+            MySqlConnection conection = new MySqlConnection();
+            conection.ConnectionString = ClsConfiguracion.getConnectionString();
+            MySqlDataAdapter dataAdapter;
+            try
+            {
+                //se solicitan los nombres de la base de datos 
+                MySqlCommand sentencia = new MySqlCommand("	SELECT  USUARIOS.ID_USUARIO,USUARIOS.NOMBRE_PROFESIONAL, USUARIOS.APELLIDO1_PROFESIONAL,USUARIOS.APELLIDO2_PROFESIONAL,USUARIOS.TELEFONO_PROFESIONAL,OCUPACIONES.NOMBRE_OCUPACION,OCUPACIONES.ESPACIALIDAD_OCUPACION,UBICACIONES.PROVINCIA,UBICACIONES.CANTON,USUARIOS.CALIFIC_SUMA FROM USUARIOS LEFT OUTER JOIN OCUPACIONES_PROFESIONALES on USUARIOS.ID_USUARIO = OCUPACIONES_PROFESIONALES.ID_USUARIO LEFT OUTER JOIN OCUPACIONES on OCUPACIONES.ID_OCUPACION = OCUPACIONES_PROFESIONALES.ID_OCUPACION LEFT OUTER JOIN UBICACIONES_PROFESIONALES on USUARIOS.ID_USUARIO = UBICACIONES_PROFESIONALES.ID_USUARIO LEFT OUTER JOIN UBICACIONES on UBICACIONES.ID_UBICACION = UBICACIONES_PROFESIONALES.ID_UBICACION WHERE UBICACIONES.PROVINCIA = \"" + pvc_provincia + "\" and UBICACIONES.CANTON = \"" + pvc_canton + "\" and OCUPACIONES.NOMBRE_OCUPACION = \"" + pvc_profecion + "\" and OCUPACIONES.ESPACIALIDAD_OCUPACION = \"" + pvc_especialidad + "\"");
+
+
+
+
+
+
+
+
+
+                conection.Open();
+                sentencia.Connection = conection;
+                //se llena la tabla local con los datos obtenidos
+                dataAdapter = new MySqlDataAdapter(sentencia);
+
+                dataAdapter.Fill(vlo_profecionales);
+                //se cierra la coneccion y sew destrullen los objetos 
+                conection.Close();
+                dataAdapter.Dispose();
+                sentencia.Dispose();
+                conection.Dispose();
+                //se retornan las provincias 
+                return vlo_profecionales;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }//obtenerProfecionales
+
+
+
         public int InsertarUsuario(ClsUsuarios pvo_Usuario)
         {
             //Variables

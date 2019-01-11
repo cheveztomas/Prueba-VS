@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using CapaLogica;
+using System.Data;
 
 namespace DirectorioServicios
 {
@@ -81,6 +82,23 @@ namespace DirectorioServicios
 
         }
         #endregion
+
+        public void cargar_profecionales()
+        {
+            LogicaUsuario funciones = new LogicaUsuario();
+            DataTable vlo_profecionales = funciones.obtenerProfecionales(ddlProfecion.Text, ddlEspecialidad.Text, ddlProvincia.Text, ddlCanton.Text);
+            //grd_usuarios.DataSource = funciones.obtenerProfecionales(ddlProfecion.Text,ddlEspecialidad.Text,ddlProvincia.Text,ddlCanton.Text);
+            //DataBind();
+            //para crear codigo html
+            foreach (DataRow item in vlo_profecionales.Rows)
+            {
+                string codigo = "";
+                //codigo += "<b>"+ item["NOMBRE_PROFESIONAL"].ToString()+"</b>  <br>";
+                codigo += "<br> <button id='button1' runat='server' OnClick='prueba' >Submit</button>";
+                //div_test.InnerHtml = codigo;
+
+            }
+        }
 
         protected void ddlProfecion_SelectedIndexChanged(object sender, EventArgs e)
         {
