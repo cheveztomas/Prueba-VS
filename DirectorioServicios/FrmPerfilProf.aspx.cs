@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using EntidadesDirectorio;
 
 namespace DirectorioServicios
 {
@@ -37,6 +38,14 @@ namespace DirectorioServicios
                     grd_websites.DataSource = lista_WebSites.ListarWebSites(int.Parse(txtIdProf.Text));
                     grd_websites.DataBind();
 
+
+                    LogicaUsuario user = new LogicaUsuario();
+                    ClsUsuarios usuarioObtenido;
+                    usuarioObtenido = user.ObtenerDatosDeUsuario(int.Parse(txtIdProf.Text));
+                    lblUser.Text = usuarioObtenido.Nombre_Profesional + ' ' + usuarioObtenido.Apellido1_Profesional + ' ' + usuarioObtenido.Apellido2_Profesional;
+                    lblCorreo.Text = usuarioObtenido.Correo;
+                    lblTelefono.Text = usuarioObtenido.Telefono_Profesional;
+                    lblDescripcion.Text = usuarioObtenido.Descripcion;
 
 
 
