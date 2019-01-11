@@ -1,8 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/App/paginaMaestra.Master" AutoEventWireup="true" CodeBehind="FrmBuscador.aspx.cs" Inherits="DirectorioServicios.FrmBuscador" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        #contenedor{
+        #contenedor, #lista{
             width: 85%;
+            margin: 0 auto;
+        }
+
+        .col-sm-6{
             margin: 0 auto;
         }
 
@@ -14,7 +18,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="contenedor" class="">
+    <div id="contenedor" class="DivSesion">
         <h2>Seleccione</h2>
        <div class="form-inline">
             <label for="sel1">Servicio:</label>
@@ -33,5 +37,70 @@
     <!--<button type="submit" class="btn btn-primary" id="btnBuscar">Buscar</button>-->
         </div>
     </div>
-    
+
+    <br />
+    <br />
+    <br />
+    <hr />
+    <br />
+    <br />
+    <div id="lista">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Juan Castro</h3>
+                        <h5 class="card-title">Jardinero</h5>
+                        <h5 class="card-title">70113556</h5>
+                        <p class="card-text">juan.castro@outlook.com</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Juan Castro</h3>
+                        <h5 class="card-title">Jardinero</h5>
+                        <h5 class="card-title">70113556</h5>
+                        <p class="card-text">juan.castro@outlook.com</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Juan Castro</h3>
+                        <h5 class="card-title">Jardinero</h5>
+                        <h5 class="card-title">70113556</h5>
+                        <p class="card-text">juan.castro@outlook.com</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Juan Castro</h3>
+                        <h5 class="card-title">Jardinero</h5>
+                        <h5 class="card-title">70113556</h5>
+                        <p class="card-text">juan.castro@outlook.com</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
 </asp:Content>
