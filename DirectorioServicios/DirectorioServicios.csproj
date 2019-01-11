@@ -81,6 +81,7 @@
     <Content Include="App\css\bootstrap-reboot.min.css" />
     <Content Include="App\css\bootstrap.css" />
     <Content Include="App\css\bootstrap.min.css" />
+    <Content Include="App\css\JavaScript.js" />
     <Content Include="App\css\Style.css" />
     <Content Include="App\js\bootstrap.bundle.js" />
     <Content Include="App\js\bootstrap.bundle.min.js" />

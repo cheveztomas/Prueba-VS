@@ -16,7 +16,9 @@
             </div>
             <div class="form-group">
                 <label for="exampleDropdownFormPassword1">Confirmar Contraseña</label>
-                <asp:TextBox class="form-control" id="txt_ConrteaseniaConfir" placeholder="Password" runat="server" TextMode="Password"></asp:TextBox>
+                <asp:TextBox class="form-control" id="txt_ConrteaseniaConfir" placeholder="Password" runat="server" TextMode="Password" onblur="ValidarPassword()"></asp:TextBox>
+                <br />
+                <label id="MensajeCon"></label>
             </div>
 
 
