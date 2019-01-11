@@ -17,5 +17,23 @@
                     <asp:BoundField DataField="PROFESION" HeaderText="Profesión" />
                 </Columns>
             </asp:GridView>
-        </div>
+            <br />
+            <asp:GridView ID="grd_Ubicacion" runat="server" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField DataField="ID_UBICACION" HeaderText="Código de Ubicación" />
+                    <asp:BoundField DataField="PROVINCIA" HeaderText="Provincia" />
+                    <asp:BoundField DataField="CANTON" HeaderText="Cantón" />
+                    <asp:BoundField DataField="DETALLES" HeaderText="Detalle" />
+                </Columns>
+            </asp:GridView>
+            <br />
+            <asp:GridView  ID="grd_websites" runat="server" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField DataField="COD_SITIO" HeaderText="Código sitio" />
+                    <asp:BoundField DataField="NOMBRE_SITIO" HeaderText="Sitio" />
+                    <asp:BoundField DataField="URL_SITIO" HeaderText="Url" />
+                </Columns>
+            </asp:GridView>
+            <br />
+&nbsp;</div>
 </asp:Content>
