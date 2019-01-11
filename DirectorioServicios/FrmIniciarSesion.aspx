@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="DivSesion">
+        <h2>Inicie Sesión</h2>
         <form class="px-4 py-3">
             <div class="form-group" id="txt_Correo">
                 <label for="exampleDropdownFormEmail1">Dirección de correo electrónico</label>
