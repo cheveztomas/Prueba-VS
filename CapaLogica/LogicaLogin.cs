@@ -39,7 +39,7 @@ namespace CapaLogica
             try
             {
                 Login = new AccesoDatosLogin();
-                Login.Registrar(pvc_Password, pvo_Usuario);
+                vln_ID=Login.Registrar(pvc_Password, pvo_Usuario);
             }
             catch (Exception)
             {
