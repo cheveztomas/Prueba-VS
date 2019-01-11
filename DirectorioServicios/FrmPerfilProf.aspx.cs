@@ -21,9 +21,25 @@ namespace DirectorioServicios
             {
                 try
                 {
+
+                    //----------------------> OCUPACIONES
                     LogicaOcupaciones list_Ocupaciones = new LogicaOcupaciones();
                     grd_Ocupaciones.DataSource = list_Ocupaciones.Lg_listaOcupaciones(int.Parse(txtIdProf.Text));
                     grd_Ocupaciones.DataBind();
+                    //----------------------> UBICACIONES
+
+                    LogicaUbicacionProf lista_Ubicaciones = new LogicaUbicacionProf();
+                    grd_Ubicacion.DataSource = lista_Ubicaciones.ListarUbicacionesProf(int.Parse(txtIdProf.Text));
+                    grd_Ubicacion.DataBind();
+                    //----------------------> SITIO WEB
+
+                    LogicaWebSites lista_WebSites = new LogicaWebSites();
+                    grd_websites.DataSource = lista_WebSites.ListarWebSites(int.Parse(txtIdProf.Text));
+                    grd_websites.DataBind();
+
+
+
+
                 }
                 catch (Exception)
                 {

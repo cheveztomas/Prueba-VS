@@ -35,7 +35,7 @@ namespace AccesoDatos
             MySqlDataAdapter vlo_DataAdapter;
             string vlc_Sentencia = string.Empty;
 
-            vlc_Sentencia = "SELECT ID_USUARIO,PROVINCIA,CANTON,DETALLES FROM UBICACIONES_PROFESIONALES" +
+            vlc_Sentencia = "SELECT UBICACIONES.ID_UBICACION,ID_USUARIO,PROVINCIA,CANTON,DETALLES FROM UBICACIONES_PROFESIONALES" +
                 " INNER JOIN UBICACIONES ON UBICACIONES_PROFESIONALES.ID_UBICACION=UBICACIONES.ID_UBICACION";
             if (!string.IsNullOrEmpty(pvc_Condicion))
             {
