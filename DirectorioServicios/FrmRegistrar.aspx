@@ -51,6 +51,7 @@
                 <label for="exampleDropdownFormEmail1" id="df">Teléfono</label>
                 <asp:TextBox ID="Txt_Telefono" runat="server" class="form-control" MaxLength="8" ValidationGroup="Registrar"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="* Teléfono requerido." ForeColor="Red" ValidationGroup="Registrar" ControlToValidate="Txt_Telefono" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Txt_Telefono" ErrorMessage="* Teléfono no admitido." ForeColor="Red" ValidationExpression="^([0-9]){8,8}" ValidationGroup="Registrar"></asp:RegularExpressionValidator>
             </div>
             <div class="form-group">
                 <label for="exampleDropdownFormEmail1">Descripción</label>
