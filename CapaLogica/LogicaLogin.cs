@@ -48,5 +48,24 @@ namespace CapaLogica
             }
             return vln_ID;
         }
+
+        public int EnviarCorreo(string pvc_correo)
+        {
+            //Variables
+            int vln_Correcto=0;
+            AccesoDatosLogin Login = new AccesoDatosLogin();
+
+            //Inicio
+            try
+            {
+                vln_Correcto = Login.EnviarCorreo(pvc_correo);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return vln_Correcto;
+        }
     }
 }

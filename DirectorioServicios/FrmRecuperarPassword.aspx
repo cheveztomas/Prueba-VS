@@ -9,6 +9,6 @@
                 <label for="exampleDropdownFormEmail1">Ingrese su correo electrónico</label>
                 <asp:TextBox type="email" class="form-control" placeholder="email@example.com" ID="txt_Correo" runat="server" MaxLength="30" ValidationGroup="IniciarSesion"></asp:TextBox>
             </div>
-            <asp:Button type="submit" class="btn btn-primary" runat="server" ID="btn_Recuperar" Text="Recuperar Contraseña" />
+            <asp:Button type="submit" class="btn btn-primary" runat="server" ID="btn_Recuperar" Text="Recuperar Contraseña" OnClick="btn_Recuperar_Click" />
         </form>
 </asp:Content>

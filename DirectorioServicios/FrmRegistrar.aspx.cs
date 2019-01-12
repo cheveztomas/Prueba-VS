@@ -14,9 +14,22 @@ namespace DirectorioServicios
         string vgc_Script = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                Limpiar();
+            }
         }
-
+        private void Limpiar()
+        {
+            Txt_Apellido1.Text = string.Empty;
+            Txt_Apellido2.Text = string.Empty;
+            txt_ConrteaseniaConfir.Text = string.Empty;
+            txt_Conrteasenia.Text = string.Empty;
+            txt_Correo.Text = string.Empty;
+            Txt_Descipcion.Text = string.Empty;
+            txt_Nombre.Text = string.Empty;
+            Txt_Telefono.Text = string.Empty;
+        }
         private void Registro()
         {
             //Varaibles
@@ -57,6 +70,8 @@ namespace DirectorioServicios
                         vgc_Script = string.Format("javascript:MostrarMensaje('Registro realizado de forma correcta. Inicie sesión.');");
 
                         ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
+
+                        Limpiar();
                     }
                 }
             }

@@ -3,6 +3,8 @@ using EntidadesDirectorio;
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.Net;
+using System.Net.Mail;
 
 namespace AccesoDatos
 {
@@ -90,7 +92,7 @@ namespace AccesoDatos
 
                 ConexionOagina.Open();
                 vln_Correcto = CommandPagina.ExecuteNonQuery();
-                vln_IDUsuario= Convert.ToInt32(CommandPagina.Parameters["@_ID_USUARIO"].Value);
+                vln_IDUsuario = Convert.ToInt32(CommandPagina.Parameters["@_ID_USUARIO"].Value);
                 //if (vln_Correcto>0)
                 //{
                 //    vlc_SentenciaPagina = "SELECT ID_USUARIO FROM PAGINA_WEB.USUARIOS ORDER by ID_USUARIO DESC LIMIT 1";
@@ -194,7 +196,7 @@ namespace AccesoDatos
                 }
                 CommandLogin.Dispose();
                 ConexionLogin.Dispose();
-                if (Filas==0)
+                if (Filas == 0)
                 {
                     try
                     {
@@ -243,6 +245,48 @@ namespace AccesoDatos
 
             }
             return vln_ID;
+        }
+
+        public int EnviarCorreo(string pvc_Correo)
+        {
+            //Variables
+            int vln_Correcto = 0;
+            MailAddress fromAddress = new MailAddress("directorioservicioscr@gmail.com", "Direc2019");
+            MailAddress toAddress = new MailAddress(pvc_Correo, "To Name");
+            const string fromPassword = "Direc2018";
+            const string subject = "Contraseña.";
+            const string body = "Body";
+
+            //Inicio
+
+            try
+            {
+                SmtpClient smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                };
+                using (MailMessage message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = body
+                })
+                {
+                    smtp.Send(message);
+                }
+
+                vln_Correcto = 1;
+            }
+            catch (Exception)
+            {
+                vln_Correcto = 0;
+                throw;
+            }
+            return vln_Correcto;
         }
     }
 }
