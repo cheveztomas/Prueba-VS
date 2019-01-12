@@ -1,42 +1,116 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="DirectorioServicios.WebForm1" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <title>Directorio de Servicios</title>
-    <style type="text/css">
-        #form1 {
-            height: 134px;
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/App/paginaMaestra.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="DirectorioServicios.FrmBuscador" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        #contenedor, #lista{
+            width: 85%;
+            margin: 0 auto;
         }
+
+        .col-sm-6{
+            margin: 0 auto;
+        }
+
+        label, select, button{
+            padding-right: 5px;
+            padding-left: 2px;
+        }
+
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <nav>
-        <asp:Label ID="Label1" runat="server" Text="Correo:"></asp:Label>
-        <br />
-        <asp:TextBox ID="txt_Correo" runat="server" MaxLength="30" TextMode="Email"></asp:TextBox>
-        <br />
-        <asp:Label ID="Label2" runat="server" Text="Contraseña:"></asp:Label>
-        <br />
-        <asp:TextBox ID="txt_Contrasenia" runat="server" MaxLength="16" TextMode="Password"></asp:TextBox>
-        <br />
-        <asp:Button ID="btn_IniciarSesion" runat="server" OnClick="btn_IniciarSesion_Click" Text="Iniciar Sesión" />
-        <br />
-        <br />
-        <a href="FrmRegistroDeUsuarios.aspx">Registrarse</a></nav>
-        <div>
-            <asp:GridView ID="grd_usuarios" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="636px">
-                <Columns>
-                    <asp:BoundField DataField="PROVINCIA" HeaderText="Id" />
-                    <asp:BoundField DataField="CANTON" HeaderText="Nombre" />
-                </Columns>
-            </asp:GridView>
+  
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div id="contenedor" class="DivSesion">
+        <h2>Seleccione</h2>
+       <div class="form-inline">
+            <label for="sel1">Servicio:</label>
+           <asp:DropDownList ID="ddlProfecion" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlProfecion_SelectedIndexChanged"></asp:DropDownList>
+            
+           <label for="sel1">Especialidad:</label>
+           <asp:DropDownList ID="ddlEspecialidad" runat="server" class="form-control"></asp:DropDownList>
+
+           <label for="sel1">Provincia:</label>
+           <asp:DropDownList ID="ddlProvincia" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged"></asp:DropDownList>
+           
+           <label for="sel1">Cantón:</label>
+           <asp:DropDownList ID="ddlCanton" runat="server" class="form-control"></asp:DropDownList>
+           <br />
+            &nbsp;<asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-primary" Text="Buscar" OnClick="btnBuscar_Click" />
+    <!--<button type="submit" class="btn btn-primary" id="btnBuscar">Buscar</button>-->
         </div>
-        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
-    </form>
-</body>
-</html>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <hr />
+    <br />
+    <br />
+
+    <div id="div_test" runat="server"> </div>
+   
+
+
+   <%-- <div id="lista" runat="server">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Juan Castro</h3>
+                        <h5 class="card-title">Jardinero</h5>
+                        <h5 class="card-title">70113556</h5>
+                        <p class="card-text">juan.castro@outlook.com</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Juan Castro</h3>
+                        <h5 class="card-title">Jardinero</h5>
+                        <h5 class="card-title">70113556</h5>
+                        <p class="card-text">juan.castro@outlook.com</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Juan Castro</h3>
+                        <h5 class="card-title">Jardinero</h5>
+                        <h5 class="card-title">70113556</h5>
+                        <p class="card-text">juan.castro@outlook.com</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Juan Castro</h3>
+                        <h5 class="card-title">Jardinero</h5>
+                        <h5 class="card-title">70113556</h5>
+                        <p class="card-text">juan.castro@outlook.com</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>--%>
+
+ 
+
+
+</asp:Content>

@@ -1,79 +1,131 @@
-﻿using CapaLogica;
-using EntidadesDirectorio;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using CapaLogica;
+using System.Data;
 
 namespace DirectorioServicios
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class FrmBuscador : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            //if (!Page.IsPostBack)
-            //{               
-            //    LogicaUsuario logica = new LogicaUsuario();
-            //    Limpiar();
-            //    try
-            //    {
-            //        grd_usuarios.DataSource = logica.listaUsuarios(null);
-            //        grd_usuarios.DataBind();
-            //    }
-            //    catch (Exception)
-            //    {
+            if (!IsPostBack)
+            {
+                //se llaman los procedimientos para llenar los ddl
+                llenarProvincias();
+                llenarCantones();
+                llenarOcupaciones();
+                llenarEspecialidades();
+            }
 
-            //        throw;
-            //    }
-
-            //}
         }
-
-        private void Limpiar()
+        #region llenarddl
+        //procedimiento para llenar las provincias 
+        public void llenarProvincias()
         {
-            txt_Contrasenia.Text = string.Empty;
-            txt_Correo.Text = string.Empty;
-            Session.Remove("ID_USUARIO");
-        }
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-        //Guardar la ocupación
-        protected void btnGuardar_Click(object sender, EventArgs e)
-        {
-        }
-
-        protected void btn_IniciarSesion_Click(object sender, EventArgs e)
-        {
-            //Variables
-            int vln_ID=0;
-            LogicaLogin vlo_Login = new LogicaLogin();
-
-            //Inicio
             try
             {
-                vln_ID = vlo_Login.IniciarSesion(txt_Correo.Text, txt_Contrasenia.Text);
-                if (vln_ID>0)
-                {
-                    Session["ID_USUARIO"] = vln_ID.ToString();
-                    Response.Redirect("FrmBuscador.aspx");
-                }
+                //se crea una instancia de las funciones de logica
+                LogicaUbicacion funciones = new LogicaUbicacion();
+                ddlProvincia.DataTextField = "PROVINCIA";//se le dice que en el texto ponga lo que venga en el campo de datos
+                ddlProvincia.DataSource = funciones.obtenerProvincias();
+                ddlProvincia.DataBind();//se le agrega el sourse a el dropdownlist 
             }
             catch (Exception)
             {
 
                 throw;
             }
+
+
+        }
+        //procedimiento para llenar el dropdown de cantones 
+        public void llenarCantones()
+        {
+            try
+            {
+                //se crea una instancia de las funciones de logica
+                LogicaUbicacion funciones = new LogicaUbicacion();
+                ddlCanton.DataTextField = "CANTON";//se le dice que en el texto ponga lo que venga en el campo de datos
+                ddlCanton.DataSource = funciones.obtenerCantones(ddlProvincia.Text);
+                ddlCanton.DataBind();//se le agrega el sourse a el dropdownlist 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        public void llenarOcupaciones()
+        {//se crea una instancia de las funciones de logica
+            LogicaOcupaciones funciones = new LogicaOcupaciones();
+            ddlProfecion.DataTextField = "NOMBRE_OCUPACION";//se le dice que en el texto ponga lo que venga en el campo de datos
+            ddlProfecion.DataSource = funciones.obtenerOcupaciones();
+            ddlProfecion.DataBind();//se le agrega el sourse a el dropdownlist 
+        }
+
+        public void llenarEspecialidades()
         {
-            LogicaUbicacionProf logica = new LogicaUbicacionProf();
-            grd_usuarios.DataSource = logica.ObtenerDatosDeUsuarioUbicaciones(2);
-            grd_usuarios.DataBind();
+            //se crea una instancia de las funciones de logica
+            LogicaOcupaciones funciones = new LogicaOcupaciones();
+            ddlEspecialidad.DataTextField = "ESPACIALIDAD_OCUPACION";//se le dice que en el texto ponga lo que venga en el campo de datos
+            ddlEspecialidad.DataSource = funciones.obtenerEspecialidades(ddlProfecion.Text);
+            ddlEspecialidad.DataBind();//se le agrega el sourse a el dropdownlist 
+
+
+        }
+        #endregion
+
+        public void cargar_profecionales()
+        {
+            LogicaUsuario funciones = new LogicaUsuario();
+            DataTable vlo_profecionales = funciones.obtenerProfecionales(ddlProfecion.Text, ddlEspecialidad.Text, ddlProvincia.Text, ddlCanton.Text);
+            //grd_usuarios.DataSource = funciones.obtenerProfecionales(ddlProfecion.Text,ddlEspecialidad.Text,ddlProvincia.Text,ddlCanton.Text);
+            //DataBind();
+            //para crear codigo html
+
+            if (vlo_profecionales.Rows.Count>0)
+            {
+                foreach (DataRow item in vlo_profecionales.Rows)
+                {
+
+                    string codigo = "<div class="+"'row'"+"> <div class="+"'col-sm-6'"+"><div class=" + "'card'" + "><div class=" + "'card-body'" + "><h3 class=" + "'card-title'" + ">" + item["NOMBRE_PROFESIONAL"].ToString() + " " + item["APELLIDO1_PROFESIONAL"].ToString() + " " + item["APELLIDO2_PROFESIONAL"].ToString() + "</h3><h5 class=" + "'card-title'" + ">Profesión: " + item["NOMBRE_OCUPACION"].ToString() + "</h5><h5 class=" + "'card-title'" + ">Teléfono: " + item["TELEFONO_PROFESIONAL"].ToString() + "</h5><p class=" + "'card-text'" + ">Email: " + item["CORREO_PROFESIONAL"].ToString() + "</p><a id='" + item["ID_USUARIO"].ToString() + "' href = " + "'FrmPerfilProf.aspx?id="+item["ID_USUARIO"].ToString() + "' class=" + "'btn btn-primary'" + ">Ver más</a></div></div></div></div><br />";
+                    //codigo += "<b>"+ item["NOMBRE_PROFESIONAL"].ToString()+"</b>  <br>";
+                    //codigo += "<br> <button id='button1' runat='server' OnClick='prueba' >Submit</button>";
+                    div_test.InnerHtml += codigo;
+
+                }
+            }
+            else
+            {
+                div_test.InnerHtml = "No hay registros";
+            }
+           
+        }
+
+        protected void ddlProfecion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //cuando cambia el index de profecion se cambian las especialidades
+            llenarEspecialidades();
+        }
+
+        protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+            llenarCantones();
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            div_test.InnerHtml = "";
+            cargar_profecionales();
 
         }
     }
