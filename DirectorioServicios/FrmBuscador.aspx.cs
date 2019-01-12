@@ -95,6 +95,7 @@ namespace DirectorioServicios
             {
                 foreach (DataRow item in vlo_profecionales.Rows)
                 {
+
                     string codigo = "<div class="+"'row'"+"> <div class="+"'col-sm-6'"+"><div class=" + "'card'" + "><div class=" + "'card-body'" + "><h3 class=" + "'card-title'" + ">" + item["NOMBRE_PROFESIONAL"].ToString() + " " + item["APELLIDO1_PROFESIONAL"].ToString() + " " + item["APELLIDO2_PROFESIONAL"].ToString() + "</h3><h5 class=" + "'card-title'" + ">Profesión: " + item["NOMBRE_OCUPACION"].ToString() + "</h5><h5 class=" + "'card-title'" + ">Teléfono: " + item["TELEFONO_PROFESIONAL"].ToString() + "</h5><p class=" + "'card-text'" + ">Email: " + item["CORREO_PROFESIONAL"].ToString() + "</p><a id='" + item["ID_USUARIO"].ToString() + "' href = " + "'FrmPerfilProf.aspx?id="+item["ID_USUARIO"].ToString() + "' class=" + "'btn btn-primary'" + ">Ver más</a></div></div></div></div><br />";
                     //codigo += "<b>"+ item["NOMBRE_PROFESIONAL"].ToString()+"</b>  <br>";
                     //codigo += "<br> <button id='button1' runat='server' OnClick='prueba' >Submit</button>";
