@@ -105,7 +105,7 @@ namespace DirectorioServicios
             }
             else
             {
-                div_test.InnerHtml = "No hay registros";
+                div_test.InnerHtml = "<h3 id="+"'contenedor'"+ "class=" + "'text-danger'" + ">No hay registros</h3>";
             }
            
         }

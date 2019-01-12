@@ -41,13 +41,12 @@
 
     <br />
     <br />
-    <br />
     <hr />
     <br />
     <br />
-    <h2>Resultado</h2>
     <div id="div_test" runat="server"> </div>
-   
+    <br />
+    <br />
 
 
    <%-- <div id="lista" runat="server">
