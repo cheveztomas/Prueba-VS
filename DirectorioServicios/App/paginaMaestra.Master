@@ -8,7 +8,7 @@
 
     <!-- Ayuda a que la aplicación sea responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Inicio</title>
+    <title>DS</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 

@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/App/paginaMaestra.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="DirectorioServicios.FrmBuscador" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    
     <style>
         #contenedor, #lista{
             width: 85%;
@@ -40,9 +41,7 @@
     </div>
 
     <br />
-    <br />
     <hr />
-    <br />
     <br />
     <div id="div_test" runat="server"> </div>
     <br />
