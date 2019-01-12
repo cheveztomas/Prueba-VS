@@ -18,6 +18,7 @@
                 <label for="exampleDropdownFormEmail1">Dirección de correo electrónico</label>
                 <asp:TextBox ID="txt_Correo" runat="server" class="form-control" placeholder="email@example.com" TextMode="Email" MaxLength="30" ValidationGroup="Registrar"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_Correo" ErrorMessage="* Correo requerido." ForeColor="Red" ValidationGroup="Registrar" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txt_Correo" Display="Dynamic" ErrorMessage="* Correo no admitido." ForeColor="Red" ValidationExpression="^[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" ValidationGroup="Registrar"></asp:RegularExpressionValidator>
             </div>
             <div class="form-group">
                 <label for="exampleDropdownFormPassword1">Contraseña</label>
@@ -51,7 +52,7 @@
                 <label for="exampleDropdownFormEmail1" id="df">Teléfono</label>
                 <asp:TextBox ID="Txt_Telefono" runat="server" class="form-control" MaxLength="8" ValidationGroup="Registrar"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="* Teléfono requerido." ForeColor="Red" ValidationGroup="Registrar" ControlToValidate="Txt_Telefono" Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Txt_Telefono" ErrorMessage="* Teléfono no admitido." ForeColor="Red" ValidationExpression="^([0-9]){8,8}" ValidationGroup="Registrar"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Txt_Telefono" ErrorMessage="* Teléfono no admitido." ForeColor="Red" ValidationExpression="^([0-9]){8,8}" ValidationGroup="Registrar" Display="Dynamic"></asp:RegularExpressionValidator>
             </div>
             <div class="form-group">
                 <label for="exampleDropdownFormEmail1">Descripción</label>
