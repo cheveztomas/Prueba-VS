@@ -1,9 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/App/paginaMaestra.Master" AutoEventWireup="true" CodeBehind="FrmIniciarSesion.aspx.cs" Inherits="DirectorioServicios.FrmIniciarSesion" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        #contenedor{
+            width: 80%;
+            margin: 0 auto;
+        }
+
+
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="DivSesion">
+    <div class="DivSesion" id="contenedor">
         <h2>Inicie Sesión</h2>
         <form class="px-4 py-3">
             <div class="form-group" id="txt_Correo">
@@ -25,7 +33,7 @@
             <asp:Button type="submit" class="btn btn-primary" runat="server" ID="btn_IniciarSesion" OnClick="btn_IniciarSesion_Click" Text="Iniciar Sesión" ValidationGroup="IniciarSesion" />
         </form>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="FrmRegistrar.aspx">¿Nuevo por aquí? Registrarse</a>
-        <a class="dropdown-item" href="FrmRecuperarPassword.aspx">¿Olvidaste la Contraseña?</a>
+        <a href="FrmRegistrar.aspx">¿Nuevo por aquí? Registrese</a>
+        <a class="dropdown-item" href="FrmRecuperarPassword.aspx">¿Olvidó la Contraseña?</a>
     </div>
 </asp:Content>

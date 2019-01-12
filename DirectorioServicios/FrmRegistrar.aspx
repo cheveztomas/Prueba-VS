@@ -1,9 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/App/paginaMaestra.Master" AutoEventWireup="true" CodeBehind="FrmRegistrar.aspx.cs" Inherits="DirectorioServicios.FrmRegistrar" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        #contenedor{
+            width: 80%;
+            margin: 0 auto;
+        }
+
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="DivSesion">
+    <div class="DivSesion" id="contenedor">
         <asp:Button ID="btn_InSec" runat="server" class="btn btn-primary" Text="Iniciar Sesión" OnClick="btn_InSec_Click" />
         <h2>Registrese Aquí</h2>
         <form class="px-4 py-3">
@@ -51,7 +58,7 @@
             </div>
 
             <asp:Button ID="btn_Registrar" runat="server" class="btn btn-primary" Text="Registrarse" OnClick="btn_Registrar_Click" ValidationGroup="Registrar" />
-            <a class="dropdown-item" href="FrmIniciarSesion.aspx">¿Ya estás registrado? Inicie Sesión aquí</a>
+            <a href="FrmIniciarSesion.aspx">¿Ya estás registrado? Inicie Sesión aquí</a>
         </form>
         <div class="dropdown-divider"></div>
     </div>

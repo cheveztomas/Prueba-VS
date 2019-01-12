@@ -45,7 +45,7 @@
     <hr />
     <br />
     <br />
-
+    <h2>Resultado</h2>
     <div id="div_test" runat="server"> </div>
    
 
