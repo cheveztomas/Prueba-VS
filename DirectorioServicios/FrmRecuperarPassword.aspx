@@ -1,8 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/App/paginaMaestra.Master" AutoEventWireup="true" CodeBehind="FrmRecuperarPassword.aspx.cs" Inherits="DirectorioServicios.FrmRecuerarContraseña" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        #contenedor{
+            width: 80%;
+            margin: 0 auto;
+        }
+
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="DivSesion">
+    <div id="contenedor" class="DivSesion">
         <h2>Recupere su contraseña</h2>
         <form class="px-4 py-3">
             <div class="form-group" id="txt_Correo">

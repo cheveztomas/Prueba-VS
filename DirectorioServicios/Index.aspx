@@ -3,7 +3,7 @@
     
     <style>
         #contenedor, #lista{
-            width: 85%;
+            width: 80%;
             margin: 0 auto;
         }
 
@@ -57,7 +57,13 @@
                         <h5 class="card-title">Jardinero</h5>
                         <h5 class="card-title">70113556</h5>
                         <p class="card-text">juan.castro@outlook.com</p>
-                        <a href="#" class="btn btn-primary">Ver más</a>
+                        <p class="card-title">Descripción</p>
+                        <p class="card-text"></p>
+                        <a href="www.facebook.com">Facebook</a>
+                        <a href="www.twitter.com">Twitter</a>
+                        <a href="www.youtube.com">YouTube</a>
+                        <a href="www.instagram.com">Instragram</a>
+                        <a href="index.aspx" class="btn btn-primary">Regresar</a>
                     </div>
                 </div>  
             </div>

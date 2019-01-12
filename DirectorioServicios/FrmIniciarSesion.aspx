@@ -34,6 +34,8 @@
         </form>
         <div class="dropdown-divider"></div>
         <a href="FrmRegistrar.aspx">¿Nuevo por aquí? Registrese</a>
-        <a class="dropdown-item" href="FrmRecuperarPassword.aspx">¿Olvidó la Contraseña?</a>
+        <br />
+        <br />
+        <a href="FrmRecuperarPassword.aspx">¿Olvidó la Contraseña? Ingrese aquí</a>
     </div>
 </asp:Content>

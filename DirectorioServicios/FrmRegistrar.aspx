@@ -54,11 +54,12 @@
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Txt_Telefono" ErrorMessage="* Teléfono no admitido." ForeColor="Red" ValidationExpression="^([0-9]){8,8}" ValidationGroup="Registrar"></asp:RegularExpressionValidator>
             </div>
             <div class="form-group">
-                <label for="exampleDropdownFormEmail1">Descripción</label>
+                <label for="exampleDropdownFormEmail1">¿Que ofreces?</label>
                 <asp:TextBox ID="Txt_Descipcion" runat="server" class="form-control" MaxLength="200" ValidationGroup="Registrar"></asp:TextBox>
             </div>
 
             <asp:Button ID="btn_Registrar" runat="server" class="btn btn-primary" Text="Registrarse" OnClick="btn_Registrar_Click" ValidationGroup="Registrar" />
+            <br />
             <a href="FrmIniciarSesion.aspx">¿Ya estás registrado? Inicie Sesión aquí</a>
         </form>
         <div class="dropdown-divider"></div>
