@@ -134,6 +134,9 @@
     <Content Include="App\js\bootstrap.bundle.min.js.map" />
     <Content Include="App\js\bootstrap.js.map" />
     <Content Include="App\js\bootstrap.min.js.map" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
