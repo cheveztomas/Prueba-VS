@@ -255,7 +255,7 @@ namespace AccesoDatos
             MailAddress toAddress = new MailAddress(pvc_Correo, "To Name");
             const string fromPassword = "Direc2019";
             const string subject = "Contraseña.";
-            const string body = "Body";
+            string body = pvc_Mensaje;
 
             //Inicio
 
@@ -286,6 +286,15 @@ namespace AccesoDatos
                 vln_Correcto = 0;
                 throw;
             }
+            return vln_Correcto;
+        }
+
+        public int EnviarContrasenia(string pvc_Correo)
+        {
+            //Variable
+            int vln_Correcto = 0;
+            //Inicio
+
             return vln_Correcto;
         }
     }
