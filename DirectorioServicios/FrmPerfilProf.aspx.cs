@@ -13,47 +13,54 @@ namespace DirectorioServicios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                string id = Request.QueryString["id"];
+                cargarUsuario(id);
+            }
+            
         }
 
         protected void btnProfesion_Click(object sender, EventArgs e)
         {
-            if (txtIdProf.Text != string.Empty)
+            
+        }
+
+        public void cargarUsuario(string id)
+        {
+            try
             {
-                try
-                {
 
-                    //----------------------> OCUPACIONES
-                    LogicaOcupaciones list_Ocupaciones = new LogicaOcupaciones();
-                    grd_Ocupaciones.DataSource = list_Ocupaciones.Lg_listaOcupaciones(int.Parse(txtIdProf.Text));
-                    grd_Ocupaciones.DataBind();
-                    //----------------------> UBICACIONES
+                //----------------------> OCUPACIONES
+                LogicaOcupaciones list_Ocupaciones = new LogicaOcupaciones();
+                grd_Ocupaciones.DataSource = list_Ocupaciones.Lg_listaOcupaciones(int.Parse(id));
+                grd_Ocupaciones.DataBind();
+                //----------------------> UBICACIONES
 
-                    LogicaUbicacionProf lista_Ubicaciones = new LogicaUbicacionProf();
-                    grd_Ubicacion.DataSource = lista_Ubicaciones.ListarUbicacionesProf(int.Parse(txtIdProf.Text));
-                    grd_Ubicacion.DataBind();
-                    //----------------------> SITIO WEB
+                LogicaUbicacionProf lista_Ubicaciones = new LogicaUbicacionProf();
+                grd_Ubicacion.DataSource = lista_Ubicaciones.ListarUbicacionesProf(int.Parse(id));
+                grd_Ubicacion.DataBind();
+                //----------------------> SITIO WEB
 
-                    LogicaWebSites lista_WebSites = new LogicaWebSites();
-                    grd_websites.DataSource = lista_WebSites.ListarWebSites(int.Parse(txtIdProf.Text));
-                    grd_websites.DataBind();
+                LogicaWebSites lista_WebSites = new LogicaWebSites();
+                grd_websites.DataSource = lista_WebSites.ListarWebSites(int.Parse(id));
+                grd_websites.DataBind();
 
 
-                    LogicaUsuario user = new LogicaUsuario();
-                    ClsUsuarios usuarioObtenido;
-                    usuarioObtenido = user.ObtenerDatosDeUsuario(int.Parse(txtIdProf.Text));
-                    lblUser.Text = usuarioObtenido.Nombre_Profesional + ' ' + usuarioObtenido.Apellido1_Profesional + ' ' + usuarioObtenido.Apellido2_Profesional;
-                    lblCorreo.Text = usuarioObtenido.Correo;
-                    lblTelefono.Text = usuarioObtenido.Telefono_Profesional;
-                    lblDescripcion.Text = usuarioObtenido.Descripcion;
+                LogicaUsuario user = new LogicaUsuario();
+                ClsUsuarios usuarioObtenido;
+                usuarioObtenido = user.ObtenerDatosDeUsuario(int.Parse(id));
+                lblUser.Text = usuarioObtenido.Nombre_Profesional + ' ' + usuarioObtenido.Apellido1_Profesional + ' ' + usuarioObtenido.Apellido2_Profesional;
+                lblCorreo.Text = usuarioObtenido.Correo;
+                lblTelefono.Text = usuarioObtenido.Telefono_Profesional;
+                lblDescripcion.Text = usuarioObtenido.Descripcion;
 
 
 
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }
