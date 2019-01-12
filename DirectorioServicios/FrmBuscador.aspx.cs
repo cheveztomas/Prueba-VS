@@ -113,7 +113,7 @@ namespace DirectorioServicios
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            lblNombreProfesional.Text = "<h3>Romario</h3>";
+            
         }
     }
 }
