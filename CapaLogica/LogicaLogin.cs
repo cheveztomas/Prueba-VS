@@ -49,7 +49,7 @@ namespace CapaLogica
             return vln_ID;
         }
 
-        public int EnviarCorreo(string pvc_Correo, string pvc_NombreDestinatario, string pvc_Mensaje)
+        public int EnviarContrasenia(string pvc_Correo)
         {
             //Variables
             int vln_Correcto=0;
@@ -58,7 +58,7 @@ namespace CapaLogica
             //Inicio
             try
             {
-                vln_Correcto = Login.EnviarCorreo(pvc_Correo,pvc_NombreDestinatario,pvc_Mensaje);
+                vln_Correcto = Login.EnviarContrasenia(pvc_Correo);
             }
             catch (Exception)
             {

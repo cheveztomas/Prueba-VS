@@ -247,14 +247,14 @@ namespace AccesoDatos
             return vln_ID;
         }
 
-        public int EnviarCorreo(string pvc_Correo, string pvc_NombreDestinatario, string pvc_Mensaje)
+        public int EnviarCorreo(string pvc_Correo, string pvc_NombreDestinatario, string pvc_Mensaje, string pvc_Asunto)
         {
             //Variables
             int vln_Correcto = 0;
             MailAddress fromAddress = new MailAddress("directorioservicioscr@gmail.com", "Directorio de Servicios");
-            MailAddress toAddress = new MailAddress(pvc_Correo, "To Name");
+            MailAddress toAddress = new MailAddress(pvc_Correo, pvc_NombreDestinatario);
             const string fromPassword = "Direc2019";
-            const string subject = "Contraseña.";
+            string subject = pvc_Asunto;
             string body = pvc_Mensaje;
 
             //Inicio
@@ -283,19 +283,86 @@ namespace AccesoDatos
             }
             catch (Exception)
             {
-                vln_Correcto = 0;
+                vln_Correcto = -2;
                 throw;
             }
             return vln_Correcto;
         }
 
+        //-1 Correo no existe. -2 Ocurrio un error. 1 Todo correcto. 0 no se envio el correo.
         public int EnviarContrasenia(string pvc_Correo)
         {
-            //Variable
             int vln_Correcto = 0;
+            string vlc_Correo = string.Empty;
+            string vlc_Pass = string.Empty;
+            string vlc_Mensaje = string.Empty;
+            string vlc_NombreDestinatario = string.Empty;
+            string vlc_Asunto = string.Empty;
+            MySqlConnection ConexionLogin;
+            MySqlCommand CommandLogin;
+            MySqlDataReader ReaderLogin;
+            string vlc_SentenciaLogin = string.Empty;
             //Inicio
+            try
+            {
+                ConexionLogin = new MySqlConnection
+                {
+                    ConnectionString = ClsConfiguracion.GetLoginString()
+                };
+                CommandLogin = new MySqlCommand
+                {
+                    Connection = ConexionLogin
+                };
+
+                vlc_SentenciaLogin = "SELECT CORREO, CONTRASENIA, ID_USUARIO FROM LOGIN_PAGINA_WEB.LOGIN WHERE CORREO='" + pvc_Correo + "'";
+                CommandLogin.CommandText = vlc_SentenciaLogin;
+
+                ConexionLogin.Open();
+                ReaderLogin = CommandLogin.ExecuteReader();
+                ReaderLogin.Read();
+                if (ReaderLogin.HasRows)
+                {
+                    vlc_Correo = ReaderLogin.GetString(0);
+                    vlc_Pass = ReaderLogin.GetString(1);
+                }
+                else
+                {
+                    vln_Correcto = -1;
+                }
+                ConexionLogin.Close();
+                CommandLogin.Dispose();
+                ConexionLogin.Dispose();
+                ReaderLogin.Close();
+                ReaderLogin.Dispose();
+
+                if (vlc_Correo!=string.Empty && vlc_Pass!=string.Empty)
+                {
+                    try
+                    {
+                        vlc_Mensaje = "Querido usuario de la aplicación de Directorio de Servicios.\n Su contraseña es:"+vlc_Pass+ "\n \n \n Muchas gracias por preferirnos. \n http://directorioservicios.somee.com/";
+                        vlc_NombreDestinatario = "Usuario de directorio de servicios.";
+                        vlc_Asunto = "Reenvio de la contraseña.";
+                        vln_Correcto = EnviarCorreo(vlc_Correo, vlc_NombreDestinatario, vlc_Mensaje, vlc_Asunto);
+                    }
+                    catch (Exception)
+                    {
+                        vln_Correcto = -2;
+                        throw;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+
+            }
 
             return vln_Correcto;
         }
+
     }
 }
