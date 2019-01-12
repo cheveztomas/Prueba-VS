@@ -16,6 +16,7 @@
         }
 
     </style>
+  
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="contenedor" class="DivSesion">
@@ -33,7 +34,7 @@
            <label for="sel1">Cantón:</label>
            <asp:DropDownList ID="ddlCanton" runat="server" class="form-control"></asp:DropDownList>
            <br />
-            &nbsp;<asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-primary" Text="Buscar" />
+            &nbsp;<asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-primary" Text="Buscar" OnClick="btnBuscar_Click" />
     <!--<button type="submit" class="btn btn-primary" id="btnBuscar">Buscar</button>-->
         </div>
     </div>
@@ -44,7 +45,12 @@
     <hr />
     <br />
     <br />
-    <div id="lista" runat="server">
+
+    <div id="div_test" runat="server"> </div>
+   
+
+
+   <%-- <div id="lista" runat="server">
         <div class="row">
             <div class="col-sm-6">
                 <div class="card">
@@ -102,5 +108,9 @@
         </div>
         <br />
         <br />
-    </div>
+    </div>--%>
+
+ 
+
+
 </asp:Content>
