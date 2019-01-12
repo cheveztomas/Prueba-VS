@@ -32,7 +32,7 @@ namespace DirectorioServicios
             try
             {
                 Logica = new LogicaLogin();
-                vln_Correcto=Logica.EnviarCorreo(txt_Correo.Text);
+                //vln_Correcto=Logica.EnviarCorreo(txt_Correo.Text);
             }
             catch (Exception)
             {
