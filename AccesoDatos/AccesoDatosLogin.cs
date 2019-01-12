@@ -247,11 +247,11 @@ namespace AccesoDatos
             return vln_ID;
         }
 
-        public int EnviarCorreo(string pvc_Correo)
+        public int EnviarCorreo(string pvc_Correo, string pvc_NombreDestinatario, string pvc_Mensaje)
         {
             //Variables
             int vln_Correcto = 0;
-            MailAddress fromAddress = new MailAddress("directorioservicioscr@gmail.com", "Reenvio de contraseña.");
+            MailAddress fromAddress = new MailAddress("directorioservicioscr@gmail.com", "Directorio de Servicios");
             MailAddress toAddress = new MailAddress(pvc_Correo, "To Name");
             const string fromPassword = "Direc2019";
             const string subject = "Contraseña.";
