@@ -251,7 +251,7 @@ namespace AccesoDatos
         {
             //Variables
             int vln_Correcto = 0;
-            MailAddress fromAddress = new MailAddress("directorioservicioscr@gmail.com", "Direc2019");
+            MailAddress fromAddress = new MailAddress("directorioservicioscr@gmail.com", "Reenvio de contraseña.");
             MailAddress toAddress = new MailAddress(pvc_Correo, "To Name");
             const string fromPassword = "Direc2019";
             const string subject = "Contraseña.";
