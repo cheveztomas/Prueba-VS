@@ -8,6 +8,7 @@ namespace CapaLogica
 {
     public class LogicaLogin
     {
+        string vgc_Script = string.Empty;
         public int IniciarSesion(string pvc_Correo, string pvc_Password)
         {
             //Variables

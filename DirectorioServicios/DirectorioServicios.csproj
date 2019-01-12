@@ -96,7 +96,6 @@
     <Content Include="index.aspx" />
     <Content Include="FrmConfirmarEnvioPassword.aspx" />
     <Content Include="FrmIniciarSesion.aspx" />
-    <Content Include="FrmPerfilProf.aspx" />
     <Content Include="FrmRecuperarPassword.aspx" />
     <Content Include="FrmRegistrar.aspx" />
     <Content Include="FrmRegistroDeUsuarios.aspx" />
@@ -184,13 +183,6 @@
     </Compile>
     <Compile Include="FrmIniciarSesion.aspx.designer.cs">
       <DependentUpon>FrmIniciarSesion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FrmPerfilProf.aspx.cs">
-      <DependentUpon>FrmPerfilProf.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FrmPerfilProf.aspx.designer.cs">
-      <DependentUpon>FrmPerfilProf.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmRecuperarPassword.aspx.cs">
       <DependentUpon>FrmRecuperarPassword.aspx</DependentUpon>

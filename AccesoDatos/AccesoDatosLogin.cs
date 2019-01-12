@@ -151,6 +151,8 @@ namespace AccesoDatos
 
                 ConexionLogin.Close();
                 CommandLogin.Dispose();
+
+                EnviarContrasenia(pvo_Usuarios.Correo);
             }
             catch (Exception)
             {
@@ -339,7 +341,7 @@ namespace AccesoDatos
                 {
                     try
                     {
-                        vlc_Mensaje = "Querido usuario de la aplicación de Directorio de Servicios.\n Su contraseña es:"+vlc_Pass+ "\n \n \n Muchas gracias por preferirnos. \n http://directorioservicios.somee.com/";
+                        vlc_Mensaje = "Querido usuario de la aplicación Directorio de Servicios.\n \n \nSu contraseña es: "+vlc_Pass+ "\n \n \n Muchas gracias por preferirnos. \n http://directorioservicios.somee.com/";
                         vlc_NombreDestinatario = "Usuario de directorio de servicios.";
                         vlc_Asunto = "Reenvio de la contraseña.";
                         vln_Correcto = EnviarCorreo(vlc_Correo, vlc_NombreDestinatario, vlc_Mensaje, vlc_Asunto);
