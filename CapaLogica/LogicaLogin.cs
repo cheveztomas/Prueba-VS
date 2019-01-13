@@ -68,5 +68,23 @@ namespace CapaLogica
             }
             return vln_Correcto;
         }
+
+        public int CambiarContrasenia(string pvc_Contrasenia, int pvn_ID)
+        {
+            //Variables
+            int vln_Correcto = 0;
+
+            //Inicio
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return vln_Correcto;
+        }
     }
 }
