@@ -366,5 +366,36 @@ namespace AccesoDatos
             return vln_Correcto;
         }
 
+        public int ActualizarContrasenia(string pvc_contrasenia, int pvn_ID)
+        {
+            //Variables
+            int vln_Correcto = 0;
+            string vlc_Sentencia = string.Empty;
+            MySqlConnection vlo_Conexion;
+            MySqlCommand vlo_Comando;
+
+            //Inicio
+            try
+            {
+                vlo_Conexion = new MySqlConnection();
+                vlo_Conexion.ConnectionString = ClsConfiguracion.GetLoginString();
+                vlo_Comando = new MySqlCommand();
+                vlo_Comando.Connection = vlo_Conexion;
+
+                vlc_Sentencia = "UPDATE `LOGIN_PAGINA_WEB`.`LOGIN` SET CONTRASENIA=AES_ENCRYPT('"+pvc_contrasenia+"','Directorio2019') WHERE (`ID_USUARIO` = '"+pvn_ID+"');";
+                vlo_Conexion.Open();
+                vlo_Comando.CommandText = vlc_Sentencia;
+                vln_Correcto=vlo_Comando.ExecuteNonQuery();
+                vlo_Conexion.Close();
+                vlo_Comando.Dispose();
+                vlo_Conexion.Close();
+            }
+            catch (Exception)
+            {
+                vln_Correcto = -1;
+                throw;
+            }
+            return vln_Correcto;
+        }
     }
 }
