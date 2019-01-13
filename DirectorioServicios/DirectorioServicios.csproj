@@ -93,6 +93,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="FrmCambiarPass.aspx" />
     <Content Include="FrmMostrarPerfilProf.aspx" />
     <Content Include="FrmPerfilProfesional.aspx" />
     <Content Include="index.aspx" />
@@ -164,6 +165,13 @@
     </Compile>
     <Compile Include="App\paginaMaestra.Master.designer.cs">
       <DependentUpon>paginaMaestra.Master</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCambiarPass.aspx.cs">
+      <DependentUpon>FrmCambiarPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmCambiarPass.aspx.designer.cs">
+      <DependentUpon>FrmCambiarPass.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmMostrarPerfilProf.aspx.cs">
       <DependentUpon>FrmMostrarPerfilProf.aspx</DependentUpon>
