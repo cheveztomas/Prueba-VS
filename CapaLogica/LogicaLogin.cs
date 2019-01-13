@@ -73,11 +73,13 @@ namespace CapaLogica
         {
             //Variables
             int vln_Correcto = 0;
+            AccesoDatosLogin Login;
 
             //Inicio
             try
             {
-
+                Login = new AccesoDatosLogin();
+                vln_Correcto=Login.ActualizarContrasenia(pvc_Contrasenia, pvn_ID);
             }
             catch (Exception)
             {

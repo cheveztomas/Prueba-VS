@@ -373,6 +373,8 @@ namespace AccesoDatos
             string vlc_Sentencia = string.Empty;
             MySqlConnection vlo_Conexion;
             MySqlCommand vlo_Comando;
+            MySqlDataReader vlo_DR;
+            string vlc_Correo = string.Empty;
 
             //Inicio
             try
@@ -380,15 +382,54 @@ namespace AccesoDatos
                 vlo_Conexion = new MySqlConnection();
                 vlo_Conexion.ConnectionString = ClsConfiguracion.GetLoginString();
                 vlo_Comando = new MySqlCommand();
+
                 vlo_Comando.Connection = vlo_Conexion;
 
                 vlc_Sentencia = "UPDATE `LOGIN_PAGINA_WEB`.`LOGIN` SET CONTRASENIA=AES_ENCRYPT('"+pvc_contrasenia+"','Directorio2019') WHERE (`ID_USUARIO` = '"+pvn_ID+"');";
                 vlo_Conexion.Open();
                 vlo_Comando.CommandText = vlc_Sentencia;
                 vln_Correcto=vlo_Comando.ExecuteNonQuery();
+
+                if (vln_Correcto > 0)
+                {
+                    try
+                    {
+                        vlc_Sentencia = "SELECT CORREO, cast(AES_DECRYPT(CONTRASENIA,'Directorio2019')as char(16)) AS CONSTRASENIA, ID_USUARIO FROM LOGIN_PAGINA_WEB.LOGIN WHERE ID_USUARIO='" + pvn_ID + "';";
+                        vlo_Comando.CommandText = vlc_Sentencia;
+                        vlo_DR = vlo_Comando.ExecuteReader();
+                        if (vlo_DR.HasRows)
+                        {
+                            vlo_DR.Read();
+                            vlc_Correo = vlo_DR.GetString(0);
+                        }
+                        else
+                        {
+                            vln_Correcto = -1;
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                }
+
                 vlo_Conexion.Close();
                 vlo_Comando.Dispose();
                 vlo_Conexion.Close();
+
+                try
+                {
+                    if (vln_Correcto>0)
+                    {
+                        EnviarContrasenia(vlc_Correo);
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
             }
             catch (Exception)
             {
