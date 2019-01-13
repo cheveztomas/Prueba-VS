@@ -28,7 +28,7 @@ namespace AccesoDatos
                 {
                     Connection = Conexion
                 };
-                vlc_SentenciaSQL = "SELECT CORREO, CONTRASENIA, ID_USUARIO FROM LOGIN_PAGINA_WEB.LOGIN WHERE CORREO='" + pvc_Correo + "' AND CONTRASENIA LIKE BINARY'" + pvc_Password + "'";
+                vlc_SentenciaSQL = "SELECT CORREO, cast(AES_DECRYPT(CONTRASENIA,'Directorio2019')as char(16)) AS CONSTRASENIA, ID_USUARIO FROM LOGIN_PAGINA_WEB.LOGIN WHERE CORREO='"+pvc_Correo+"' AND AES_DECRYPT(CONTRASENIA,'Directorio2019') LIKE binary '"+pvc_Password+"';";
                 Command.CommandText = vlc_SentenciaSQL;
 
                 Conexion.Open();
@@ -144,7 +144,7 @@ namespace AccesoDatos
                     Connection = ConexionLogin
                 };
 
-                vlc_SentenciaLogin = "INSERT INTO LOGIN_PAGINA_WEB.LOGIN(CORREO, CONTRASENIA, ID_USUARIO)VALUE('" + pvo_Usuarios.Correo + "','" + pvc_Password + "','" + pvn_ID + "')";
+                vlc_SentenciaLogin = "INSERT INTO LOGIN_PAGINA_WEB.LOGIN(CORREO, CONTRASENIA, ID_USUARIO) VALUES('"+pvo_Usuarios.Correo+"',AES_ENCRYPT('"+pvc_Password+"','Directorio2019'),'"+pvn_ID+"');";
                 ConexionLogin.Open();
                 CommandLogin.CommandText = vlc_SentenciaLogin;
                 vln_Correct = CommandLogin.ExecuteNonQuery();
@@ -185,7 +185,7 @@ namespace AccesoDatos
                     Connection = ConexionLogin
                 };
 
-                vlc_SentenciaLogin = "SELECT CORREO, CONTRASENIA, ID_USUARIO FROM LOGIN_PAGINA_WEB.LOGIN WHERE CORREO='" + pvo_Usuario.Correo + "'";
+                vlc_SentenciaLogin = "SELECT CORREO, cast(AES_DECRYPT(CONTRASENIA,'Directorio2019')as char(16)) AS CONSTRASENIA, ID_USUARIO FROM LOGIN_PAGINA_WEB.LOGIN WHERE CORREO='" + pvo_Usuario.Correo + "';";
                 CommandLogin.CommandText = vlc_SentenciaLogin;
 
                 ConexionLogin.Open();
@@ -316,7 +316,7 @@ namespace AccesoDatos
                     Connection = ConexionLogin
                 };
 
-                vlc_SentenciaLogin = "SELECT CORREO, CONTRASENIA, ID_USUARIO FROM LOGIN_PAGINA_WEB.LOGIN WHERE CORREO='" + pvc_Correo + "'";
+                vlc_SentenciaLogin = "SELECT CORREO, cast(AES_DECRYPT(CONTRASENIA,'Directorio2019')as char(16)) AS CONSTRASENIA, ID_USUARIO FROM LOGIN_PAGINA_WEB.LOGIN WHERE CORREO='"+pvc_Correo+"';";
                 CommandLogin.CommandText = vlc_SentenciaLogin;
 
                 ConexionLogin.Open();
