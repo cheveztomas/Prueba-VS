@@ -94,6 +94,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="FrmMostrarPerfilProf.aspx" />
+    <Content Include="FrmPerfilProfesional.aspx" />
     <Content Include="index.aspx" />
     <Content Include="FrmConfirmarEnvioPassword.aspx" />
     <Content Include="FrmIniciarSesion.aspx" />
@@ -170,6 +171,13 @@
     </Compile>
     <Compile Include="FrmMostrarPerfilProf.aspx.designer.cs">
       <DependentUpon>FrmMostrarPerfilProf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPerfilProfesional.aspx.cs">
+      <DependentUpon>FrmPerfilProfesional.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmPerfilProfesional.aspx.designer.cs">
+      <DependentUpon>FrmPerfilProfesional.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
