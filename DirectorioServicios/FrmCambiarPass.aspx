@@ -16,7 +16,7 @@
                 <asp:CompareValidator ID="CompareValidator1" runat="server" BackColor="White" ControlToCompare="txt_Conrteasenia" ControlToValidate="txt_ConrteaseniaConfir" ErrorMessage="* Contraseña no coincide." ForeColor="Red" ValidationGroup="Registrar" Display="Dynamic"></asp:CompareValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txt_ConrteaseniaConfir" ErrorMessage="*Confirmar contraseña raquerido." ForeColor="Red" ValidationGroup="Registrar" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
-            <asp:Button ID="btn_Registrar" runat="server" class="btn btn-primary" Text="Cambiar Contraseña" ValidationGroup="Registrar" />
+            <asp:Button ID="btn_Registrar" runat="server" class="btn btn-primary" Text="Cambiar Contraseña" OnClick="btn_Registrar_Click" ValidationGroup="Registrar" />
         </form>
         <div class="dropdown-divider"></div>
     </div>
