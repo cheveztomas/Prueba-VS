@@ -7,12 +7,14 @@ namespace DirectorioServicios
     public partial class FrmCambiarPass : System.Web.UI.Page
     {
         private int vgn_ID = 0;
+        string vgc_Script = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
+            vgn_ID = int.Parse(Session["ID_USUARIO_SESION"].ToString());
             if (!Page.IsPostBack)
             {
                 Limpiar();
-                vgn_ID = int.Parse(Session["ID_USUARIO_SESION"].ToString());
+               
             }
         }
 
@@ -53,13 +55,17 @@ namespace DirectorioServicios
 
                 if (vlc_Correcto < 0)
                 {
+                    vgc_Script = string.Format("javascript:MostrarMensaje('Contraseña no se ha podido cambiar');");
 
+                    ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
                 }
             }
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al cambiar la contraseña.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
         }
     }

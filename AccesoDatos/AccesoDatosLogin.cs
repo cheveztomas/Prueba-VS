@@ -386,8 +386,8 @@ namespace AccesoDatos
                 vlo_Comando.Connection = vlo_Conexion;
 
                 vlc_Sentencia = "UPDATE `LOGIN_PAGINA_WEB`.`LOGIN` SET CONTRASENIA=AES_ENCRYPT('"+pvc_contrasenia+"','Directorio2019') WHERE (`ID_USUARIO` = '"+pvn_ID+"');";
-                vlo_Conexion.Open();
                 vlo_Comando.CommandText = vlc_Sentencia;
+                vlo_Conexion.Open();
                 vln_Correcto=vlo_Comando.ExecuteNonQuery();
 
                 if (vln_Correcto > 0)
