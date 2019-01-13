@@ -111,7 +111,7 @@ namespace DirectorioServicios
 
                 foreach (DataRow item in lista_Websites.Rows)
                 {
-                    wsites = "<br><a href=" + item["URL_SITIO"].ToString() + "></a>";
+                    wsites += "<a href=" + item["URL_SITIO"].ToString() + ">" + item["NOMBRE_SITIO"].ToString() + "</a><br>";
                 }
                 //<----------------------- SITIOS WEB
 
@@ -125,7 +125,7 @@ namespace DirectorioServicios
                 descripcion = usuarioObtenido.Descripcion;
                 //<----------------------- USUARIO
 
-                Query = "<div id="+"'lista'"+" runat="+"'server'"+"> <div class="+"'row'"+"><div class="+"'col-sm-6'"+"> <div class="+"'card'"+"><div class="+"'card-body'"+"><h3 class="+"'card-title'"+">"+ nombe + "</h3><h5 class="+"'card-title'"+">"+ "Profesión:</h5>"+ ocupaciones +"<h5 class="+"'card-title'"+">"+"Teléfono: "+ telefono + " </h5>"+"<p class="+"'card-text'"+">"+ correo + "</p><h4 class="+"'card-text'"+">Brindo servicios en:</h4> <ul> "+ ubicaciones + "</ul><h4 class="+"'card-title'"+">Descripción:</h4><p class="+"'card-text'"+">"+ descripcion + "</p><h4 class="+"'text-info'"+">Redes Sociales</h4><br>"+ wsites + " <br /><br /><a href = "+"'index.aspx'"+" class="+"'btn btn-primary'"+">Regresar</a></div></div></div></div></div>";
+                Query = "<div id="+"'lista'"+" runat="+"'server'"+"> <div class="+"'row'"+"><div class="+"'col-sm-6'"+"> <div class="+"'card'"+"><div class="+"'card-body'"+"><h3 class="+"'card-title'"+">"+ nombe + "</h3><h5 class="+"'card-title'"+">"+ "Profesión:</h5>"+ ocupaciones +"<h5 class="+"'card-title'"+">"+"Teléfono: "+ telefono + " </h5>"+"<p class="+"'card-text'"+">"+ correo + "</p><h4 class="+"'card-text'"+">Brindo servicios en:</h4> <ul> "+ ubicaciones + "</ul><h4 class="+"'card-title'"+">Descripción:</h4><p class="+"'card-text'"+">"+ descripcion + "</p><h4 class="+"'text-info'"+">Redes Sociales</h4>"+ wsites + " <br /><br /><a href = "+"'index.aspx'"+" class="+"'btn btn-primary'"+">Regresar</a></div></div></div></div></div>";
                 contenedor.InnerHtml = Query;
 
 
