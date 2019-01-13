@@ -75,7 +75,6 @@ namespace AccesoDatos
                 //Se instancia el comando con la sentencia.
                 command = new MySqlCommand("SELECT UBICACIONES_PROFESIONALES.ID_USUARIO,PROVINCIA,CANTON,DETALLES FROM UBICACIONES INNER JOIN UBICACIONES_PROFESIONALES ON UBICACIONES.ID_UBICACION=UBICACIONES_PROFESIONALES.ID_UBICACION WHERE UBICACIONES_PROFESIONALES.ID_USUARIO=" + id_usuario);
                 //
-
                 //Se establese la conexión.
                 command.Connection = conexion;
 
