@@ -22,5 +22,11 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="contenedor" runat="server"></div>
+            <div>
+&nbsp;&nbsp;
+            <br />
+            <br />
+&nbsp;<br />
+            <div id="contenedor" runat="server"></div>
+&nbsp;</div>
 </asp:Content>
