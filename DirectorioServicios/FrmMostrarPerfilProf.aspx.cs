@@ -19,12 +19,12 @@ namespace DirectorioServicios
                 string id = Request.QueryString["id"];
                 cargarUsuario(id);
             }
-            
+
         }
 
         protected void btnProfesion_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         //public void cargarUsuario(string id)
@@ -72,7 +72,7 @@ namespace DirectorioServicios
 
         public void cargarUsuario(string id)
         {
-            string ocupaciones = "",ubicaciones = "",wsites="",nombe="",correo="",telefono="",descripcion="", Query="";
+            string ocupaciones = "", ubicaciones = "", wsites = "", nombre = "", correo = "", telefono = "", descripcion = "", Query = "";
             try
             {
 
@@ -83,7 +83,7 @@ namespace DirectorioServicios
 
                 foreach (DataRow item in lista_Ocupaciones.Rows)
                 {
-                    ocupaciones += "<li class="+"'nodecoracion'"+">"+item["PROFESION"].ToString() + "</li>";
+                    ocupaciones += "<li class=" + "'nodecoracion'" + ">" + item["PROFESION"].ToString() + "</li>";
                 }
                 //<---------------------- OCUPACIONES
 
@@ -96,7 +96,7 @@ namespace DirectorioServicios
 
                 foreach (DataRow item in lista_ubicaciones.Rows)
                 {
-                    ubicaciones += "<li class="+"'nodecoracion'"+">" + item["PROVINCIA"].ToString() + " " + item["CANTON"].ToString() + "</li>";
+                    ubicaciones += "<li class=" + "'nodecoracion'" + ">" + item["PROVINCIA"].ToString() + " " + item["CANTON"].ToString() + "</li>";
                 }
 
                 //<---------------------- UBICACIONES
@@ -119,13 +119,30 @@ namespace DirectorioServicios
                 LogicaUsuario user = new LogicaUsuario();
                 ClsUsuarios usuarioObtenido;
                 usuarioObtenido = user.ObtenerDatosDeUsuario(int.Parse(id));
-                nombe= usuarioObtenido.Nombre_Profesional + ' ' + usuarioObtenido.Apellido1_Profesional + ' ' + usuarioObtenido.Apellido2_Profesional;
+                nombre = usuarioObtenido.Nombre_Profesional + ' ' + usuarioObtenido.Apellido1_Profesional + ' ' + usuarioObtenido.Apellido2_Profesional;
                 correo = usuarioObtenido.Correo;
                 telefono = usuarioObtenido.Telefono_Profesional;
                 descripcion = usuarioObtenido.Descripcion;
                 //<----------------------- USUARIO
 
-                Query = "<div id="+"'lista'"+" runat="+"'server'"+"> <div class="+"'row'"+"><div class="+"'col-sm-6'"+"> <div class="+"'card'"+"><div class="+"'card-body'"+"><h3 class="+"'card-title'"+">"+ nombe + "</h3><h5 class="+"'card-title'"+">"+ "Profesión:</h5>"+ ocupaciones +"<h5 class="+"'card-title'"+">"+"Teléfono: "+ telefono + " </h5>"+"<p class="+"'card-text'"+">"+ correo + "</p><h4 class="+"'card-text'"+">Brindo servicios en:</h4> <ul> "+ ubicaciones + "</ul><h4 class="+"'card-title'"+">Descripción:</h4><p class="+"'card-text'"+">"+ descripcion + "</p><h4 class="+"'text-info'"+">Redes Sociales</h4>"+ wsites + " <br /><br /><a href = "+"'index.aspx'"+" class="+"'btn btn-primary'"+">Regresar</a></div></div></div></div></div>";
+                Query =
+                    "<div id='lista' runat='server'>" +
+                    "<div class='row'>" +
+                    "<div class='col-sm-6'>" +
+                    "<div class='card'>" +
+                    "<div class='card-body'>" +
+                    "   <h3 class='card-title'>" + nombre + "</h3>" +
+                    "   <h5 class='card-title'>" + "Profesión:</h5>" + ocupaciones +
+                    "   <h5 class='card-title'>" + "Teléfono: " + telefono + " </h5>" +
+                    "   <p class='card-text'>" + correo + "</p>" +
+                    "   <h4 class='card-title'>Brindo servicios en:</h4>" +
+                    "   <ul> " + ubicaciones + "</ul>" +
+                    "   <h4 class=" + "'card-title'>Descripción:</h4>" +
+                    "   <p class='card-text'>" + descripcion + "</p>" +
+                    "   <h4 class='text-info'>Redes Sociales</h4>" +
+                    "   <br>" + wsites + "<br /><br />" +
+                    "<a href = " + "'index.aspx'" + " class=" + "'btn btn-primary'" + ">Regresar</a>" +
+                    "</div></div></div></div></div>";
                 contenedor.InnerHtml = Query;
 
 
