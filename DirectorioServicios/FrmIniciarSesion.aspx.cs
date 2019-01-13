@@ -40,7 +40,7 @@ namespace DirectorioServicios
                 {
                     //Se guarda en un variable de sesión el id del usuario.
                     Session["ID_USUARIO_SESION"] = vln_IDUsuario;
-                    Response.Redirect("#");
+                    Response.Redirect("FrmCambiarPass.aspx");
                 }
                 else
                 {
