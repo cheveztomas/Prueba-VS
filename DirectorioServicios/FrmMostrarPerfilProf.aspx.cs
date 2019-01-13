@@ -132,15 +132,16 @@ namespace DirectorioServicios
                     "<div class='card'>" +
                     "<div class='card-body'>" +
                     "   <h3 class='card-title'>" + nombre + "</h3>" +
-                    "   <h5 class='card-title'>" + "Profesión:</h5>" + ocupaciones +
-                    "   <h5 class='card-title'>" + "Teléfono: " + telefono + " </h5>" +
-                    "   <p class='card-text'>" + correo + "</p>" +
+                    "   <h4 class='card-title'>" + "Profesión:</h4>" +
+                    "   <ul>" + ocupaciones +"</ul>"+
+                    "   <h4 class='card-title'>" + "Teléfono: " + telefono + " </h4>" +
+                    "   <p class='card-text'><h4>Correo: " + correo + " </h4></p>" +
                     "   <h4 class='card-title'>Brindo servicios en:</h4>" +
                     "   <ul> " + ubicaciones + "</ul>" +
                     "   <h4 class=" + "'card-title'>Descripción:</h4>" +
                     "   <p class='card-text'>" + descripcion + "</p>" +
                     "   <h4 class='text-info'>Redes Sociales</h4>" +
-                    "   <br>" + wsites + "<br /><br />" +
+                    "   " + wsites + "<br /><br />" +
                     "<a href = " + "'index.aspx'" + " class=" + "'btn btn-primary'" + ">Regresar</a>" +
                     "</div></div></div></div></div>";
                 contenedor.InnerHtml = Query;
