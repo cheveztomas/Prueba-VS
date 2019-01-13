@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DS</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
+         <link href="css/Style.css" rel="stylesheet" />
     </asp:ContentPlaceHolder>
     <!--Fontawesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -27,6 +28,7 @@
             alert(pvc_Mensaje);
         }
     </script>
+    <link rel="icon" href="../Logos/LogoDS (32x32).png" type="image/gif" sizes="64x64">
 </head>
 <body>
 
@@ -34,7 +36,9 @@
         <!--Barra de navegación-->
         <!-- Navbar -->
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-            <a class="navbar-brand" href="index.aspx">DS</a>
+            <a class="navbar-brand" href="index.aspx">
+                <img src="Logos/LogoDS (256x256).png" alt="Logo DS" class="Logo"/>
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -50,7 +54,6 @@
             </div>
         </nav>
         <!-- Navbar End -->
-        <br />
         <br />
         <br />
         <br />
