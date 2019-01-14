@@ -55,7 +55,7 @@
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Txt_Telefono" ErrorMessage="* Teléfono no admitido." ForeColor="Red" ValidationExpression="^([0-9]){8,8}" ValidationGroup="Registrar" Display="Dynamic"></asp:RegularExpressionValidator>
             </div>
             <div class="form-group">
-                <label for="exampleDropdownFormEmail1">¿Que ofreces?</label>
+                <label for="exampleDropdownFormEmail1">¿Acerca de mi?</label>
                 <asp:TextBox ID="Txt_Descipcion" runat="server" class="form-control" MaxLength="200" ValidationGroup="Registrar"></asp:TextBox>
             </div>
 
