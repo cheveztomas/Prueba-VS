@@ -168,11 +168,11 @@ namespace DirectorioServicios
                 //----------------------> SITIO WEB
 
                 LogicaWebSites lista_WebSites = new LogicaWebSites();
-                //if (lista_WebSites.ObtenerDatosDeUsuarioPaginasWeb(int.Parse(id)).Rows.Count>0)
-                //{
+                if (lista_WebSites.ObtenerDatosDeUsuarioPaginasWeb(int.Parse(id)).Rows.Count>0)
+                {
                     grd_websites.DataSource = lista_WebSites.ObtenerDatosDeUsuarioPaginasWeb(int.Parse(id));
                     grd_websites.DataBind();
-                //}
+                }
 
 
                 LogicaUsuario user = new LogicaUsuario();
