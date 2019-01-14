@@ -82,7 +82,7 @@
                 <asp:Button ID="btnGuardarProfesion" runat="server" Text="Agregar" CssClass="btn btn-info" />
                 <br />
                 <br />
-                <asp:GridView ID="grd_Ubicacion" runat="server">
+                <asp:GridView ID="grd_Ubicacion" runat="server" AutoGenerateColumns="False" EmptyDataText="No hay Ubicaciones">
                 </asp:GridView>
                 <br />
                 <br />
@@ -103,7 +103,16 @@
                 <asp:Button ID="btnGuardarUbicacion" runat="server" Text="Agregar" CssClass="btn btn-info" />
                 <br />
                 <br />
-                <asp:GridView ID="grd_websites" runat="server">
+                <asp:GridView ID="grd_websites" runat="server" AutoGenerateColumns="False" Width="100%">
+                    <Columns>
+                        <asp:BoundField DataField="ID_UBICACION" HeaderText="Id ubicación" ShowHeader="False" Visible="False" />
+                        <asp:BoundField DataField="PROVINCIA" HeaderText="Provincia" />
+                        <asp:BoundField DataField="CANTON" HeaderText="Cantón" />
+                        <asp:CommandField />
+                    </Columns>
+                    <EmptyDataTemplate>
+                        <asp:LinkButton ID="lkn_EliminarUbicacion" runat="server" CommandArgument='<%# Eval("ID_UBICACION").ToString() %>'>Eliminar</asp:LinkButton>
+                    </EmptyDataTemplate>
                 </asp:GridView>
                 <br />
                 <asp:Label ID="lblWebsites" runat="server" Text="Redes Sociales:"></asp:Label>
