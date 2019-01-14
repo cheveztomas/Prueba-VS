@@ -37,7 +37,7 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <a class="navbar-brand" href="index.aspx">
-                <!--<img src="Logos/LogoDS (256x256).png" alt="Logo DS" class="Logo"/>-->
+                <img src="Logos/LogoDS (256x256).png" alt="Logo DS" width="64" height="64"/>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
