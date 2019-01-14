@@ -122,13 +122,13 @@
                 <br />
                 <asp:GridView ID="grd_websites" runat="server" AutoGenerateColumns="False" Width="100%">
                     <Columns>
-                        <asp:BoundField DataField="ID_UBICACION" HeaderText="Id ubicación" ShowHeader="False" Visible="False" />
-                        <asp:BoundField DataField="PROVINCIA" HeaderText="Provincia" />
-                        <asp:BoundField DataField="CANTON" HeaderText="Cantón" />
+                        <asp:BoundField DataField="COD_SITIO" HeaderText="COD_SITIO" ShowHeader="False" Visible="False" />
+                        <asp:BoundField DataField="PROVINCIA" HeaderText="Dirección Web" />
+                        <asp:BoundField DataField="CANTON" HeaderText="Nombre del Sitio Web" />
                         <asp:CommandField />
                     </Columns>
                     <EmptyDataTemplate>
-                        <asp:LinkButton ID="lkn_EliminarUbicacion" runat="server" CommandArgument='<%# Eval("ID_UBICACION").ToString() %>'>Eliminar</asp:LinkButton>
+                        <asp:LinkButton ID="lkn_EliminarSitios" runat="server" CommandArgument='<%# Eval("ID_UBICACION").ToString() %>'>Eliminar</asp:LinkButton>
                     </EmptyDataTemplate>
                 </asp:GridView>
                 <br />
