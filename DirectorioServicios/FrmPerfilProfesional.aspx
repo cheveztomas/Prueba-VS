@@ -65,7 +65,7 @@
 
                 <br />
 
-                <asp:GridView ID="GridView1" runat="server">
+                <asp:GridView ID="grd_Ocupaciones" runat="server">
                 </asp:GridView>
                 <br />
                 <br />
@@ -82,7 +82,7 @@
                 </div>
                 <br />
                 <br />
-                <asp:GridView ID="GridView2" runat="server">
+                <asp:GridView ID="grd_Ubicacion" runat="server">
                 </asp:GridView>
                 <br />
                 <br />
@@ -103,7 +103,7 @@
                 </div>
                 <br />
                 <br />
-                <asp:GridView ID="GridView3" runat="server">
+                <asp:GridView ID="grd_websites" runat="server">
                 </asp:GridView>
                 <br />
                 <asp:Label ID="lblWebsites" runat="server" Text="Redes Sociales:"></asp:Label>
