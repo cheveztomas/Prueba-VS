@@ -108,7 +108,8 @@ namespace DirectorioServicios
                 DataTable lista_Websites;
                 lista_Websites = list_WebSites.ObtenerDatosDeUsuarioPaginasWeb(int.Parse(id));
 
-
+                string titulo = "<h3 id='contenedor' class='text-info'>Perfil Profesional:</h3>";
+                contenedor.InnerHtml += titulo;
                 foreach (DataRow item in lista_Websites.Rows)
                 {
                     wsites += "<a href=" + item["URL_SITIO"].ToString() + ">" + item["NOMBRE_SITIO"].ToString() + "</a><br>";
