@@ -10,6 +10,7 @@ namespace DirectorioServicios
         protected void Page_Load(object sender, EventArgs e)
         {
             int vgn_ID = int.Parse(Session["ID_USUARIO_SESION"].ToString());
+            string vgc_ID = vgn_ID.ToString();
 
             if (!Page.IsPostBack)
             {
@@ -44,10 +45,13 @@ namespace DirectorioServicios
 
             try
             {
+                int vgn_ID = int.Parse(Session["ID_USUARIO_SESION"].ToString());
+                string vgc_ID = vgn_ID.ToString();
                 llenarCantones();
                 llenarEspecialidades();
                 llenarOcupaciones();
                 llenarProvincias();
+                cargarUsuarioModificar(vgc_ID);
             }
             catch (Exception)
             {
