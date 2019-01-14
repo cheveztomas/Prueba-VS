@@ -166,13 +166,13 @@ namespace DirectorioServicios {
         protected global::System.Web.UI.WebControls.Label lblEspecialidad;
         
         /// <summary>
-        /// Control ddlPorfesion.
+        /// Control ddlProfesion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPorfesion;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProfesion;
         
         /// <summary>
         /// Control ddlEspecialidad.
