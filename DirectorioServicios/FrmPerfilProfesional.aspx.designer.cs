@@ -139,13 +139,13 @@ namespace DirectorioServicios {
         protected global::System.Web.UI.WebControls.Button btnGuardar;
         
         /// <summary>
-        /// Control GridView1.
+        /// Control grd_Ocupaciones.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView grd_Ocupaciones;
         
         /// <summary>
         /// Control lblProfesion1.
@@ -193,13 +193,13 @@ namespace DirectorioServicios {
         protected global::System.Web.UI.WebControls.Button btnGuardarProfesion;
         
         /// <summary>
-        /// Control GridView2.
+        /// Control grd_Ubicacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView2;
+        protected global::System.Web.UI.WebControls.GridView grd_Ubicacion;
         
         /// <summary>
         /// Control lblProvincia.
@@ -265,13 +265,13 @@ namespace DirectorioServicios {
         protected global::System.Web.UI.WebControls.Button btnGuardarUbicacion;
         
         /// <summary>
-        /// Control GridView3.
+        /// Control grd_websites.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView3;
+        protected global::System.Web.UI.WebControls.GridView grd_websites;
         
         /// <summary>
         /// Control lblWebsites.
