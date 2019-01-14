@@ -68,8 +68,7 @@
                 <asp:GridView ID="grd_Ocupaciones" runat="server" AutoGenerateColumns="False" EmptyDataText="No hay ubicaciones registradas." Width="100%">
                     <Columns>
                         <asp:BoundField DataField="ID_OCUPACION" ShowHeader="False" Visible="False" />
-                        <asp:BoundField DataField="NOMBRE_OCUPACION" HeaderText="Profesión" />
-                        <asp:BoundField DataField="ESPACIALIDAD_OCUPACION" HeaderText="Especialidad" />
+                        <asp:BoundField DataField="PROFESION" HeaderText="Profesión" />
                         <asp:CommandField />
                     </Columns>
                     <EmptyDataTemplate>

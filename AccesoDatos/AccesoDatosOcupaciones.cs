@@ -91,8 +91,8 @@ namespace AccesoDatos
 
             try
             {
-                MySqlCommand sentencia = new MySqlCommand("select OCUPACIONES.ID_OCUPACION, concat(OCUPACIONES.NOMBRE_OCUPACION,' ',OCUPACIONES.ESPACIALIDAD_OCUPACION) as PROFESION from OCUPACIONES inner join OCUPACIONES_PROFESIONALES on OCUPACIONES.ID_OCUPACION = OCUPACIONES_PROFESIONALES.ID_OCUPACION where OCUPACIONES_PROFESIONALES.ID_USUARIO = " + id + ";");
                 conexion.Open();
+                MySqlCommand sentencia = new MySqlCommand("select OCUPACIONES.ID_OCUPACION, concat(OCUPACIONES.NOMBRE_OCUPACION,' ',OCUPACIONES.ESPACIALIDAD_OCUPACION) as PROFESION from OCUPACIONES inner join OCUPACIONES_PROFESIONALES on OCUPACIONES.ID_OCUPACION = OCUPACIONES_PROFESIONALES.ID_OCUPACION where OCUPACIONES_PROFESIONALES.ID_USUARIO = " + id + ";");
                 sentencia.Connection = conexion;
 
                 dataAdapter = new MySqlDataAdapter(sentencia);
@@ -107,14 +107,14 @@ namespace AccesoDatos
                 conexion.Dispose();
 
                 //Retorna la lista de ocupaciones 
-                return list_Ocupaciones;
+                
             }
             catch (Exception)
             {
 
                 throw;
             }
-
+            return list_Ocupaciones;
         }
 
         public DataTable ObtenerDatosDeUsuarioOcupaciones(int id_usuario)
