@@ -128,7 +128,7 @@
                         <asp:CommandField />
                     </Columns>
                     <EmptyDataTemplate>
-                        <asp:LinkButton ID="lkn_EliminarSitios" runat="server" CommandArgument='<%# Eval("ID_UBICACION").ToString() %>'>Eliminar</asp:LinkButton>
+                        <asp:LinkButton ID="lkn_EliminarSitios" runat="server" CommandArgument='<%# Eval("COD_SITIO").ToString() %>'>Eliminar</asp:LinkButton>
                     </EmptyDataTemplate>
                 </asp:GridView>
                 <br />
