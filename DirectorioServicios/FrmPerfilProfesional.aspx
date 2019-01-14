@@ -22,12 +22,12 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-            <div>
+            <div id="contenedor">
 &nbsp;&nbsp;
             <br />
             <br />
 &nbsp;<br />
-            <div id="contenedor" runat="server">
+            <div id="form" runat="server">
                 <h2 class="text-info">Perfil Profesional</h2>
                 <asp:Label ID="lblNombre" runat="server" Text="Nombre:"></asp:Label>
                 <br />
@@ -69,38 +69,38 @@
                 </asp:GridView>
                 <br />
                 <br />
-                <asp:Label ID="lblProfesion1" runat="server" Text="Profesión:"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblEspecialidad" runat="server" Text="Especialidad:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <br />
-                <asp:DropDownList ID="ddlProfesion" runat="server">
-                </asp:DropDownList>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:DropDownList ID="ddlEspecialidad" runat="server">
-                </asp:DropDownList>
-                &nbsp;
-                <asp:Button ID="btnGuardarProfesion" runat="server" Text="Agregar" CssClass="btn btn-info" />
+                <div class="form-inline">
+                    <asp:Label ID="lblProfesion1" runat="server" Text="Profesión:"></asp:Label>
+                    &nbsp;
+                    <asp:DropDownList ID="ddlProfesion" runat="server"></asp:DropDownList>
+                     &nbsp;
+                    <asp:Label ID="lblEspecialidad" runat="server" Text="Especialidad:"></asp:Label>
+                    &nbsp;
+                    <asp:DropDownList ID="ddlEspecialidad" runat="server"></asp:DropDownList>
+                    &nbsp
+                    <asp:Button ID="btnGuardarProfesion" runat="server" Text="Agregar" CssClass="btn btn-info" />
+                </div>
                 <br />
                 <br />
                 <asp:GridView ID="GridView2" runat="server">
                 </asp:GridView>
                 <br />
                 <br />
-                <asp:Label ID="lblProvincia" runat="server" Text="Provincia:"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="lblCanton" runat="server" Text="Cantón:"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="lblDetalleDireccion" runat="server" Text="Dirección detallada:"></asp:Label>
-                <br />
-                <asp:DropDownList ID="ddlProvincia" runat="server">
-                </asp:DropDownList>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:DropDownList ID="ddlCanton" runat="server">
-                </asp:DropDownList>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="txtDetalleDireccion" runat="server"></asp:TextBox>
-                &nbsp;&nbsp;
-                <asp:Button ID="btnGuardarUbicacion" runat="server" Text="Agregar" CssClass="btn btn-info" />
+                <div class="form-inline">
+                    <asp:Label ID="lblProvincia" runat="server" Text="Provincia:"></asp:Label>
+                    &nbsp;
+                    <asp:DropDownList ID="ddlProvincia" runat="server"></asp:DropDownList>
+                    &nbsp;
+                    <asp:Label ID="lblCanton" runat="server" Text="Cantón:"></asp:Label>
+                    &nbsp;
+                    <asp:DropDownList ID="ddlCanton" runat="server"></asp:DropDownList>
+                    &nbsp;
+                    <asp:Label ID="lblDetalleDireccion" runat="server" Text="Dirección detallada:"></asp:Label>
+                    &nbsp;
+                    <asp:TextBox ID="txtDetalleDireccion" runat="server"></asp:TextBox>
+                    &nbsp;
+                    <asp:Button ID="btnGuardarUbicacion" runat="server" Text="Agregar" CssClass="btn btn-info" />
+                </div>
                 <br />
                 <br />
                 <asp:GridView ID="GridView3" runat="server">
@@ -108,19 +108,21 @@
                 <br />
                 <asp:Label ID="lblWebsites" runat="server" Text="Redes Sociales:"></asp:Label>
                 <br />
-                <asp:Label ID="lblUrl" runat="server" Text="Dirrección Web:"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="lblNombreSitio" runat="server" Text="Nombre del Sitio Web:"></asp:Label>
-                <br />
-                <asp:TextBox ID="txtURL" runat="server"></asp:TextBox>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="txtNombreSitio" runat="server"></asp:TextBox>
-                &nbsp;&nbsp;
-                <asp:Button ID="btnGuardarSitiosWeb" runat="server" Text="Agregar" CssClass="btn btn-info" />
+                <div class="form-inline"></div>
+                    <asp:Label ID="lblUrl" runat="server" Text="Dirrección Web:"></asp:Label>
+                    &nbsp;
+                    <asp:TextBox ID="txtURL" runat="server"></asp:TextBox>
+                    &nbsp;
+                    <asp:Label ID="lblNombreSitio" runat="server" Text="Nombre del Sitio Web:"></asp:Label>
+                    &nbsp;
+                    <asp:TextBox ID="txtNombreSitio" runat="server"></asp:TextBox>
+                    &nbsp;
+                    &nbsp;
+                    <asp:Button ID="btnGuardarSitiosWeb" runat="server" Text="Agregar" CssClass="btn btn-info" />
+                </div>
                 <br />
                 <br />
                 
                 <br />
-                </div>
-&nbsp;</div>
+             </div>
 </asp:Content>

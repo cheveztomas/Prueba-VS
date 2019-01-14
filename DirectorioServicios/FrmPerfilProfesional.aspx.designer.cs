@@ -13,13 +13,13 @@ namespace DirectorioServicios {
     public partial class FrmPerfilProfesional {
         
         /// <summary>
-        /// Control contenedor.
+        /// Control form.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl contenedor;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl form;
         
         /// <summary>
         /// Control lblNombre.
@@ -157,15 +157,6 @@ namespace DirectorioServicios {
         protected global::System.Web.UI.WebControls.Label lblProfesion1;
         
         /// <summary>
-        /// Control lblEspecialidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEspecialidad;
-        
-        /// <summary>
         /// Control ddlProfesion.
         /// </summary>
         /// <remarks>
@@ -173,6 +164,15 @@ namespace DirectorioServicios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlProfesion;
+        
+        /// <summary>
+        /// Control lblEspecialidad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEspecialidad;
         
         /// <summary>
         /// Control ddlEspecialidad.
@@ -211,24 +211,6 @@ namespace DirectorioServicios {
         protected global::System.Web.UI.WebControls.Label lblProvincia;
         
         /// <summary>
-        /// Control lblCanton.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCanton;
-        
-        /// <summary>
-        /// Control lblDetalleDireccion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDetalleDireccion;
-        
-        /// <summary>
         /// Control ddlProvincia.
         /// </summary>
         /// <remarks>
@@ -238,6 +220,15 @@ namespace DirectorioServicios {
         protected global::System.Web.UI.WebControls.DropDownList ddlProvincia;
         
         /// <summary>
+        /// Control lblCanton.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCanton;
+        
+        /// <summary>
         /// Control ddlCanton.
         /// </summary>
         /// <remarks>
@@ -245,6 +236,15 @@ namespace DirectorioServicios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCanton;
+        
+        /// <summary>
+        /// Control lblDetalleDireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDetalleDireccion;
         
         /// <summary>
         /// Control txtDetalleDireccion.
@@ -292,15 +292,6 @@ namespace DirectorioServicios {
         protected global::System.Web.UI.WebControls.Label lblUrl;
         
         /// <summary>
-        /// Control lblNombreSitio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombreSitio;
-        
-        /// <summary>
         /// Control txtURL.
         /// </summary>
         /// <remarks>
@@ -308,6 +299,15 @@ namespace DirectorioServicios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtURL;
+        
+        /// <summary>
+        /// Control lblNombreSitio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombreSitio;
         
         /// <summary>
         /// Control txtNombreSitio.
