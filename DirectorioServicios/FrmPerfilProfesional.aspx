@@ -65,7 +65,16 @@
 
                 <br />
 
-                <asp:GridView ID="grd_Ocupaciones" runat="server">
+                <asp:GridView ID="grd_Ocupaciones" runat="server" AutoGenerateColumns="False" EmptyDataText="No hay ubicaciones registradas." Width="100%">
+                    <Columns>
+                        <asp:BoundField DataField="ID_OCUPACION" ShowHeader="False" Visible="False" />
+                        <asp:BoundField DataField="NOMBRE_OCUPACION" HeaderText="Profesión" />
+                        <asp:BoundField DataField="ESPACIALIDAD_OCUPACION" HeaderText="Especialidad" />
+                        <asp:CommandField />
+                    </Columns>
+                    <EmptyDataTemplate>
+                        <asp:LinkButton ID="lnkEliminarOcupacion" runat="server" CommandArgument='<%# Eval("ID_OCUPACION").ToString() %>'>Eliminar</asp:LinkButton>
+                    </EmptyDataTemplate>
                 </asp:GridView>
                 <br />
                 <br />
@@ -82,7 +91,16 @@
                 </div>
                 <br />
                 <br />
-                <asp:GridView ID="grd_Ubicacion" runat="server" AutoGenerateColumns="False" EmptyDataText="No hay Ubicaciones">
+                <asp:GridView ID="grd_Ubicacion" runat="server" AutoGenerateColumns="False" EmptyDataText="No hay Ubicaciones" Width="100%">
+                    <Columns>
+                        <asp:BoundField DataField="ID_UBICACION" HeaderText="Id Ubicación" ShowHeader="False" Visible="False" />
+                        <asp:BoundField DataField="PROVINCIA" HeaderText="Provincia" />
+                        <asp:BoundField DataField="CANTON" HeaderText="Cantón" />
+                        <asp:CommandField />
+                    </Columns>
+                    <EmptyDataTemplate>
+                        <asp:LinkButton ID="lkn_EliminarUbicacion" runat="server" CommandArgument='<%# Eval("ID_UBICACION").ToString() %>'>Eliminar</asp:LinkButton>
+                    </EmptyDataTemplate>
                 </asp:GridView>
                 <br />
                 <br />
