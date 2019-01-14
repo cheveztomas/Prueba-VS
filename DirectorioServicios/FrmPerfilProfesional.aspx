@@ -65,7 +65,16 @@
 
                 <br />
 
-                <asp:GridView ID="grd_Ocupaciones" runat="server">
+                <asp:GridView ID="grd_Ocupaciones" runat="server" AutoGenerateColumns="False" EmptyDataText="No hay ubicaciones registradas." Width="100%">
+                    <Columns>
+                        <asp:BoundField DataField="ID_OCUPACION" ShowHeader="False" Visible="False" />
+                        <asp:BoundField DataField="NOMBRE_OCUPACION" HeaderText="Profesión" />
+                        <asp:BoundField DataField="ESPACIALIDAD_OCUPACION" HeaderText="Especialidad" />
+                        <asp:CommandField />
+                    </Columns>
+                    <EmptyDataTemplate>
+                        <asp:LinkButton ID="lnkEliminarOcupacion" runat="server" CommandArgument='<%# Eval("ID_OCUPACION").ToString() %>'>Eliminar</asp:LinkButton>
+                    </EmptyDataTemplate>
                 </asp:GridView>
                 <br />
                 <br />
