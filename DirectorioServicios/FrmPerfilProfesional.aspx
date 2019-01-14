@@ -98,7 +98,7 @@
                         <asp:CommandField ShowDeleteButton="True" />
                     </Columns>
                     <EmptyDataTemplate>
-                        <asp:LinkButton ID="lkn_EliminarUbicacion" runat="server" CommandArgument='<%# Eval("ID_UBICACION").ToString() %>' Text="<%# Eliminar %>"></asp:LinkButton>
+                        <asp:LinkButton ID="lkn_EliminarUbicacion" runat="server" CommandArgument='<%# Eval("ID_UBICACION").ToString() %>'></asp:LinkButton>
                     </EmptyDataTemplate>
                 </asp:GridView>
                 <br />
