@@ -123,8 +123,8 @@
                 <asp:GridView ID="grd_websites" runat="server" AutoGenerateColumns="False" Width="100%">
                     <Columns>
                         <asp:BoundField DataField="COD_SITIO" HeaderText="COD_SITIO" ShowHeader="False" Visible="False" />
-                        <asp:BoundField DataField="PROVINCIA" HeaderText="Dirección Web" />
-                        <asp:BoundField DataField="CANTON" HeaderText="Nombre del Sitio Web" />
+                        <asp:BoundField DataField="URL_SITIO" HeaderText="Dirección Web" />
+                        <asp:BoundField DataField="NOMBRE_SITIO" HeaderText="Nombre del Sitio Web" />
                         <asp:CommandField />
                     </Columns>
                     <EmptyDataTemplate>
