@@ -59,6 +59,9 @@
                 <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
                 <br />
                 <br />
+                <a href="FrmCambiarPass.aspx" class="text-info">Cambiar Contraseña</a>
+                <br />
+                <br />
                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-info" />
 
                 <br />
