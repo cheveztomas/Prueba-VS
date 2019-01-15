@@ -107,7 +107,7 @@ namespace AccesoDatos
             string vlc_Sentencia = string.Empty;
             vlo_sqlCommand.Connection = vlo_sqlConexion;
 
-            vlc_Sentencia = "SP_EliminarSitiosWeb";
+            vlc_Sentencia = "SP_EliminarSitioWeb";
             vlo_sqlCommand.CommandType = CommandType.StoredProcedure;
             vlo_sqlCommand.Parameters.AddWithValue("@_cod_sitio", pvc_Codigo);
             vlo_sqlCommand.Parameters.Add("@_msj", MySqlDbType.VarChar, 100);
