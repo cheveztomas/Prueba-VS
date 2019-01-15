@@ -196,8 +196,16 @@ namespace DirectorioServicios
 
 
 
+
         #endregion
 
 
+        //----------------------->EVENTO PARA ELIMINAR UN SITIO WEB
+        protected void lkn_EliminarSitios_Command(object sender, System.Web.UI.WebControls.CommandEventArgs e)
+        {
+            int cod_sitio = int.Parse(e.CommandArgument.ToString());
+            string 
+        }
+        //------------------------EVENTO PARA ELIMINAR UN SITIO WEB
     }
 }

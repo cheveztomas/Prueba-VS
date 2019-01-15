@@ -125,10 +125,10 @@
                         <asp:BoundField DataField="COD_SITIO" HeaderText="COD_SITIO" ShowHeader="False" Visible="False" />
                         <asp:BoundField DataField="URL_SITIO" HeaderText="Dirección Web" />
                         <asp:BoundField DataField="NOMBRE_SITIO" HeaderText="Nombre del Sitio Web" />
-                        <asp:CommandField ShowDeleteButton="True" />
+                        <asp:TemplateField></asp:TemplateField>
                     </Columns>
                     <EmptyDataTemplate>
-                        <asp:LinkButton ID="lkn_EliminarSitios" runat="server" CommandArgument='<%# Eval("COD_SITIO").ToString() %>'>Eliminar</asp:LinkButton>
+                        <asp:LinkButton ID="lkn_EliminarSitios" runat="server" CommandArgument='<%# Eval("COD_SITIO").ToString() %>' OnCommand="lkn_EliminarSitios_Command">Eliminar</asp:LinkButton>
                     </EmptyDataTemplate>
                 </asp:GridView>
                 <br />
