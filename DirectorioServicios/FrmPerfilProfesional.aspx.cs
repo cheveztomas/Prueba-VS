@@ -227,5 +227,23 @@ namespace DirectorioServicios
                 throw;
             }
         }
+
+        //----------------------->EVENTO PARA ELIMINAR UN SITIO WEB
+        protected void lnkEliminar_Command1(object sender, System.Web.UI.WebControls.CommandEventArgs e)
+        {
+            string cod_sitio = e.CommandArgument.ToString();
+            string msg = string.Empty;
+            LogicaWebSites vlo_sitios = new LogicaWebSites();
+            try
+            {
+                msg = vlo_sitios.Borrar(cod_sitio);
+                cargarUsuarioModificar(Session["ID_USUARIO_SESION"].ToString());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

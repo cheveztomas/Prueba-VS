@@ -127,7 +127,7 @@
                         <asp:BoundField DataField="NOMBRE_SITIO" HeaderText="Nombre del Sitio Web" />
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:LinkButton ID="lnkEliminar" runat="server" CommandArgument='<%# Eval("COD_SITIO").ToString() %>' OnCommand="lnkEliminar_Command">Eliminar</asp:LinkButton>
+                                <asp:LinkButton ID="lnkEliminar" runat="server" CommandArgument='<%# Eval("COD_SITIO").ToString() %>' OnCommand="lnkEliminar_Command1">Eliminar</asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
