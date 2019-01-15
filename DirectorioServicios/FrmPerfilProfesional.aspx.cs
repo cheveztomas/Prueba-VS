@@ -342,8 +342,10 @@ namespace DirectorioServicios
             {
                 LogicaOcupacionesProf profesion = new LogicaOcupacionesProf();
                 msj = profesion.agregarOcupacion(int.Parse(Session["ID_USUARIO_SESION"].ToString()), int.Parse(ddlEspecialidad.SelectedValue));
-               
-    
+                CargarGrdOcupaciones(Session["ID_USUARIO_SESION"].ToString());
+
+
+
             }
             catch (Exception)
             {
