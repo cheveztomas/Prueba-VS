@@ -80,5 +80,26 @@ namespace CapaLogica
             return list_Ocupaciones;
         }
 
+
+        public int eliminarOcupacion(int pvn_idOcupacion, int pvn_idUsuario)
+        {
+
+            AccesoDatosOcupaciones accesoDatosOcupaciones = new AccesoDatosOcupaciones();
+            int correcto = -1; // variable que obtiene el valor devuelto por la consulta
+
+            try
+            {
+                correcto = accesoDatosOcupaciones.eliminarOcupacion(pvn_idOcupacion, pvn_idUsuario);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return correcto;
+
+        }
+
     }//class
 }//namespace

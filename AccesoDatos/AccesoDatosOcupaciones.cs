@@ -140,7 +140,7 @@ namespace AccesoDatos
                 conexion.Open();
 
                 //Se instancia el comando con la sentencia.
-                command = new MySqlCommand("SELECT OCUPACIONES_PROFESIONALES.ID_OCUPACION,NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION FROM OCUPACIONES INNER JOIN OCUPACIONES_PROFESIONALES ON OCUPACIONES.ID_OCUPACION=OCUPACIONES_PROFESIONALES.ID_OCUPACION WHERE OCUPACIONES_PROFESIONALES.ID_USUARIO=" + id_usuario);
+                command = new MySqlCommand("SELECT OCUPACIONES_PROFESIONALES.ID_USUARIO, OCUPACIONES_PROFESIONALES.ID_OCUPACION,NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION FROM OCUPACIONES INNER JOIN OCUPACIONES_PROFESIONALES ON OCUPACIONES.ID_OCUPACION=OCUPACIONES_PROFESIONALES.ID_OCUPACION WHERE OCUPACIONES_PROFESIONALES.ID_USUARIO=" + id_usuario);
                 //Se establese la conexión.
                 command.Connection = conexion;
                 //Se instancia el data adpter con el comando.
@@ -161,6 +161,54 @@ namespace AccesoDatos
             }
 
             return vlo_DatosUsuarioOcupaciones;
+        }
+
+
+        public int eliminarOcupacion(int pvn_idOcupacion, int pvn_idUsuario)
+        {
+
+            int correcto = -1;
+
+            string respueta = null; // variable que tiene el mensaje devuelto por el procedimiento almacenado despues de intentar eliminar la ocupacion
+
+            //Se establese una variable de conexión instanciando la conexion de MySQL
+            MySqlConnection conexion = new MySqlConnection();
+
+            //Se establese la cadena de conexión obteniendola de la configuración.
+            conexion.ConnectionString = ClsConfiguracion.getConnectionString();
+
+            //Se establese una variable de comandos.
+            MySqlCommand command;
+
+            //Se establese una variable de tipo data adapter.
+            MySqlDataAdapter vlo_DA;
+
+            try
+            {
+                //Se abre la conexión.
+                conexion.Open();
+
+                //Se instancia el comando con la sentencia.
+                command = new MySqlCommand("DELETE FROM OCUPACIONES_PROFESIONALES WHERE ID_OCUPACION = " + pvn_idOcupacion + " AND ID_USUARIO =" + pvn_idUsuario);
+                //Se establese la conexión.
+                command.Connection = conexion;
+
+                // obteniendo el valor que devuelve la consulta
+                correcto = command.ExecuteNonQuery();
+
+
+                conexion.Close();
+                command.Dispose();
+                conexion.Dispose();
+            }
+            catch (MySqlException ex)
+            {
+
+                throw;
+            }
+
+            return correcto;
+
         }
 
     }//class

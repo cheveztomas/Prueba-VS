@@ -2,6 +2,7 @@
 using EntidadesDirectorio;
 using System;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace DirectorioServicios
 {
@@ -336,6 +337,34 @@ namespace DirectorioServicios
             Webs.ID_Usuario = int.Parse(Session["ID_USUARIO_SESION"].ToString());
             Webs.Nombre_Sitio = txtNombreSitio.Text;
             Webs.URL_Sitio = txtURL.Text;
+        }
+
+        protected void lnkEliminarOcupacion_Command(object sender, System.Web.UI.WebControls.CommandEventArgs e)
+        {
+            
+        }
+
+        protected void lnk_eliminarProfesion_Command(object sender, CommandEventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+            int rowindex = Convert.ToInt32(row.RowIndex);
+            Console.WriteLine("rowIndex " + rowindex); // comprobando si realmente se obtuvo el id del usuario
+
+            int idOcupacion = int.Parse(e.CommandArgument.ToString());
+            int idUsuario = int.Parse(Session["ID_USUARIO_SESION"].ToString()); 
+            LogicaOcupaciones logicaOcupaciones = new LogicaOcupaciones();
+
+            try
+            {
+                logicaOcupaciones.eliminarOcupacion(idOcupacion, idUsuario);
+                CargarGrdOcupaciones(idUsuario.ToString());
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("error, " + ex.Message);
+            }
         }
     }
 }

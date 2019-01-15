@@ -69,11 +69,12 @@
                     <Columns>
                         <asp:BoundField DataField="ID_OCUPACION" ShowHeader="False" Visible="False" />
                         <asp:BoundField DataField="PROFESION" HeaderText="Profesión" />
-                        <asp:CommandField ShowDeleteButton="True" />
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnk_eliminarProfesion" runat="server" CommandArgument='<%# Eval("ID_OCUPACION").ToString() %>' OnCommand="lnk_eliminarProfesion_Command">Eliminar</asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
-                    <EmptyDataTemplate>
-                        <asp:LinkButton ID="lnkEliminarOcupacion" runat="server" CommandArgument='<%# Eval("ID_OCUPACION").ToString() %>'>Eliminar</asp:LinkButton>
-                    </EmptyDataTemplate>
                 </asp:GridView>
                 <br />
                 <br />
