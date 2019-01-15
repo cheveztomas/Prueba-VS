@@ -95,11 +95,12 @@
                         <asp:BoundField DataField="ID_UBICACION" HeaderText="Id Ubicación" ShowHeader="False" Visible="False" />
                         <asp:BoundField DataField="PROVINCIA" HeaderText="Provincia" />
                         <asp:BoundField DataField="CANTON" HeaderText="Cantón" />
-                        <asp:CommandField ShowDeleteButton="True" />
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="Lnk_EliminarUbicacion" runat="server" CommandArgument='<%# Eval("ID_UBICACION").ToString() %>' OnCommand="lkn_EliminarUbicacion_Command">Eliminar</asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
-                    <EmptyDataTemplate>
-                        <asp:LinkButton ID="lkn_EliminarUbicacion" runat="server" CommandArgument='<%# Eval("ID_UBICACION").ToString() %>'></asp:LinkButton>
-                    </EmptyDataTemplate>
                 </asp:GridView>
                 <br />
                 <br />

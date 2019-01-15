@@ -285,7 +285,7 @@ namespace DirectorioServicios
             llenarCantones();
         }
 
-        //----------------------> Ubicaciones Guardar
+        //----------------------> UBICACION GUARDAR
         protected void btnGuardarUbicacion_Click(object sender, EventArgs e)
         {
             LogicaUbicacionProf Ubicacion = new LogicaUbicacionProf();
@@ -297,6 +297,28 @@ namespace DirectorioServicios
             try
             {
                 Ubicacion.Guardar(nuevaUbicacion);
+                CargarGrdUbicaciones(Session["ID_USUARIO_SESION"].ToString());
+            }
+            catch (Exception)
+            {
+                //TODO: Mensaje de error
+                throw;
+            }
+        }
+        //-----------------------> UBICACION ELIMINAR
+        protected void lkn_EliminarUbicacion_Command(object sender, System.Web.UI.WebControls.CommandEventArgs e)
+        {
+            int cod_Ubicacion = int.Parse(e.CommandArgument.ToString());
+            int id_Usuario = int.Parse(Session["ID_USUARIO_SESION"].ToString());
+            string msg = string.Empty;
+            LogicaUbicacionProf vlo_UbicacionProf = new LogicaUbicacionProf();
+            ClsUbicacionesProfesionales UbicacionProf = new ClsUbicacionesProfesionales();
+            UbicacionProf.ID_Usuario = id_Usuario;
+            UbicacionProf.ID_Ubicacion1 = cod_Ubicacion;
+
+            try
+            {
+                msg = vlo_UbicacionProf.Borrar(UbicacionProf);
                 CargarGrdUbicaciones(Session["ID_USUARIO_SESION"].ToString());
             }
             catch (Exception)
@@ -337,5 +359,7 @@ namespace DirectorioServicios
             Webs.Nombre_Sitio = txtNombreSitio.Text;
             Webs.URL_Sitio = txtURL.Text;
         }
+
+     
     }
 }
