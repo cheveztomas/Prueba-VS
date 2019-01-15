@@ -7,6 +7,7 @@ namespace DirectorioServicios
 {
     public partial class FrmPerfilProfesional : System.Web.UI.Page
     {
+        string vgc_Script = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             int vgn_ID = int.Parse(Session["ID_USUARIO_SESION"].ToString());
@@ -182,7 +183,7 @@ namespace DirectorioServicios
 
                 throw;
             }
-            
+
         }
 
         //----------------------> UBICACIONES
@@ -207,7 +208,7 @@ namespace DirectorioServicios
 
                 throw;
             }
-            
+
         }
 
         //----------------------> SITIO WEB
@@ -232,7 +233,7 @@ namespace DirectorioServicios
 
                 throw;
             }
-       
+
         }
 
         //----------------------> Usuario
@@ -289,10 +290,12 @@ namespace DirectorioServicios
         protected void btnGuardarUbicacion_Click(object sender, EventArgs e)
         {
             LogicaUbicacionProf Ubicacion = new LogicaUbicacionProf();
-            ClsUbicacionesProfesionales nuevaUbicacion = new ClsUbicacionesProfesionales();
-            nuevaUbicacion.ID_Usuario = int.Parse(Session["ID_USUARIO_SESION"].ToString());
-            nuevaUbicacion.ID_Ubicacion1 = int.Parse(ddlCanton.SelectedValue);
-            nuevaUbicacion.Detalles = txtDetalleDireccion.Text;
+            ClsUbicacionesProfesionales nuevaUbicacion = new ClsUbicacionesProfesionales
+            {
+                ID_Usuario = int.Parse(Session["ID_USUARIO_SESION"].ToString()),
+                ID_Ubicacion1 = int.Parse(ddlCanton.SelectedValue),
+                Detalles = txtDetalleDireccion.Text
+            };
 
             try
             {
@@ -316,10 +319,15 @@ namespace DirectorioServicios
             {
                 msg = vlo_sitios.Borrar(cod_sitio);
                 CargarGrdWebSites(Session["ID_USUARIO_SESION"].ToString());
+                vgc_Script = string.Format("javascript:MostrarMensaje('"+msg+"');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
             catch (Exception)
             {
-                //TODO: Mensaje de error
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al eliminar sitio web.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
                 throw;
             }
         }
@@ -327,15 +335,34 @@ namespace DirectorioServicios
         protected void btnGuardarSitiosWeb_Click(object sender, EventArgs e)
         {
             //Variables
-            string msj = String.Empty;
+            string msj = string.Empty;
             LogicaWebSites Logica;
-            ClsWebSites Webs = new ClsWebSites();
+            ClsWebSites Webs = new ClsWebSites
+            {
 
-            //Inicio
-            Webs.Cod_Sitio = -1;
-            Webs.ID_Usuario = int.Parse(Session["ID_USUARIO_SESION"].ToString());
-            Webs.Nombre_Sitio = txtNombreSitio.Text;
-            Webs.URL_Sitio = txtURL.Text;
+                //Inicio
+                Cod_Sitio = -1,
+                ID_Usuario = int.Parse(Session["ID_USUARIO_SESION"].ToString()),
+                Nombre_Sitio = txtNombreSitio.Text,
+                URL_Sitio = txtURL.Text
+            };
+
+            try
+            {
+                Logica = new LogicaWebSites();
+                msj = Logica.Guardar(Webs);
+                vgc_Script = string.Format("javascript:MostrarMensaje('"+msj+"');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
+                CargarGrdWebSites(Session["ID_USUARIO_SESION"].ToString());
+            }
+            catch (Exception)
+            {
+
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al agregar sitio web.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
+            }
         }
     }
 }
