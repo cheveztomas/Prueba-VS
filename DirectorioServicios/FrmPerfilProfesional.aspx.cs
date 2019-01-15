@@ -119,6 +119,7 @@ namespace DirectorioServicios
             //se crea una instancia de las funciones de logica
             LogicaOcupaciones funciones = new LogicaOcupaciones();
             ddlProfesion.DataTextField = "NOMBRE_OCUPACION";//se le dice que en el texto ponga lo que venga en el campo de datos
+
             try
             {
                 ddlProfesion.DataSource = funciones.obtenerOcupaciones();
@@ -142,6 +143,7 @@ namespace DirectorioServicios
             //se crea una instancia de las funciones de logica
             LogicaOcupaciones funciones = new LogicaOcupaciones();
             ddlEspecialidad.DataTextField = "ESPACIALIDAD_OCUPACION";//se le dice que en el texto ponga lo que venga en el campo de datos
+            ddlEspecialidad.DataValueField = "ID_OCUPACION";
             try
             {
                 ddlEspecialidad.DataSource = funciones.obtenerEspecialidades(ddlProfesion.Text);
@@ -322,6 +324,34 @@ namespace DirectorioServicios
                 //TODO: Mensaje de error
                 throw;
             }
+        }
+
+
+
+
+
+
+
+
+
+        protected void btnGuardarProfesion_Click(object sender, EventArgs e)
+        {
+            string msj = "";
+
+            try
+            {
+                LogicaOcupacionesProf profesion = new LogicaOcupacionesProf();
+                msj = profesion.agregarOcupacion(int.Parse(Session["ID_USUARIO_SESION"].ToString()), int.Parse(ddlEspecialidad.SelectedValue));
+               
+    
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            
         }
     }
 }

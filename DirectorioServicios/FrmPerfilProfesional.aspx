@@ -86,7 +86,7 @@
                     &nbsp;
                     <asp:DropDownList ID="ddlEspecialidad" runat="server"></asp:DropDownList>
                     &nbsp
-                    <asp:Button ID="btnGuardarProfesion" runat="server" Text="Agregar" CssClass="btn btn-info" />
+                    <asp:Button ID="btnGuardarProfesion" runat="server" Text="Agregar" CssClass="btn btn-info" OnClick="btnGuardarProfesion_Click" />
                 </div>
                 <br />
                 <br />

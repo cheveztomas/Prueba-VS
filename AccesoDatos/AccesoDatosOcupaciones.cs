@@ -56,7 +56,7 @@ namespace AccesoDatos
             try
             {
                 //se solicitan las especialidades de la base de datos 
-                MySqlCommand sentencia = new MySqlCommand("SELECT ESPACIALIDAD_OCUPACION FROM OCUPACIONES WHERE NOMBRE_OCUPACION = " + "\"" + ocupacion + "\"");
+                MySqlCommand sentencia = new MySqlCommand("SELECT ID_OCUPACION, ESPACIALIDAD_OCUPACION FROM OCUPACIONES WHERE NOMBRE_OCUPACION = " + "\"" + ocupacion + "\"");
 
                 conection.Open();
                 sentencia.Connection = conection;
@@ -117,6 +117,8 @@ namespace AccesoDatos
             return list_Ocupaciones;
         }
 
+
+
         public DataTable ObtenerDatosDeUsuarioOcupaciones(int id_usuario)
         {
             //Se establese una variable para retornar una tabla.
@@ -162,6 +164,9 @@ namespace AccesoDatos
 
             return vlo_DatosUsuarioOcupaciones;
         }
+
+
+      
 
     }//class
 }//namespace
