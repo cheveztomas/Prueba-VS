@@ -157,7 +157,9 @@ namespace DirectorioServicios
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al cargar las especialidades.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
         }
 
@@ -181,7 +183,9 @@ namespace DirectorioServicios
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al cargar las ocupaciones.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
 
         }
@@ -206,7 +210,9 @@ namespace DirectorioServicios
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al cargar las ubicaciones.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
 
         }
@@ -231,7 +237,9 @@ namespace DirectorioServicios
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al cargar los sitios webs.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
 
         }
@@ -254,7 +262,9 @@ namespace DirectorioServicios
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al cargar los datos del usuario.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
         }
 
@@ -270,8 +280,9 @@ namespace DirectorioServicios
             }
             catch (Exception)
             {
-                //TODO: Mensaje de error
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al cargar usuarios.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
         }
         #endregion
@@ -305,7 +316,9 @@ namespace DirectorioServicios
             catch (Exception)
             {
                 //TODO: Mensaje de error
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al guardar ubicación.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
         }
 
@@ -328,7 +341,6 @@ namespace DirectorioServicios
                 vgc_Script = string.Format("javascript:MostrarMensaje('Error al eliminar sitio web.');");
 
                 ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
-                throw;
             }
         }
 
