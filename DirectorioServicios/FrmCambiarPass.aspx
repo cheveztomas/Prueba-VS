@@ -8,7 +8,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="contenedor"
+    <div id="contenedor">
         <h2>Cambie su contraseña aquí</h2>
             <form class="px-4 py-3">
                 <div class="form-group">
