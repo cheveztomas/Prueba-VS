@@ -9,10 +9,9 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-            <div id="contenedor" id="DivSesion">
+            <div id="contenedor" class="DivSesion">
 &nbsp;&nbsp;
-            <br />
-            <br />
+            
 &nbsp;<br />
             <div id="form" runat="server">
                 <h2 class="text-info">Perfil Profesional</h2>
