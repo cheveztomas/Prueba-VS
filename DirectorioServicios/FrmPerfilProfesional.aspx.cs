@@ -12,6 +12,7 @@ namespace DirectorioServicios
             int vgn_ID = int.Parse(Session["ID_USUARIO_SESION"].ToString());
             string vgc_ID = vgn_ID.ToString();
 
+            MaintainScrollPositionOnPostBack = true;
             if (!Page.IsPostBack)
             {
                 try
