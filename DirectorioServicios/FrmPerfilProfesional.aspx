@@ -37,7 +37,7 @@
                 <br />
                 <asp:Label ID="lblCorreo" runat="server" Text="Correo Electrónico:"></asp:Label>
                 <br />
-                <asp:TextBox ID="txtCorreo" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCorreo" runat="server" ReadOnly="True"></asp:TextBox>
                 <br />
                 <br />
                 <asp:Label ID="lblAcercaDeMi" runat="server" Text="Acerca de mi:"></asp:Label>
@@ -126,7 +126,7 @@
                 <asp:Label ID="lblWebsites" runat="server" Text="Redes Sociales:"></asp:Label>
                 <br />
                 <div class="form-inline"></div>
-                    <asp:Label ID="lblUrl" runat="server" Text="Dirrección Web:"></asp:Label>
+                    <asp:Label ID="lblUrl" runat="server" Text="Dirección Web:"></asp:Label>
                     &nbsp;
                     <asp:TextBox ID="txtURL" runat="server"></asp:TextBox>
                     &nbsp;

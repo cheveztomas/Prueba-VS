@@ -7,6 +7,7 @@ namespace DirectorioServicios
 {
     public partial class FrmPerfilProfesional : System.Web.UI.Page
     {
+        string vgc_Script = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             int vgn_ID = int.Parse(Session["ID_USUARIO_SESION"].ToString());
@@ -59,7 +60,9 @@ namespace DirectorioServicios
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al cargar perfil.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
         }
 
@@ -84,7 +87,9 @@ namespace DirectorioServicios
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al cargar las provincias.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
         }
 
@@ -109,7 +114,9 @@ namespace DirectorioServicios
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al cargar los cantones.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
 
 
@@ -134,7 +141,9 @@ namespace DirectorioServicios
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Erro al cargar las ocupaciones.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
         }
 
@@ -157,7 +166,9 @@ namespace DirectorioServicios
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al cargar las especialidades.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
         }
 
@@ -181,9 +192,11 @@ namespace DirectorioServicios
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al cargar las ocupaciones.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
-            
+
         }
 
         //----------------------> UBICACIONES
@@ -206,9 +219,11 @@ namespace DirectorioServicios
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al cargar las ubicaciones.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
-            
+
         }
 
         //----------------------> SITIO WEB
@@ -231,9 +246,11 @@ namespace DirectorioServicios
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al cargar los sitios webs.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
-       
+
         }
 
         //----------------------> Usuario
@@ -254,7 +271,9 @@ namespace DirectorioServicios
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al cargar los datos del usuario.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
         }
 
@@ -270,8 +289,9 @@ namespace DirectorioServicios
             }
             catch (Exception)
             {
-                //TODO: Mensaje de error
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al cargar usuarios.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
         }
         #endregion
@@ -290,10 +310,12 @@ namespace DirectorioServicios
         protected void btnGuardarUbicacion_Click(object sender, EventArgs e)
         {
             LogicaUbicacionProf Ubicacion = new LogicaUbicacionProf();
-            ClsUbicacionesProfesionales nuevaUbicacion = new ClsUbicacionesProfesionales();
-            nuevaUbicacion.ID_Usuario = int.Parse(Session["ID_USUARIO_SESION"].ToString());
-            nuevaUbicacion.ID_Ubicacion1 = int.Parse(ddlCanton.SelectedValue);
-            nuevaUbicacion.Detalles = txtDetalleDireccion.Text;
+            ClsUbicacionesProfesionales nuevaUbicacion = new ClsUbicacionesProfesionales
+            {
+                ID_Usuario = int.Parse(Session["ID_USUARIO_SESION"].ToString()),
+                ID_Ubicacion1 = int.Parse(ddlCanton.SelectedValue),
+                Detalles = txtDetalleDireccion.Text
+            };
 
             try
             {
@@ -303,7 +325,9 @@ namespace DirectorioServicios
             catch (Exception)
             {
                 //TODO: Mensaje de error
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al guardar ubicación.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
         }
         //-----------------------> UBICACION ELIMINAR
@@ -339,26 +363,52 @@ namespace DirectorioServicios
             {
                 msg = vlo_sitios.Borrar(cod_sitio);
                 CargarGrdWebSites(Session["ID_USUARIO_SESION"].ToString());
+                vgc_Script = string.Format("javascript:MostrarMensaje('"+msg+"');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
             catch (Exception)
             {
-                //TODO: Mensaje de error
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al eliminar sitio web.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
         }
 
         protected void btnGuardarSitiosWeb_Click(object sender, EventArgs e)
         {
             //Variables
-            string msj = String.Empty;
+            string msj = string.Empty;
             LogicaWebSites Logica;
-            ClsWebSites Webs = new ClsWebSites();
+            ClsWebSites Webs = new ClsWebSites
+            {
 
-            //Inicio
-            Webs.Cod_Sitio = -1;
-            Webs.ID_Usuario = int.Parse(Session["ID_USUARIO_SESION"].ToString());
-            Webs.Nombre_Sitio = txtNombreSitio.Text;
-            Webs.URL_Sitio = txtURL.Text;
+                //Inicio
+
+                //Se guarda en el objeto las variables.
+                Cod_Sitio = -1,
+                ID_Usuario = int.Parse(Session["ID_USUARIO_SESION"].ToString()),
+                Nombre_Sitio = txtNombreSitio.Text,
+                URL_Sitio = txtURL.Text
+            };
+
+            try
+            {
+                //
+                Logica = new LogicaWebSites();
+                msj = Logica.Guardar(Webs);
+                vgc_Script = string.Format("javascript:MostrarMensaje('"+msj+"');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
+                CargarGrdWebSites(Session["ID_USUARIO_SESION"].ToString());
+            }
+            catch (Exception)
+            {
+
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al agregar sitio web.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
+            }
         }
 
      
