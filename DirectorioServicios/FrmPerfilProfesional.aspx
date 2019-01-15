@@ -80,7 +80,7 @@
                 <div class="form-inline">
                     <asp:Label ID="lblProfesion1" runat="server" Text="Profesión:"></asp:Label>
                     &nbsp;
-                    <asp:DropDownList ID="ddlProfesion" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlProfesion" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlProfesion_SelectedIndexChanged"></asp:DropDownList>
                      &nbsp;
                     <asp:Label ID="lblEspecialidad" runat="server" Text="Especialidad:"></asp:Label>
                     &nbsp;
@@ -106,7 +106,7 @@
                 <div class="form-inline">
                     <asp:Label ID="lblProvincia" runat="server" Text="Provincia:"></asp:Label>
                     &nbsp;
-                    <asp:DropDownList ID="ddlProvincia" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlProvincia" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged"></asp:DropDownList>
                     &nbsp;
                     <asp:Label ID="lblCanton" runat="server" Text="Cantón:"></asp:Label>
                     &nbsp;
@@ -116,7 +116,7 @@
                     &nbsp;
                     <asp:TextBox ID="txtDetalleDireccion" runat="server"></asp:TextBox>
                     &nbsp;
-                    <asp:Button ID="btnGuardarUbicacion" runat="server" Text="Agregar" CssClass="btn btn-info" />
+                    <asp:Button ID="btnGuardarUbicacion" runat="server" Text="Agregar" CssClass="btn btn-info" OnClick="btnGuardarUbicacion_Click" />
                 </div>
                 <br />
                 <br />

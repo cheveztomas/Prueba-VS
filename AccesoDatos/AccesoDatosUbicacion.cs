@@ -62,7 +62,7 @@ namespace AccesoDatos
             try
             {
                 //se solicitan las provincias de la base de datos 
-                MySqlCommand sentencia = new MySqlCommand("SELECT CANTON FROM UBICACIONES WHERE PROVINCIA = " + "\"" + provincia + "\"");
+                MySqlCommand sentencia = new MySqlCommand("SELECT ID_UBICACION, CANTON FROM UBICACIONES WHERE PROVINCIA = " + "\"" + provincia + "\"");
 
                 conection.Open();
                 sentencia.Connection = conection;

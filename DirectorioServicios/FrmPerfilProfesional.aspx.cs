@@ -47,10 +47,12 @@ namespace DirectorioServicios
             {
                 int vgn_ID = int.Parse(Session["ID_USUARIO_SESION"].ToString());
                 string vgc_ID = vgn_ID.ToString();
-                llenarCantones();
-                llenarEspecialidades();
-                llenarOcupaciones();
+
                 llenarProvincias();
+                llenarCantones();
+                llenarOcupaciones();
+                llenarEspecialidades();
+
                 cargarUsuarioModificar(vgc_ID);
             }
             catch (Exception)
@@ -94,6 +96,7 @@ namespace DirectorioServicios
                 //se crea una instancia de las funciones de logica
                 LogicaUbicacion funciones = new LogicaUbicacion();
                 ddlCanton.DataTextField = "CANTON";//se le dice que en el texto ponga lo que venga en el campo de datos
+                ddlCanton.DataValueField = "ID_UBICACION";
                 ddlCanton.DataSource = funciones.obtenerCantones(ddlProvincia.Text);
                 ddlCanton.DataBind();//se le agrega el sourse a el dropdownlist 
 
@@ -193,34 +196,36 @@ namespace DirectorioServicios
                 throw;
             }
         }
+        #endregion
 
-
-        //----------------------->EVENTO PARA ELIMINAR UN SITIO WEB
-        protected void lnkEliminar_Command(object sender, System.Web.UI.WebControls.CommandEventArgs e)
+        protected void ddlProfesion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int cod_sitio = int.Parse(e.CommandArgument.ToString());
-            string msg = string.Empty;
-            LogicaWebSites vlo_sitios = new LogicaWebSites();
+            llenarEspecialidades();
+        }
+
+        protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            llenarCantones();
+        }
+
+        protected void btnGuardarUbicacion_Click(object sender, EventArgs e)
+        {
+            LogicaUbicacionProf Ubicacion = new LogicaUbicacionProf();
+            ClsUbicacionesProfesionales nuevaUbicacion = new ClsUbicacionesProfesionales();
+            nuevaUbicacion.ID_Usuario = int.Parse(Session["ID_USUARIO_SESION"].ToString());
+            nuevaUbicacion.ID_Ubicacion1 = int.Parse(ddlCanton.SelectedValue);
+            nuevaUbicacion.Detalles = txtDetalleDireccion.Text;
 
             try
             {
-                msg = vlo_sitios.Borrar(e.CommandArgument.ToString());
+                Ubicacion.Guardar(nuevaUbicacion);
                 cargarUsuarioModificar(Session["ID_USUARIO_SESION"].ToString());
             }
             catch (Exception)
             {
+
                 throw;
             }
         }
-        //------------------------EVENTO PARA ELIMINAR UN SITIO WEB
-
-
-
-        #endregion
-
-
-     
-
-
     }
 }
