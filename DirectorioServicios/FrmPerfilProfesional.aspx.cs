@@ -164,48 +164,75 @@ namespace DirectorioServicios
         public void CargarGrdOcupaciones(string id)
         {
             LogicaOcupaciones list_Ocupaciones = new LogicaOcupaciones();
-            if (list_Ocupaciones.Lg_listaOcupaciones(int.Parse(id)).Rows.Count > 0)
+            try
             {
-                grd_Ocupaciones.DataSource = list_Ocupaciones.Lg_listaOcupaciones(int.Parse(id));
-                grd_Ocupaciones.DataBind();
-                grd_Ocupaciones.Visible = true;
+                if (list_Ocupaciones.Lg_listaOcupaciones(int.Parse(id)).Rows.Count > 0)
+                {
+                    grd_Ocupaciones.DataSource = list_Ocupaciones.Lg_listaOcupaciones(int.Parse(id));
+                    grd_Ocupaciones.DataBind();
+                    grd_Ocupaciones.Visible = true;
+                }
+                else
+                {
+                    grd_Ocupaciones.Visible = false;
+                }
             }
-            else
+            catch (Exception)
             {
-                grd_Ocupaciones.Visible = false;
+
+                throw;
             }
+            
         }
 
         //----------------------> UBICACIONES
         public void CargarGrdUbicaciones(string id)
         {
             LogicaUbicacionProf lista_Ubicaciones = new LogicaUbicacionProf();
-            if (lista_Ubicaciones.ObtenerDatosDeUsuarioUbicaciones(int.Parse(id)).Rows.Count > 0)
+            try
             {
-                grd_Ubicacion.DataSource = lista_Ubicaciones.ObtenerDatosDeUsuarioUbicaciones(int.Parse(id));
-                grd_Ubicacion.DataBind();
-                grd_Ubicacion.Visible = true;
+                if (lista_Ubicaciones.ObtenerDatosDeUsuarioUbicaciones(int.Parse(id)).Rows.Count > 0)
+                {
+                    grd_Ubicacion.DataSource = lista_Ubicaciones.ObtenerDatosDeUsuarioUbicaciones(int.Parse(id));
+                    grd_Ubicacion.DataBind();
+                    grd_Ubicacion.Visible = true;
+                }
+                else
+                {
+                    grd_Ubicacion.Visible = false;
+                }
             }
-            else
+            catch (Exception)
             {
-                grd_Ubicacion.Visible = false;
+
+                throw;
             }
+            
         }
 
         //----------------------> SITIO WEB
         public void CargarGrdWebSites(string id)
         {
             LogicaWebSites lista_WebSites = new LogicaWebSites();
-            if (lista_WebSites.ObtenerDatosDeUsuarioPaginasWeb(int.Parse(id)).Rows.Count > 0)
+            try
             {
-                grd_websites.DataSource = lista_WebSites.ObtenerDatosDeUsuarioPaginasWeb(int.Parse(id));
-                grd_websites.DataBind();
-                grd_websites.Visible = true;
+                if (lista_WebSites.ObtenerDatosDeUsuarioPaginasWeb(int.Parse(id)).Rows.Count > 0)
+                {
+                    grd_websites.DataSource = lista_WebSites.ObtenerDatosDeUsuarioPaginasWeb(int.Parse(id));
+                    grd_websites.DataBind();
+                    grd_websites.Visible = true;
+                }
+                else
+                {
+                    grd_websites.Visible = false;
+                }
             }
-            else
+            catch (Exception)
             {
-                grd_websites.Visible = false;
+
+                throw;
             }
+       
         }
 
         //----------------------> Usuario
@@ -213,13 +240,21 @@ namespace DirectorioServicios
         {
             LogicaUsuario user = new LogicaUsuario();
             ClsUsuarios usuarioObtenido;
-            usuarioObtenido = user.ObtenerDatosDeUsuario(int.Parse(id));
-            txtNombre.Text = usuarioObtenido.Nombre_Profesional;
-            txtApellido1.Text = usuarioObtenido.Apellido1_Profesional;
-            txtApellido2.Text = usuarioObtenido.Apellido2_Profesional;
-            txtCorreo.Text = usuarioObtenido.Correo;
-            txtTelefono.Text = usuarioObtenido.Telefono_Profesional;
-            txtDescripcion.Text = usuarioObtenido.Descripcion;
+            try
+            {
+                usuarioObtenido = user.ObtenerDatosDeUsuario(int.Parse(id));
+                txtNombre.Text = usuarioObtenido.Nombre_Profesional;
+                txtApellido1.Text = usuarioObtenido.Apellido1_Profesional;
+                txtApellido2.Text = usuarioObtenido.Apellido2_Profesional;
+                txtCorreo.Text = usuarioObtenido.Correo;
+                txtTelefono.Text = usuarioObtenido.Telefono_Profesional;
+                txtDescripcion.Text = usuarioObtenido.Descripcion;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
 
@@ -234,6 +269,7 @@ namespace DirectorioServicios
             }
             catch (Exception)
             {
+                //TODO: Mensaje de error
                 throw;
             }
         }
@@ -265,7 +301,7 @@ namespace DirectorioServicios
             }
             catch (Exception)
             {
-
+                //TODO: Mensaje de error
                 throw;
             }
         }
@@ -283,7 +319,7 @@ namespace DirectorioServicios
             }
             catch (Exception)
             {
-
+                //TODO: Mensaje de error
                 throw;
             }
         }
