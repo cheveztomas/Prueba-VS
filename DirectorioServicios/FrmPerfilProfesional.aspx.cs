@@ -384,6 +384,8 @@ namespace DirectorioServicios
             {
 
                 //Inicio
+
+                //Se guarda en el objeto las variables.
                 Cod_Sitio = -1,
                 ID_Usuario = int.Parse(Session["ID_USUARIO_SESION"].ToString()),
                 Nombre_Sitio = txtNombreSitio.Text,
