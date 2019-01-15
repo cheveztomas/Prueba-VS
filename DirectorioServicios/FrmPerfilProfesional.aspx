@@ -1,31 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/App/paginaMaestra.Master" AutoEventWireup="true" CodeBehind="FrmPerfilProfesional.aspx.cs" Inherits="DirectorioServicios.FrmPerfilProfesional" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        #contenedor, #lista{
+        #contenedor{
             width: 85%;
             margin: 0 auto;
         }
 
-        .col-sm-6{
-            margin: 0 auto;
-        }
-
-        label, select, button{
-            padding-right: 5px;
-            padding-left: 2px;
-        }
-
-        a i{
-            font-size: 2em;
-            margin: 10px;
-        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-            <div id="contenedor">
+            <div id="contenedor" class="DivSesion">
 &nbsp;&nbsp;
-            <br />
-            <br />
+            
 &nbsp;<br />
             <div id="form" runat="server">
                 <h2 class="text-info">Perfil Profesional</h2>
@@ -51,12 +37,14 @@
                 <br />
                 <asp:Label ID="lblCorreo" runat="server" Text="Correo Electrónico:"></asp:Label>
                 <br />
-                <asp:TextBox ID="txtCorreo" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCorreo" runat="server" ReadOnly="True"></asp:TextBox>
                 <br />
                 <br />
                 <asp:Label ID="lblAcercaDeMi" runat="server" Text="Acerca de mi:"></asp:Label>
                 <br />
-                <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtDescripcion" class="form-control" runat="server" TextMode="MultiLine" Width="50%"></asp:TextBox>
+                <br />
+                <a href="FrmCambiarPass.aspx" class="text-info">Cambiar Contraseña</a>
                 <br />
                 <br />
                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-info" />
@@ -96,11 +84,12 @@
                         <asp:BoundField DataField="ID_UBICACION" HeaderText="Id Ubicación" ShowHeader="False" Visible="False" />
                         <asp:BoundField DataField="PROVINCIA" HeaderText="Provincia" />
                         <asp:BoundField DataField="CANTON" HeaderText="Cantón" />
-                        <asp:CommandField ShowDeleteButton="True" />
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="Lnk_EliminarUbicacion" runat="server" CommandArgument='<%# Eval("ID_UBICACION").ToString() %>' OnCommand="lkn_EliminarUbicacion_Command">Eliminar</asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
-                    <EmptyDataTemplate>
-                        <asp:LinkButton ID="lkn_EliminarUbicacion" runat="server" CommandArgument='<%# Eval("ID_UBICACION").ToString() %>'></asp:LinkButton>
-                    </EmptyDataTemplate>
                 </asp:GridView>
                 <br />
                 <br />
@@ -138,7 +127,7 @@
                 <asp:Label ID="lblWebsites" runat="server" Text="Redes Sociales:"></asp:Label>
                 <br />
                 <div class="form-inline"></div>
-                    <asp:Label ID="lblUrl" runat="server" Text="Dirrección Web:"></asp:Label>
+                    <asp:Label ID="lblUrl" runat="server" Text="Dirección Web:"></asp:Label>
                     &nbsp;
                     <asp:TextBox ID="txtURL" runat="server"></asp:TextBox>
                     &nbsp;
