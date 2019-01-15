@@ -146,7 +146,7 @@
                     <asp:TextBox ID="txtNombreSitio" runat="server"></asp:TextBox>
                     &nbsp;
                     &nbsp;
-                    <asp:Button ID="btnGuardarSitiosWeb" runat="server" Text="Agregar" CssClass="btn btn-info" />
+                    <asp:Button ID="btnGuardarSitiosWeb" runat="server" Text="Agregar" CssClass="btn btn-info" OnClick="btnGuardarSitiosWeb_Click" />
                 </div>
                 <br />
                 <br />

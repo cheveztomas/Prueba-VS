@@ -245,5 +245,19 @@ namespace DirectorioServicios
                 throw;
             }
         }
+
+        protected void btnGuardarSitiosWeb_Click(object sender, EventArgs e)
+        {
+            //Variables
+            string msj = String.Empty;
+            LogicaWebSites Logica;
+            ClsWebSites Webs = new ClsWebSites();
+
+            //Inicio
+            Webs.Cod_Sitio = -1;
+            Webs.ID_Usuario = int.Parse(Session["ID_USUARIO_SESION"].ToString());
+            Webs.Nombre_Sitio = txtNombreSitio.Text;
+            Webs.URL_Sitio = txtURL.Text;
+        }
     }
 }
