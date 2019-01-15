@@ -59,6 +59,16 @@ namespace DirectorioServicios
 
                     ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
                 }
+                else
+                {
+                    if (vlc_Correcto>0)
+                    {
+                        vgc_Script = string.Format("javascript:MostrarMensaje('Contraseña guardada de forma correcta.');");
+
+                        ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
+                    }
+
+                }
             }
             catch (Exception)
             {
