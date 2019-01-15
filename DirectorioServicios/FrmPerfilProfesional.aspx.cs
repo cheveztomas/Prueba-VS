@@ -59,7 +59,9 @@ namespace DirectorioServicios
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al cargar perfil.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
         }
 
@@ -84,7 +86,9 @@ namespace DirectorioServicios
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al cargar las provincias.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
         }
 
@@ -109,7 +113,9 @@ namespace DirectorioServicios
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Error al cargar los cantones.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
 
 
@@ -134,7 +140,9 @@ namespace DirectorioServicios
             catch (Exception)
             {
 
-                throw;
+                vgc_Script = string.Format("javascript:MostrarMensaje('Erro al cargar las ocupaciones.');");
+
+                ScriptManager.RegisterStartupScript(this, typeof(string), "MensajeRetorno", vgc_Script, true);
             }
         }
 
