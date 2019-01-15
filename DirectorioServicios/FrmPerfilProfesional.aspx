@@ -127,7 +127,7 @@
                 <asp:Label ID="lblWebsites" runat="server" Text="Redes Sociales:"></asp:Label>
                 <br />
                 <div class="form-inline"></div>
-                    <asp:Label ID="lblUrl" runat="server" Text="Dirrección Web:"></asp:Label>
+                    <asp:Label ID="lblUrl" runat="server" Text="Dirección Web:"></asp:Label>
                     &nbsp;
                     <asp:TextBox ID="txtURL" runat="server"></asp:TextBox>
                     &nbsp;
