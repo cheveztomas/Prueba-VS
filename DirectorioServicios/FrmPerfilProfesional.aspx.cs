@@ -66,11 +66,11 @@ namespace DirectorioServicios
         //procedimiento para llenar las provincias 
         public void llenarProvincias(string SelectProvincia = "")
         {
+            //se crea una instancia de las funciones de logica
+            LogicaUbicacion funciones = new LogicaUbicacion();
+            ddlProvincia.DataTextField = "PROVINCIA";//se le dice que en el texto ponga lo que venga en el campo de datos
             try
             {
-                //se crea una instancia de las funciones de logica
-                LogicaUbicacion funciones = new LogicaUbicacion();
-                ddlProvincia.DataTextField = "PROVINCIA";//se le dice que en el texto ponga lo que venga en el campo de datos
                 ddlProvincia.DataSource = funciones.obtenerProvincias();
                 ddlProvincia.DataBind();//se le agrega el sourse a el dropdownlist
 
@@ -85,18 +85,17 @@ namespace DirectorioServicios
 
                 throw;
             }
-
-
         }
+
         //procedimiento para llenar el dropdown de cantones 
         public void llenarCantones(string SelectCanton = "")
         {
+            //se crea una instancia de las funciones de logica
+            LogicaUbicacion funciones = new LogicaUbicacion();
+            ddlCanton.DataTextField = "CANTON";//se le dice que en el texto ponga lo que venga en el campo de datos
+            ddlCanton.DataValueField = "ID_UBICACION";
             try
             {
-                //se crea una instancia de las funciones de logica
-                LogicaUbicacion funciones = new LogicaUbicacion();
-                ddlCanton.DataTextField = "CANTON";//se le dice que en el texto ponga lo que venga en el campo de datos
-                ddlCanton.DataValueField = "ID_UBICACION";
                 ddlCanton.DataSource = funciones.obtenerCantones(ddlProvincia.Text);
                 ddlCanton.DataBind();//se le agrega el sourse a el dropdownlist 
 
@@ -116,16 +115,25 @@ namespace DirectorioServicios
         }
 
         public void llenarOcupaciones(string SelectProfecion = "")
-        {//se crea una instancia de las funciones de logica
+        {
+            //se crea una instancia de las funciones de logica
             LogicaOcupaciones funciones = new LogicaOcupaciones();
             ddlProfesion.DataTextField = "NOMBRE_OCUPACION";//se le dice que en el texto ponga lo que venga en el campo de datos
-            ddlProfesion.DataSource = funciones.obtenerOcupaciones();
-            ddlProfesion.DataBind();//se le agrega el sourse a el dropdownlist 
-
-            //seleccionar profecion indicada
-            if (SelectProfecion != "")
+            try
             {
-                ddlProfesion.Items.FindByText(SelectProfecion).Selected = true;
+                ddlProfesion.DataSource = funciones.obtenerOcupaciones();
+                ddlProfesion.DataBind();//se le agrega el sourse a el dropdownlist 
+
+                //seleccionar profecion indicada
+                if (SelectProfecion != "")
+                {
+                    ddlProfesion.Items.FindByText(SelectProfecion).Selected = true;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
@@ -134,52 +142,106 @@ namespace DirectorioServicios
             //se crea una instancia de las funciones de logica
             LogicaOcupaciones funciones = new LogicaOcupaciones();
             ddlEspecialidad.DataTextField = "ESPACIALIDAD_OCUPACION";//se le dice que en el texto ponga lo que venga en el campo de datos
-            ddlEspecialidad.DataSource = funciones.obtenerEspecialidades(ddlProfesion.Text);
-            ddlEspecialidad.DataBind();//se le agrega el sourse a el dropdownlist 
-
-            //seleccionar especialidad indicada
-            if (SelectEspecialidad != "")
+            try
             {
-                ddlEspecialidad.Items.FindByText(SelectEspecialidad).Selected = true;
+                ddlEspecialidad.DataSource = funciones.obtenerEspecialidades(ddlProfesion.Text);
+                ddlEspecialidad.DataBind();//se le agrega el sourse a el dropdownlist 
+
+                //seleccionar especialidad indicada
+                if (SelectEspecialidad != "")
+                {
+                    ddlEspecialidad.Items.FindByText(SelectEspecialidad).Selected = true;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
-
-
-
-
-        public void cargarUsuarioModificar(string id)
+        //----------------------> OCUPACIONES
+        public void CargarGrdOcupaciones(string id)
         {
+            LogicaOcupaciones list_Ocupaciones = new LogicaOcupaciones();
             try
             {
-
-                //----------------------> OCUPACIONES
-                LogicaOcupaciones list_Ocupaciones = new LogicaOcupaciones();
                 if (list_Ocupaciones.Lg_listaOcupaciones(int.Parse(id)).Rows.Count > 0)
                 {
                     grd_Ocupaciones.DataSource = list_Ocupaciones.Lg_listaOcupaciones(int.Parse(id));
                     grd_Ocupaciones.DataBind();
+                    grd_Ocupaciones.Visible = true;
                 }
-                //----------------------> UBICACIONES
+                else
+                {
+                    grd_Ocupaciones.Visible = false;
+                }
+            }
+            catch (Exception)
+            {
 
-                LogicaUbicacionProf lista_Ubicaciones = new LogicaUbicacionProf();
+                throw;
+            }
+            
+        }
+
+        //----------------------> UBICACIONES
+        public void CargarGrdUbicaciones(string id)
+        {
+            LogicaUbicacionProf lista_Ubicaciones = new LogicaUbicacionProf();
+            try
+            {
                 if (lista_Ubicaciones.ObtenerDatosDeUsuarioUbicaciones(int.Parse(id)).Rows.Count > 0)
                 {
                     grd_Ubicacion.DataSource = lista_Ubicaciones.ObtenerDatosDeUsuarioUbicaciones(int.Parse(id));
                     grd_Ubicacion.DataBind();
+                    grd_Ubicacion.Visible = true;
                 }
-                //----------------------> SITIO WEB
+                else
+                {
+                    grd_Ubicacion.Visible = false;
+                }
+            }
+            catch (Exception)
+            {
 
-                LogicaWebSites lista_WebSites = new LogicaWebSites();
-                if (lista_WebSites.ObtenerDatosDeUsuarioPaginasWeb(int.Parse(id)).Rows.Count>0)
+                throw;
+            }
+            
+        }
+
+        //----------------------> SITIO WEB
+        public void CargarGrdWebSites(string id)
+        {
+            LogicaWebSites lista_WebSites = new LogicaWebSites();
+            try
+            {
+                if (lista_WebSites.ObtenerDatosDeUsuarioPaginasWeb(int.Parse(id)).Rows.Count > 0)
                 {
                     grd_websites.DataSource = lista_WebSites.ObtenerDatosDeUsuarioPaginasWeb(int.Parse(id));
                     grd_websites.DataBind();
+                    grd_websites.Visible = true;
                 }
+                else
+                {
+                    grd_websites.Visible = false;
+                }
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+       
+        }
 
-                LogicaUsuario user = new LogicaUsuario();
-                ClsUsuarios usuarioObtenido;
+        //----------------------> Usuario
+        public void CargarDatosUsuario(string id)
+        {
+            LogicaUsuario user = new LogicaUsuario();
+            ClsUsuarios usuarioObtenido;
+            try
+            {
                 usuarioObtenido = user.ObtenerDatosDeUsuario(int.Parse(id));
                 txtNombre.Text = usuarioObtenido.Nombre_Profesional;
                 txtApellido1.Text = usuarioObtenido.Apellido1_Profesional;
@@ -187,12 +249,27 @@ namespace DirectorioServicios
                 txtCorreo.Text = usuarioObtenido.Correo;
                 txtTelefono.Text = usuarioObtenido.Telefono_Profesional;
                 txtDescripcion.Text = usuarioObtenido.Descripcion;
-
-
-
             }
             catch (Exception)
             {
+
+                throw;
+            }
+        }
+
+
+        public void cargarUsuarioModificar(string id)
+        {
+            try
+            {
+                CargarGrdOcupaciones(id);
+                CargarGrdUbicaciones(id);
+                CargarGrdWebSites(id);
+                CargarDatosUsuario(id);
+            }
+            catch (Exception)
+            {
+                //TODO: Mensaje de error
                 throw;
             }
         }
@@ -208,6 +285,7 @@ namespace DirectorioServicios
             llenarCantones();
         }
 
+        //----------------------> Ubicaciones Guardar
         protected void btnGuardarUbicacion_Click(object sender, EventArgs e)
         {
             LogicaUbicacionProf Ubicacion = new LogicaUbicacionProf();
@@ -219,16 +297,16 @@ namespace DirectorioServicios
             try
             {
                 Ubicacion.Guardar(nuevaUbicacion);
-                cargarUsuarioModificar(Session["ID_USUARIO_SESION"].ToString());
+                CargarGrdUbicaciones(Session["ID_USUARIO_SESION"].ToString());
             }
             catch (Exception)
             {
-
+                //TODO: Mensaje de error
                 throw;
             }
         }
 
-        //----------------------->EVENTO PARA ELIMINAR UN SITIO WEB
+        //-----------------------> ELIMINAR SITIO WEB
         protected void lnkEliminar_Command1(object sender, System.Web.UI.WebControls.CommandEventArgs e)
         {
             string cod_sitio = e.CommandArgument.ToString();
@@ -237,11 +315,11 @@ namespace DirectorioServicios
             try
             {
                 msg = vlo_sitios.Borrar(cod_sitio);
-                cargarUsuarioModificar(Session["ID_USUARIO_SESION"].ToString());
+                CargarGrdWebSites(Session["ID_USUARIO_SESION"].ToString());
             }
             catch (Exception)
             {
-
+                //TODO: Mensaje de error
                 throw;
             }
         }
